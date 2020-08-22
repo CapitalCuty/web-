@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文章列表</title>
+    <link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="common_title">
+            用户信息修改
+        </div>
+        <div class="container-fluid common_con">
+            <form class="form-horizontal article_form">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">用户名称：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control username" id="inputEmail3" value="李思思" name='username'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">昵称：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control nickname" id="inputEmail3" value="思思" name='nickname'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">邮箱：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control email" id="inputEmail3" value="lisisi@126.com" name='email'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">用户图标：</label>
+                    <div class="col-sm-10">
+                        <img src="images/2.jpg" alt="" class="user_pic">
+                        <input type="file" id="exampleInputFile" class="user_pic_input" name='user_pic'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">密码：</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control password" id="inputEmail3" value="12345678" name='password'>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-success btn_change">修改</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        //获取用户信息  发送请求
+        $.ajax({
+            url: 'http://localhost:8000/admin/userinfo_get',
+            type: 'get',
+            success: function(res) {
+                $.each(res.data, function(index, ele) {
+                    //input框的类名相同设置成对应的index
+                    $("." + index).val(ele)
+                });
+                //获取图片是获取src的值，所以要单独拿出来获取
+                var user_pic = res.data.user_pic
+                $('.user_pic').prop('src', user_pic)
+            }
+        })
+
+
+        //上传图片功能实现
+        $('#exampleInputFile').on('change', function() {
+            //获取到文件域选择的文件信息
+            var file = $(this)[0].files[0];
+            //将某个文件的信息传入到方法中，得到一个临时路径
+            var img_url = URL.createObjectURL(file);
+            //将生成的临时图片地址设置给img展示即可
+            $('.user_pic').prop('src', img_url)
+        })
+
+
+
+        //修改用户信息
+        $('.btn_change').on('click', function(event) {
+            // alert(123456)
+            //阻止表单的默认事件
+            event.preventDefault();
+            //判断内容是否修改
+            if (!$('.username').val().trim()) {
+                alert('内容未填写完毕');
+                return;
+            }
+            if (!$('.nickname').val().trim()) {
+                alert('内容未填写完毕');
+                return;
+            }
+            if (!$('.email').val().trim()) {
+                alert('内容未填写完毕');
+                return;
+            }
+            if (!$('.password').val().trim()) {
+                alert('内容未填写完毕');
+                return;
+            }
+            //检测文件与是否选择文件(使用DOM对象的files属性，进行length检测)
+            if ($('.user_pic_input')[0].files.length == 0) {
+                alert('内容未填写完毕');
+                return;
+            }
+
+            //将数据发送给给服务器(使用 formdata 提交  FormData将仅使用具有name属性的输入字段)
+            //涉及到图片传递参数的时候设置成formdata，传入参数必须为DOM对象形式的form标签
+            var fd = new FormData($('form')[0]);
+            console.log(fd)
+            console.log(fd.get('username'))
+            $.ajax({
+                url: 'http://localhost:8000/admin/userinfo_edit',
+                type: 'post',
+                data: fd, //传递formdata
+                contentType: false, //不需要jQuery设置内容类型
+                processData: false, //不需要jQuery设置内容处理
+                success: function(res) {
+                    console.log(res.msg);
+                    console.log(res);
+                    if (res.code == 200) {
+                        //成功之后，跳转到登陆页面重新登陆
+                        location.href = './login.html'
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

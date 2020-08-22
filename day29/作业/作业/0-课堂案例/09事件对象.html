@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        xxxxx
+    </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        var div = document.querySelector("div");
+        var ul = document.querySelector("ul");
+
+        ul.addEventListener('click', function(e) {
+            //谁绑定了这个事件
+            // console.log(this); 
+            // console.log(e.currentTarget);
+            console.log(e.target); //e.target  找到真正触发的源
+        })
+    </script>
+</body>
+
+</html>

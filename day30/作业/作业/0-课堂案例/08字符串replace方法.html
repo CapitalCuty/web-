@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var str = 'andy11';
+        var str1 = 'red';
+        //str.replace('正则表达式','需要替换的内容')
+        var newStr = str.replace(/andy/, 'red');
+        console.log(newStr); //red11
+
+        //只替换第一个找到的
+        var str2 = 'andyandyxxxxxxandy';
+        var str3 = 'zxy';
+        var str4 = str2.replace('andy', 'zxy');
+        console.log(str4);
+    </script>
+</body>
+
+</html>

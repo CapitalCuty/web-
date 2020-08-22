@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./assets/mui/css/mui.min.css">
+	<link rel="stylesheet" href="./css/base.css">
+	<link rel="stylesheet" href="./css/category.css">
+
+	<style>
+
+
+
+	</style>
+
+</head>
+
+<body>
+
+	<!-- 头部 -->
+	<header class="mui-bar mui-bar-nav  header">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<a class="mui-icon mui-icon-search  mui-pull-right"  href="./search.html"></a>
+		<h1 class="mui-title">嗨淘云购分类</h1>
+
+	</header>
+	<!-- 底部导航栏 -->
+	<nav class="mui-bar mui-bar-tab footer">
+		<a class="mui-tab-item mui-active" href="#tabbar">
+			<span class="mui-icon mui-icon-home"></span>
+			<span class="mui-tab-label">首页</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-chat">
+			<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+			<span class="mui-tab-label">分类</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-contact">
+			<span class="mui-icon mui-icon-contact"></span>
+			<span class="mui-tab-label">购物车</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-map">
+			<span class="mui-icon mui-icon-gear"></span>
+			<span class="mui-tab-label">会员中心</span>
+		</a>
+	</nav>
+
+
+
+	<!-- 主体内容部分 -->
+	<div class="mui-content">
+		<!-- 这里是左边滚动 -->
+		<div class="leftBox">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="left_ul">
+						<!-- 准备定义模板的内容 -->
+						<!-- <li><a href="#">男士spa</a></li> -->
+
+					</ul>
+
+				</div>
+
+			</div>
+		</div>
+		<!-- 这里是右边边滚动 -->
+		<div class="rightBox">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<!--这里放置真实显示的DOM内容-->
+
+					<ul class="right_ul">
+						<!-- 准备定义模板的内容 -->
+						<!-- <li>
+							<a href="">
+								<img src="./images/brand1.png" alt="">
+								<p>耐克</p>
+							</a>
+						</li> -->
+
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</div>
+
+
+
+
+
+	<!--  先引 zepto  js -->
+
+	<script src="./assets/zepto/zepto.min.js"></script>
+	<script src="./assets/mui/js/mui.min.js"></script>
+	<script src="./assets/artTemplate/template-web.js"></script>
+
+	<!-- 1 定义模板  -->
+	<!-- <script type="text/html" id='leftTmp'>
+		{{each 对象里面数组名字  val  index}}
+		<li><a href="#">男士spa</a></li>
+
+		{{/each}}
+	</script> -->
+
+	<script type="text/html" id='leftTmp'>
+		{{each rows  val  index}}
+		<li><a href="#" data-id='{{val.id}}'>{{val.categoryName}}</a></li>
+
+		{{/each}}
+	</script>
+
+	<!-- 2定义右边的模板 -->
+	<!-- 0:
+brandLogo: "/mobile/images/brand1.png"
+brandName: "耐克"
+categoryId: 1
+hot: 1
+id: 1
+isDelete: 1 -->
+
+	<script type="text/html" id='rightTmp'>
+		{{each rows  val  index}}
+		<li>
+			<a href="#">
+				<img src="{{val.brandLogo}}" alt="">
+				<p>{{val.brandName}}</p>
+			</a>
+		</li>
+		{{/each}}
+	</script>
+
+
+
+
+	<script>
+		$(function () {
+			// 初始化区域滚动
+			mui('.mui-scroll-wrapper').scroll();
+
+
+			// js 
+			// <!-- 1 左边一级分类数据获取 -->
+			$.ajax({
+				url: '/category/queryTopCategory',
+				data: {},
+				type: 'get',
+				success: function (res) {
+					// console.log(res)
+					var leftHtml = template('leftTmp', res)
+					console.log(leftHtml)
+					$('.left_ul').html(leftHtml)
+					//  2 获取一级分类第一个品牌的id 
+					var id = res.rows[0].id;
+					getSecondData(id)
+
+				}
+
+			})
+
+
+
+
+			//第三个 点击左边的一级分类进行二级分类的切换
+			//    1 点击一级分类具体的名字 获取到对应的id    动态生成的a需要使用事件代理去绑定事件
+			//    2 传递id 给我们的二级分类  
+			//    3  发送ajax请求
+			//    4  拿到数据
+			//    5 定义模板 进行数据展示
+			// <!-- 移动端  只有手指轻敲事件 tap  相当于点击 -->
+			$('.left_ul').on('tap', 'a', function () {
+				// alert('tap')
+				var id = $(this).attr('data-id');
+				// alert(this_id)
+				getSecondData(id)
+
+			})
+
+			function getSecondData(id) {
+				$.ajax({
+					url: '/category/querySecondCategory',
+					type: 'get',
+					data: {
+						id: id
+					},
+					success: function (res) {
+						console.log(res)
+						if (res.rows.length > 0) {
+							var rightHtml = template('rightTmp', res)
+							console.log(rightHtml);
+							$('.right_ul').html(rightHtml)
+						} else {
+							$('.right_ul').html('客官别急 请稍等噢  我马上上架')
+						}
+					}
+				})
+			}
+
+		})
+	</script>
+</body>
+
+</html>

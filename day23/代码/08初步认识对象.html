@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	var obj={
+		name:'zs',
+		age:18,
+		eat:function() {
+			console.log('吃包子') 
+			//函数如果没有返回值 默认返回的就是 undefined
+		},
+		obj2:{
+           age1:1,
+		   say:function(){
+			   console.log(1)
+		   }
+		}
+	}
+
+console.log(obj.name)	
+console.log(obj['age']);
+console.log(obj.eat())
+
+// obj.obj2.age1
+// obj.obj2.say()
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

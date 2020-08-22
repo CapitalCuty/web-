@@ -1,0 +1,15 @@
+https://messoer.github.io/mess-api-doc/#/
+
+1 热门歌单-》歌曲详情展示-》音乐播放+文字展示  
+
+
+jsonp 接口  
+ https://suggest.taobao.com/sug
+
+https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su
+
+
+
+
+
+https://blog.csdn.net/qq_37635519/article/details/90666312

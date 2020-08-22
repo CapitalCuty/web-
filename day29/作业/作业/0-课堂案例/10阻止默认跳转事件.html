@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="http://www.sogou.com">搜狗</a>
+    <form action="http://www.sogou.com">
+        <input type="text" value="用户">
+        <button type="submit">提交</button>
+    </form>
+    <script>
+        var a = document.querySelector("a")
+        a.addEventListener('click', function(e) {
+            alert(1);
+            //阻止默认事件
+            e.preventDefault()
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/news.css" />
+    <script src="./lib/jquery.js"></script>
+
+</head>
+
+<body>
+
+    <div id="news-list">
+        <!-- 
+		<div class="news-item">
+      <img class="thumb" src="http://www.liulongbin.top:3006/images/0.webp" alt="">
+      <div class="right-box">
+        <h1 class="title">5G商用在即，三大运营商营收持续下降</h1>
+        <div class="tags">
+          <span>三大运营商</span>
+          <span>中国移动</span>
+          <span>5G商用</span>
+        </div>
+        <div class="footer">
+          <div>
+            <span>新京报经济新闻</span>&nbsp;&nbsp;
+            <span>2019-10-28 11:50:28</span>
+          </div>
+          <span>评论数：58</span>
+        </div>
+      </div>
+    </div> -->
+    </div>
+    <!-- 引用模板js -->
+    <script src="./lib/template-web.js"></script>
+
+    <script type="text/html" id="tmp">
+        {{each data as value index}}
+        <div class="news-item">
+            <img class="thumb" src="http://www.liulongbin.top:3006{{value.img}}" alt="">
+            <div class="right-box">
+                <h1 class="title">{{value.title|changeVal}}</h1>
+                <div class="tags">
+                    {{each value.tags tag}}
+                    <span>{{tag}}</span> {{/each}}
+                </div>
+                <div class="footer">
+                    <div>
+                        <span>{{value.source}}</span>&nbsp;&nbsp;
+                        <span>{{value.time|getTime}}</span>
+                    </div>
+                    <span>评论数：{{value.cmtcount}}</span>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+
+    <script>
+        $(function() {
+            // 时间格式化
+            template.defaults.imports.getTime = function(value) {
+                var data = new Date(value);
+                var year = data.getFullYear();
+                var month = data.getMonth() + 1;
+                var day = data.getDate();
+                var h = data.getHours();
+                var m = data.getMinutes();
+                var s = data.getSeconds();
+
+                month = month < 10 ? '0' + month : month
+                day = day < 10 ? '0' + day : day
+                h = h < 10 ? '0' + h : h
+                m = m < 10 ? '0' + m : m
+                s = s < 10 ? '0' + s : s
+
+                return year + "-" + month + "-" + day + "  " + h + ":" + m + ":" + s;
+            }
+
+            //替换数据
+            template.defaults.imports.changeVal = function(value) {
+                if (value.indexOf('5G') != -1) {
+                    value = value.replace('5G', '6G')
+                }
+                return value;
+            }
+
+
+            $.ajax({
+                url: 'http://www.liulongbin.top:3006/api/news',
+                type: 'get',
+                success: function(res) {
+                    console.log(res)
+                    $.each(res.data, function(index, ele) {
+                        var getTags = ele.tags
+                        var newTags = getTags.split(',')
+                        ele.tags = newTags
+                    })
+
+
+                    var html = template('tmp', res)
+                    $('#news-list').html(html)
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

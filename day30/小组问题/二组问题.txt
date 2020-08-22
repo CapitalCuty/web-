@@ -1,0 +1,13 @@
+1.index 自定义属性 ===data-* h5自定义属性的应用场景。
+2.NodeList节点集合为啥不能使用for(var key in obj)
+
+
+1 tab切换 
+2 轮播图 
+3 下面有事件或者元素要跟随上面变化
+4  跨页面取值
+var  index=2    div 
+
+let a=2;
+let obj={}
+let arr=[]

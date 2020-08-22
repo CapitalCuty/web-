@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	// js设计模式  this       
+	 // that     This
+
+    //  function fn() {
+	// 	 console.log('谁调用了我')
+	// 	 console.log(this)
+	//  }
+	//  fn()
+
+
+// <!-- 
+// console.log(this)
+// console.dir(this)
+
+// console.dir(console)
+// console.info(console) -->
+// console.table({name:'zs',age:18})
+// window.console.log({name:'zs',age:18})
+// obj.obj2.say()
+
+// <!-- 
+//  window.console.log(this)  // window
+
+//       function fn() {
+//     	 console.log('谁调用了我')
+//     	 console.log(this)  //window
+//      }
+//      fn()
+// 	 window.fn()    
+//  -->
+
+  
+
+	// var dog={
+	// 	name:'王可可',
+	// 	age:5,
+	// 	sex:'未知',
+	// 	click:function() {
+	// 		console.log(this)  //dog
+	// 		console.log('旺旺')
+	// 	},
+	// 	sayHi:function() {
+	// 		console.log(this.name+'你好')
+	// 	}
+	// }
+
+//dog.click()  //dog
+// this  指向谁    this 跟定义没有关系  只能调用者有关 谁调用 this就指向谁
+
+
+
+
+
+
+
+
+
+
+
+	// var dog={
+	// 	name:'王可可',
+	// 	age:5,
+	// 	sex:'未知',
+	// 	click:function() {
+	// 		console.log(this)
+	// 		  return{
+	// 		   aaa: function() {
+	// 				  return (this.name)
+	// 				    console.log(this)
+	// 			  }
+	// 		  }
+	// 	},
+	// 	sayHi:function() {
+	// 		console.log(this.name+'你好')
+	// 	}
+	// }
+
+    // var res=dog.click();  //dog  当前对象
+	// console.log(res)   //函数
+
+
+
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+
+
+</head>
+
+<body>
+	<div></div>
+	<button class="button1">slideDown</button>
+	<button class="button2">slideUp</button>
+
+	<button class="button3">slideToggle</button>
+
+
+	<script src='./jquery.min.js'></script>
+	<script>
+		$('div').css({
+			width: '200px',
+			height: '200px',
+			backgroundColor: 'red',
+			display: 'none'
+		})
+
+
+		// slideDown  滑出(显示)
+		$('.button1').click(function () {
+			$('div').slideDown(1000)
+		})
+
+
+		// slideDown  滑入(隐藏)
+		$('.button2').click(function () {
+			$('div').slideUp(1000)
+		})
+
+
+            // slideToggle 如果是滑入 那么再次点击就是滑出 
+			$('.button3').click(function () {
+			$('div').slideToggle(1000)
+		})
+	</script>
+
+</body>
+
+</html>

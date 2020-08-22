@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1.命名函数
+        function fn() {
+            console.log("我是函数")
+        }
+
+        //2.表达式函数
+        var fn = function() {
+            console.log("我是函数")
+        }
+
+        //3.构造函数
+        function Person(name, age) {
+            this.name = name
+            this.age = age
+        }
+
+        //4.匿名函数
+        (function() {
+            console.log("我是函数")
+        })
+    </script>
+</body>
+
+</html>

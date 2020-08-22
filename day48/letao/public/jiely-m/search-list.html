@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <!-- 第一步 引入mui css -->
+        <link rel="stylesheet" href="./assets/mui/css/mui.css">
+        <!-- 第二步引入我们的base.css -->
+        <link rel="stylesheet" href="./css/base.css">
+        <link rel="stylesheet" href="./assets/fontAwesome/css/font-awesome.min.css">
+        <script src="./assets/mui/js/mui.min.js"></script>
+
+        <link rel="stylesheet" href="./css/search-list.css">
+
+    </head>
+
+<body>
+    <div class="mui-inner-wrap">
+        <!-- 主页面标题   头部-->
+        <header class="mui-bar mui-bar-nav  header">
+
+            <h1 class="mui-title">嗨淘代购搜索中心</h1>
+        </header>
+
+
+
+        <!-- 底部导航栏 -->
+        <nav class="mui-bar mui-bar-tab  footer">
+            <a class="mui-tab-item mui-active" href="#tabbar">
+                <span class="mui-icon mui-icon-home"></span>
+                <span class="mui-tab-label">首页</span>
+            </a>
+            <a class="mui-tab-item" href="#tabbar-with-chat">
+                <span class="mui-icon mui-icon-bars"></span>
+                <span class="mui-tab-label">分类</span>
+            </a>
+            <a class="mui-tab-item" href="#tabbar-with-contact">
+                <!-- <span class="mui-icon mui-icon-contact"></span> -->
+                <span class=" mui-icon  fa fa-shopping-cart"></span>
+                <span class="mui-tab-label">购物</span>
+            </a>
+            <a class="mui-tab-item" href="#tabbar-with-map">
+                <span class="mui-icon  mui-icon-person"></span>
+                <span class="mui-tab-label">个人中心</span>
+            </a>
+        </nav>
+
+        <!-- 主体内容部分 -->
+
+        <div class="container" id='refreshContainer'>
+
+            <div>
+
+                <div class="changePriceBox">
+                    <div class="mui-row">
+                        <div class="mui-col-sm-6 mui-col-xs-6">
+                            <span class="priceSort">价格
+                                <i class="mui-icon mui-icon-arrowdown"></i>
+                            </span>
+                        </div>
+                        <div class="mui-col-sm-6 mui-col-xs-6">
+                            <span>销量
+                                <i class="mui-icon mui-icon-arrowdown"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 商品列表展示区域 -->
+                <div class="lifeBox mui-clearfix">
+                    <ul class="mui-table-view goodsShow mui-clearfix">
+                        <li class="mui-table-view-cell mui-media">
+                            <a href="javascript:;">
+                                <img class="mui-pull-center" src="./images/product.jpg">
+                                <div class="mui-media-body">
+                                    <p>adidas阿迪达斯 男式 场下休闲篮球鞋S83700</p>
+                                    <p class='mui-ellipsis'>
+                                        <span class="nowPrice">¥560.00</span>
+                                        <span class="oldPrice">¥560.00</span>
+
+                                    </p>
+                                    <button type="button" class="mui-btn mui-btn-blue">立即购买</button>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <script src="./assets/zepto/zepto.min.js"></script>
+        <!-- <script>
+            /*初始化区域滚动组件 当超过了父容器大小的时候生效*/
+            mui('.mui-scroll-wrapper').scroll();
+        </script> -->
+
+
+        <script src="./assets/artTemplate/template-web.js"></script>
+
+
+        <!-- search-list 数据展示 -->
+        <!-- id: 1
+        proName: "匡威三星标1970s converse复刻 142334c 144757c三星标黑色高帮"
+        oldPrice: 888.1
+        price: 499.1
+        proDesc: "描述"
+        size: "40-50"
+        statu: 1
+        updateTime: "2017-01-04T16:28:29.000Z"
+        num: 20
+        brandId: 1 -->
+
+
+        <script type="text/template" id='search-list'>
+            {{each data val i}}
+            <li class="mui-table-view-cell mui-media">
+                <a href="javascript:;">
+                    <img class="mui-pull-center" src="{{val.pic[0].picAddr}}">
+                    <div class="mui-media-body">
+                        <p>{{val.proName}}</p>
+                        <p class='mui-ellipsis'>
+                            <span class="nowPrice">¥{{val.price}}</span>
+                            <span class="oldPrice">¥{{val.oldPrice}}</span>
+
+                        </p>
+                        <button type="button" class="mui-btn mui-btn-blue">立即购买</button>
+                    </div>
+                </a>
+            </li>
+            {{/each}}
+
+        </script>
+
+
+
+
+
+
+
+
+
+
+        <script>
+            //  获取传递过来的关键字 
+
+
+            var mypage = 1;
+            var mypageSize = 1;
+            var htmlStr = '';
+            var This = null;
+            var priceSort = 1;
+
+
+            var keyW = getUrlParam('keywrods')
+
+            function getUrlParam(params) {
+                var keywords = window.location.search;
+                // console.log(keywords);
+                var str = keywords.indexOf('?');
+                // console.log(str);
+                var newStr = keywords.substring(str + 1)
+                // console.log(newStr);
+
+                var arr = newStr.split("&");
+                // console.log(arr);
+                for (var i = 0; i < arr.length; i++) {
+                    var content = arr[i].split('=');
+                    console.log(content);
+                    if (content[0] === params) {
+                        return content[1]
+                    }
+
+                }
+                return null;
+            }
+
+
+
+            mui.init({
+                pullRefresh: {
+                    container: document.querySelector(
+                        '#refreshContainer'), //待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
+                    up: {
+                        height: 50, //可选.默认50.触发上拉加载拖动距离
+                        auto: true, //可选,默认false.自动上拉加载一次
+                        contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
+                        contentnomore: '没有更多数据了', //可选，请求完毕若没有更多数据时显示的提醒内容；
+                        callback: getListData //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+                    }
+                }
+            });
+
+
+
+
+
+
+            function getListData() {
+                if (!This) {
+                    This = this;
+
+                }
+                console.log(This);
+
+                //  发送ajax请求 获取数据 
+                $.ajax({
+                    url: '/product/queryProduct',
+                    data: {
+                        proName: keyW,
+                        page: mypage++,
+                        pageSize: 3,
+                        price: priceSort
+                    },
+                    success: function (res) {
+                        if (res.data.length > 0) {
+                            htmlStr += template('search-list', res)
+                            // console.log(htmlStr);
+
+                            $('.goodsShow').html(htmlStr)
+
+                            //业务逻辑代码， 比如通过ajax从服务器获取新数据；
+                            //......
+                            //注意：
+                            //1、加载完新数据后，必须执行如下代码，true表示没有更多数据了：
+                            //2、若为ajax请求，则需将如下代码放置在处理完ajax响应数据之后
+                            This.endPullupToRefresh(false);
+
+
+                        } else {
+                            This.endPullupToRefresh(true);
+                        }
+
+
+                    }
+                })
+            }
+
+
+
+
+            //    价格排序 
+
+            $('.priceSort').on('tap', function () {
+                priceSort = priceSort == 1 ? 2 : 1;
+                htmlStr = '';
+                mypage = 1;
+                //   重新开启下拉加载
+                // document.querySelector(
+                // '#refreshContainer'),
+                mui('#refreshContainer').pullRefresh().refresh(true);
+
+                getListData()
+
+
+
+            })
+        </script>
+</body>
+
+</html>

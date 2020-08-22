@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+
+
+  <div class="container">
+	  
+
+  </div>
+
+	<!--  -->
+	<script src="./js/jquery.js"></script>
+	<!-- 第一步引入 -->
+	<script src="./js/template-web.js"></script>
+
+	<!-- 第二步定义模板  必须要有type 属性跟 id  -->
+	<script  type="html/text" id='tmp'>
+	
+	  <h1>{{name}}</h1>
+	  <h1>{{age}}</h1>
+	
+	</script>
+
+
+
+	<script>
+			// <!-- 第三步生成数据 -->
+	    //   var  html=template('传递模板的id','传递js的数据对象')
+       var data={
+		   name:'张三',
+		   age:18
+	   }
+		var html=template('tmp',data)
+
+		console.log(html)
+
+		$('.container').html(html)
+	
+	
+	
+	</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        var ul = document.querySelector("ul");
+        //cloneNode()   只克隆标签，不克隆内容
+        var newLi = ul.children[0].cloneNode();
+        //cloneNode(true)   克隆标签和内容
+        var LiLi = ul.children[0].cloneNode(true);
+        ul.appendChild(newLi);
+        ul.appendChild(LiLi);
+    </script>
+</body>
+
+</html>

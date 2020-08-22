@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>名字</th>
+                <th>内容</th>
+                <th>时间</th>
+            </tr>
+        </thead>
+        <tbody id='tbody'>
+            <!-- <tr>
+			  <td></td>
+			  <td></td>
+			  <td></td>
+		  </tr> -->
+        </tbody>
+    </table>
+
+    <script src="./js/jquery.js"></script>
+    <!-- 第一步引入   动态生成html结构 -->
+    <script src="./js/template-web.js"></script>
+
+
+    <!-- 第二步定义模板 -->
+    <!-- {{each js对象里面的数组的名字 as  数组里面每一项的值   数组的索引}} -->
+
+    <!-- {{/each}} -->
+    <script type="text/html" id='tmp'>
+        {{each data as value index }}
+
+        <tr>
+            <td>{{value.username}}</td>
+            <td>{{value.content}}</td>
+            <td>{{value.time}}</td>
+        </tr>
+
+        {{/each}}
+    </script>
+
+
+
+
+    <script>
+        // 第三步根据js的data 动态生成html结构 
+
+        //  var data = {
+        //         c:100,
+        // 		name:'zs',
+        //         person:[
+        //             {name:"jack",age:18},
+        //             {name:"tom",age:19},
+        //             {name:"jerry",age:20},
+        //             {name:"kid",age:21},
+        //             {name:"jade",age:22}
+        //         ]
+        //     };
+
+        $.ajax({
+            url: 'http://www.liulongbin.top:3006/api/cmtlist',
+            success: function(res) {
+                console.log(res)
+
+                var html = template('tmp', res)
+
+                // <!-- 第四步 把生成的html添加到文档页面上 -->
+                $('#tbody').html(html)
+
+            }
+        })
+
+
+
+        console.log(html)
+    </script>
+</body>
+
+</html>

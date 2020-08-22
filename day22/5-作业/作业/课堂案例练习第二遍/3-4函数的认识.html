@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //命名函数
+        function fn1() {
+            document.write("我是命名函数<br><br>");
+        }
+        fn1();
+
+        //表达式函数
+        var fn2 = function() {
+            document.write("我是表达式函数<br><br>");
+        }
+        fn2();
+
+        //构造函数
+        function Desk(width, height) {
+            this.width = '20'
+            this.height = '100'
+        }
+        var wid = new Desk();
+        document.write("我是构造函数：" + wid.width + "<br><br>");
+
+        //匿名函数
+        (function() {
+            document.write("我是匿名函数");
+        })()
+    </script>
+</body>
+
+</html>

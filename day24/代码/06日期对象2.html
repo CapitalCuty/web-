@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		function getDate() {
+			var date1 = new Date();
+			var year = date1.getFullYear(); //年
+			var month = date1.getMonth() + 1; // 月份是从0 开始算的 所以需要加1
+			var days = date1.getDate(); //日期
+			var weeks = date1.getDay(); //星期
+			var h = date1.getHours()
+			var m = date1.getMinutes()
+			var s = date1.getSeconds();
+			month = month < 10 ? "0" + month : month;
+			days = days < 10 ? "0" + days : days;
+			h = h < 10 ? "0" + h : h;
+			m = m < 10 ? "0" + m : m;
+			s = s < 10 ? "0" + s : s;
+
+//  星期三
+   var  arr=['星期天','星期一',"星期二","星期三","星期四","星期五","星期六"]
+
+
+			//    2020-07-01 10:02:31
+			return '今年是:' + year + '-' + month + '-' + days + ' ' + h + ':' + m + ":" + s +" " +arr[weeks];
+
+
+		}
+
+		console.log(getDate())
+	</script>
+</body>
+
+</html>

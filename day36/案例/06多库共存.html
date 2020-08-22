@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./jquery.min.js"></script>
+
+    <script>
+        var p1 = $('<p>xxxx</p>')
+        $('body').append(p1)
+        var p2 = jQuery('<p>我创建了</p>')
+        $('body').append(p2)
+
+
+
+        //释放对$ jquery的权力
+
+        var shuiyi = jQuery.noConflict()
+
+        console.log(shuiyi)
+
+
+
+
+        var div = shuiyi('<div>随意div</div>')
+
+        shuiyi('body').append(div)
+
+
+
+
+        // 自定义是最强大的  90%
+
+
+
+        // tab    轮播图    导航栏   下拉菜单   布局    日期(倒计时)
+    </script>
+</body>
+
+</html>

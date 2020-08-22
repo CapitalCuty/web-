@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		// console.log(Math.PI)
+		// console.log(Math.max(1, 2, 3))
+		// console.log(Math.min(10, 20, 30))
+		console.log(Math.max(1, 20, '30'))
+		console.log(Math.max('1', 20, '30', 'hello'))
+
+
+		console.log(Boolean(NaN))
+		var myMath = {
+			PI: 3.1415926,
+			max: function () {
+				for (var i = 0; i < arguments.length; i++) {
+					if (!Number(arguments[i])) {
+						return NaN
+					}
+				}
+
+				var max = Number(arguments[0]);
+				for (var i = 1; i < arguments.length; i++) {
+					if (max < arguments[i]) {
+						max = Number(arguments[i])
+					}
+				}
+				return max
+
+			},
+			min: function () {}
+		}
+
+
+
+		
+
+
+
+		console.log(myMath.PI)
+
+		console.log(myMath.max(1, 2, 3, 4, 5))
+		console.log(myMath.max(1, 50))
+
+		console.log(myMath.max('1', '50'))
+		console.log(myMath.max('1', '50', 'hello'))
+
+
+
+
+
+
+		// <!-- 
+		//    function fn() {
+
+		// 	//  console.log(arguments) 
+		// 	  // 当实参数量不确定的时候我们采用arguments 进行收集 
+		// 	  // 1 伪数组   有length 特性   可以遍历  但是没有数组的方法
+		//      var max=arguments[0];
+
+		// 	  for(var i=1;i<arguments.length;i++ ) {
+		// 		  if(max<arguments[i]) {
+		// 			  max=arguments[i]
+		// 		  }
+		// 	  }
+		// 	  console.log(max)
+
+
+		//    }
+
+
+
+
+		//    fn(1,2,3)
+		//    fn(1,2,3,4,5)
+		//    fn(1,2,3,4,5,100,200) -->
+	</script>
+</body>
+
+</html>

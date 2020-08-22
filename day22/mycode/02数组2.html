@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		var arr = [1, 2, 3, "hello", "world", "老王"];
+		arr[arr.length] = '你好';
+
+		console.log(arr)
+
+
+		arr[arr.length] = '你好';
+		console.log(arr)
+
+		// 1 删除   数组中的某一个值
+		// 2 数组中所有的值都删除 
+
+
+		// 2 数组中所有的值都删除  相当于 数组中没有任何数据
+		//  var  arr1=[1,2,3];
+		//  //方法一
+		// //  arr1=[];
+
+		//  //方法二 
+		//  arr1.length=0;
+
+		// console.log(arr1);
+
+
+
+		// 1 删除   数组中的某一个值  splice   删除数据  更改数据 
+		// var  arr1=[1,2,3];
+		// var  newArr=arr1.splice(0,1)
+		// console.log(arr1)
+
+
+		//添加数据
+		// 	var  arr1=[1,2,3];
+		// 	arr1.splice(3,0,'jiely')
+		// console.log(arr1)
+
+
+
+		var arr1 = [1, 2, 3, 4];
+		arr1.splice(arr.length, 0, 'jiely') //一定把代码写成动态 
+		console.log(arr1)
+
+		arr1.splice(arr.length, 0, 'jiely')
+		console.log(arr1)
+
+		//    splice  length
+	</script>
+</body>
+
+</html>

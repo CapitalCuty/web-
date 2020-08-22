@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box1,
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 10px;
+            transition: all 1s;
+        }
+        
+        .box2 {
+            background-color: green;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1" id="first">
+
+    </div>
+    <div class="box2" id="second">
+
+    </div>
+    <script>
+        //  第一个div隐藏(立即隐藏)
+        //  第二个div(5秒之后显示)
+        function getHide() {
+            document.getElementById("first").style.opacity = 0;
+        }
+        setTimeout(getHide)
+
+        function getDisplay() {
+            document.getElementById("second").style.opacity = 1;
+        }
+        setTimeout(getDisplay, 5000)
+    </script>
+</body>
+
+</html>

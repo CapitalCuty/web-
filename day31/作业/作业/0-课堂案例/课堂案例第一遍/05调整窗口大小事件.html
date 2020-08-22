@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: red;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        //只要窗口大小发生像素变化，就会触发    window.innerWidth当前屏幕宽度
+        var div = document.querySelector("div")
+        window.onresize = function() {
+            // alert(12345678);
+            console.log(window.innerWidth);
+            if (window.innerWidth > 800) {
+                div.style.display = "block";
+            } else {
+                div.style.display = "none";
+            }
+
+        }
+    </script>
+</body>
+
+</html>

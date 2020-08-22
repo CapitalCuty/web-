@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+		<div>惊喜不，意外不</div>
+	<div>惊喜不，意外不</div>
+	<div>惊喜不，意外不</div>
+	<div>惊喜不，意外不</div>
+	<ul>
+		<li>相同的操作</li>
+		<li>相同的操作</li>
+		<li>相同的操作</li>
+		<li>相同的操作</li>
+		<li>相同的操作</li>
+	</ul>
+<script  src="./jquery.min.js"></script>
+<script>
+   $(function(){
+	// $('div:first') 查找第一个div
+	$('div:first').css({'color':'red'})
+	
+
+
+// $('div:last') 查找最后一个div
+	  $('div:last').css({'color':'blue'})
+
+	//   查询 具体的某一个  eq(索引号 从0开始))
+    var index=2
+	  $('div').eq(index).css({"backgroundColor":'red'})   
+
+	  $('div:eq(1)').css({"backgroundColor":'green'})   
+
+
+
+//    odd 表示奇数
+
+   $('ul>li:odd').css({"backgroundColor":'red'})
+
+
+// even 表示偶数
+   $('ul>li:even').css({"backgroundColor":'blue'})
+
+
+
+
+
+
+   })
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <!-- 第一步 引入mui css -->
+        <link rel="stylesheet" href="./assets/mui/css/mui.css">
+        <!-- 第二步引入我们的base.css -->
+        <link rel="stylesheet" href="./css/base.css">
+        <link rel="stylesheet" href="./assets/fontAwesome/css/font-awesome.min.css">
+
+
+
+        <!-- 引入我们自己的 search css -->
+        <link rel="stylesheet" href="./css/search.css">
+
+
+        <script src="./assets/mui/js/mui.min.js"></script>
+    </head>
+
+<body>
+    <div class="mui-inner-wrap">
+        <!-- 主页面标题   头部-->
+        <header class="mui-bar mui-bar-nav  header">
+            <!-- <a class="mui-icon mui-action-menu   mui-icon-search mui-pull-right"></a> -->
+
+            <h1 class="mui-title">嗨淘代购搜索中心</h1>
+        </header>
+
+
+
+        <!-- 底部导航栏 -->
+        <nav class="mui-bar mui-bar-tab  footer">
+            <a class="mui-tab-item mui-active" href="#tabbar">
+                <span class="mui-icon mui-icon-home"></span>
+                <span class="mui-tab-label">首页</span>
+            </a>
+            <a class="mui-tab-item" href="#tabbar-with-chat">
+                <span class="mui-icon mui-icon-bars"></span>
+                <span class="mui-tab-label">分类</span>
+            </a>
+            <a class="mui-tab-item" href="#tabbar-with-contact">
+                <!-- <span class="mui-icon mui-icon-contact"></span> -->
+                <span class=" mui-icon  fa fa-shopping-cart"></span>
+                <span class="mui-tab-label">购物</span>
+            </a>
+            <a class="mui-tab-item" href="#tabbar-with-map">
+                <span class="mui-icon  mui-icon-person"></span>
+                <span class="mui-tab-label">个人中心</span>
+            </a>
+        </nav>
+
+        <!-- 主体内容部分 -->
+        <div class="mui-content mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <div class="container">
+                    <!-- 搜索输入框加按钮 -->
+                    <div class="searchBox">
+                        <input type="text" placeholder="请输入关键字" class="txt">
+                        <button class="btn">搜索</button>
+
+                    </div>
+                    <!-- 搜索历史跟清空历史 -->
+                    <div class="histroyBox mui-clearfix">
+                        <span class="mui-pull-left">搜索历史</span>
+                        <span class="mui-pull-right mui-icon mui-icon-trash" id='clearData'>清空历史</span>
+                    </div>
+                    <div class="histroyList">
+                        <ul class="mui-table-view" id='histroyUlBox'>
+                            <!-- <li class="mui-table-view-cell">Item 1</li> -->
+                            <!-- <li class="mui-table-view-cell">Item 2</li>
+                            <li class="mui-table-view-cell">Item 3</li> -->
+                        </ul>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <script>
+            /*初始化区域滚动组件 当超过了父容器大小的时候生效*/
+            mui('.mui-scroll-wrapper').scroll();
+        </script>
+
+
+        <script src="./assets/zepto/zepto.min.js"></script>
+
+        <script src="./assets/artTemplate/template-web.js"></script>
+
+        <!-- 定义我们历史数据展示的模板结构 -->
+
+        <script type="text/template" id='histroyListTmp'>
+            {{each res val  }}
+
+            <li class="mui-table-view-cell">{{val}}</li>
+            {{/each}}
+
+        </script>
+
+
+        <script>
+            $(function () {
+                /*
+  一 点击搜索按钮实现实现跳转
+     1 搜索按钮绑定点击事件 
+     2 获取到输入框里面的值
+     3  判断输入里面的值不能为空 如果为空则提示内容(不能为空) 如果有值那么进行跳转
+     到搜索列表页面
+*/
+
+                $(".btn").on('click', function () {
+                    var val = $('.txt').val()
+
+                    if (val.trim().length > 0) {
+                        //表示有值
+                        // 3 每次点击搜索按钮的时候把输入框里面的值放到本地缓存里面去
+
+                        mykeyArr.push(val)
+                        localStorage.setItem('mykey', JSON.stringify(mykeyArr))
+                        window.location.href = './search-list.html?keywrods=' + val
+                        $('.txt').val('')
+                    } else {
+                        //表示没有值
+                        alert('输入框里面不能为空')
+                        return;
+                    }
+                })
+
+
+                // 二  搜索历史数据展示
+                /*
+                1 采用本地缓存 
+                2 一进来的时候获取本地缓存里面的数据
+                3 每次点击搜索按钮的时候把输入框里面的值放到本地缓存里面去
+                4 把缓存里面的数据取出来进行展示
+                */
+                var mykeyArr = [];
+
+                //表示一进来的时候从本地缓存里面取我们之前的搜索历史数据
+                if (localStorage.getItem('mykey')) {
+                    //localStorage.getItem('mykey') 如果进来了表示之前本地缓存里面有数据
+
+                    mykeyArr = JSON.parse(localStorage.getItem('mykey'))
+                    // console.log(mykeyArr);
+                    var obj = {
+                        res: mykeyArr
+                    }
+                    var htmlStr = template('histroyListTmp', obj)
+
+                    $('#histroyUlBox').html(htmlStr)
+
+                }
+
+
+                //功能三  清空历史
+                /*
+                1 给我们清空历史图标绑定点击事件
+                2 把本地缓存的数据清空
+                3 历史数据展示的内容也需要清空
+                */
+                $('#clearData').on('click', function () {
+                    // alert(1)
+                    localStorage.removeItem('mykey')
+                    $('#histroyUlBox').html('')
+                })
+
+
+
+
+
+
+            })
+        </script>
+</body>
+
+</html>

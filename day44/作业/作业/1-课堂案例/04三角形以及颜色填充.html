@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 8px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+        // 1、获取到画布
+        var myCanvas = document.querySelector('canvas');
+
+        // 2、告诉别人画布是2d还是3d
+        var ctx = myCanvas.getContext('2d');
+
+        ctx.moveTo(100, 100)
+        ctx.lineTo(300, 300)
+        ctx.lineTo(100, 300)
+
+        // 线条颜色
+        ctx.fillStyle = 'red';
+        ctx.fill()
+
+        ctx.closePath()
+
+        // 5、描边
+        ctx.stroke()
+    </script>
+</body>
+
+</html>

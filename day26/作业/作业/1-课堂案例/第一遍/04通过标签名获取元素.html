@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="h1Box" class="h1">hello world1</h1>
+    <h1 id="h1Box" class="h1">hello world2</h1>
+    <h1 id="h1Box" class="h1">hello world3</h1>
+    <h1>我也是h1</h1>
+    <div class="h1">我是div</div>
+    <div class="h1">我是div</div>
+    <!-- ul>li*5{$} -->
+    <ul id="ul">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <ul>
+        <li>q</li>
+        <li>q</li>
+        <li>q</li>
+        <li>q</li>
+        <li>q</li>
+    </ul>
+    <script>
+        var h1 = document.getElementsByTagName("h1")
+        var lis = document.getElementsByTagName("li")
+        console.log(h1);
+        console.log(lis);
+
+        //找ul里面的li
+        //方法一
+        var ul = document.getElementById("ul")
+        console.log(ul); //打印对象
+
+        var selfLis = ul.children;
+        console.log(selfLis); //打印方法
+
+        var selfLis = ul.children;
+        console.log(selfLis[3]); //children也是一个伪数组
+
+        //方法二
+        console.log(ul.getElementsByTagName("li"));
+    </script>
+</body>
+
+</html>

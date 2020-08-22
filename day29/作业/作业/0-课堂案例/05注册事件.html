@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>注册</button>
+    <script>
+        var btn = document.querySelector("button");
+        //传统注册方式
+        btn.onclick = function() {
+            alert(12345);
+        }
+
+        //监听注册事件  事件名不需要写on
+        //方法一
+        btn.addEventListener('click', function() {
+            alert(213456789);
+        })
+        btn.addEventListener('mouseover', function() {
+            alert("qwertyuiop");
+        })
+
+        //方法二
+        btn.addEventListener('click', fn);
+        btn.addEventListener('mouseover', fn);
+
+        function fn() {
+            alert(23456789);
+        }
+    </script>
+</body>
+
+</html>

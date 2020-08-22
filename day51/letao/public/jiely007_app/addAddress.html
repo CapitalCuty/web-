@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./assets/mui/css/mui.min.css">
+	<link rel="stylesheet" href="./css/base.css">
+	<link rel="stylesheet" href="./css/form.css">
+	<link rel="stylesheet" href="./css/register.css">
+
+
+
+
+	<style>
+
+	</style>
+</head>
+
+<body>
+	<header class="mui-bar mui-bar-nav  header">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">嗨淘添加收货地址</h1>
+	</header>
+	<nav class="mui-bar mui-bar-tab footer">
+		<a class="mui-tab-item mui-active" href="#tabbar">
+			<span class="mui-icon mui-icon-home"></span>
+			<span class="mui-tab-label">首页</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-chat">
+			<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+			<span class="mui-tab-label">分类</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-contact">
+			<span class="mui-icon mui-icon-contact"></span>
+			<span class="mui-tab-label">购物车</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-map">
+			<span class="mui-icon mui-icon-gear"></span>
+			<span class="mui-tab-label">会员中心</span>
+		</a>
+	</nav>
+
+
+
+	<div class="mui-content">
+			<div class='mui-scroll-wrapper'>
+				<div class="mui-scroll">
+					<!-- 填写内容的区域 -->
+					<!-- - address 三级联动地址 addressDetail 详细地址 recipients 收货人 postcode 邮编 -->
+					<form class="mui-input-group">
+							<div class="mui-input-row">
+							
+							<input type="text" class="mui-input-clear  recipients"   placeholder="请输入收货人">
+							</div>
+	
+	
+							<div class="mui-input-row">
+								
+								<input type="text" class="mui-input-clear  postcode" placeholder="请输入邮编">
+								</div>
+							<div class="mui-input-row">
+							
+								<input type="text"  id='getData' class="mui-input-clear   address" placeholder="请输入省市区">
+							</div>
+							<div class="mui-input-row">
+								
+									<input type="text" class="mui-input-clear addressDetail" placeholder="请输入详细地址">
+								</div>
+								
+							
+	
+							<div class="mui-button-row">
+								<button type="button" class="mui-btn mui-btn-primary   addressBtn" >确认</button>
+								
+							</div>
+						</form>
+				</div>
+			</div>
+
+	</div>
+
+
+	<link rel="stylesheet" href="./assets/mui/css/mui.picker.css">
+	
+	<link rel="stylesheet" href="./assets/mui/css/mui.poppicker.css">
+
+	<!-- 移动的端 jquery  -->
+	<script src="./assets/zepto/zepto.min.js"></script>
+	<script src="./assets/mui/js/mui.min.js"></script>
+	<script src="./assets/artTemplate/template-web.js"></script>
+
+
+
+
+
+
+		<!-- *poppicker组件依赖mui.picker.js/.css mui.poppicker.js/.css
+	请务必在mui.js/css后中引用,
+	也可统一引用 压缩版本:mui.picker.min.js -->
+
+	<link rel="stylesheet" href='./assets/mui/css/mui.picker.css'>
+	<link rel="stylesheet" href='./assets/mui/css/mui.poppicker.css'>
+
+	<script src="./assets/mui/js/mui.picker.js"></script>
+	<script src="./assets/mui/js/mui.poppicker.js"></script>
+		<!-- 引入我们的省市区数据数组 -->
+	<script src="./js/city.js"></script>
+
+</body>
+
+
+
+<script>
+	// 第一部分初始化
+//  var picker = new mui.PopPicker();
+// 第二步传递省市区数据
+//  picker.setData([{value:'zz',text:'智子'}]);
+
+// 第三步省市区选择器
+//  picker.show(function (selectItems) {
+//     console.log(selectItems[0].text);//智子
+//     console.log(selectItems[0].value);//zz 
+//   })
+
+
+ var picker = new mui.PopPicker({
+    layer: 3
+});
+
+ picker.setData(cityData);
+
+
+$('#getData').on('tap',function() {
+	 picker.show(function (selectItems) {
+	console.log(selectItems)
+	var val=selectItems[0].text+selectItems[1].text+selectItems[2].text;
+
+	$('#getData').val(val)
+
+  })
+
+})
+
+
+
+
+
+</script>
+
+</html>

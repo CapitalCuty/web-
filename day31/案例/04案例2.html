@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<input type="text">
+	<br>
+	<span></span>
+
+	<script>
+		var input = document.querySelector("input")
+		var span = document.querySelector('span')
+
+
+		//不能识别大小写
+		input.onkeyup = function (e) {
+			// 	console.log(e.keyCode)
+			//  var code=e.keyCode
+			// 	if(code===13) {
+			// 		//按下回车键 赋值
+			// 		  span.innerHTML=this.value
+			// 		  span.style.fontSize='50px'
+			// 	}else if(code===27) {
+			// 		//  按下esc键 清空内容
+			// 		 this.value=''
+			// 		span.innerHTML=this.value
+			// 	}
+
+
+			var code = e.keyCode
+			if (code !== 27) {
+				span.innerHTML = this.value
+				span.style.fontSize = '50px'
+			} else {
+				this.value = ''
+				span.innerHTML = this.value
+		
+			}
+
+
+		}
+	</script>
+</body>
+
+</html>

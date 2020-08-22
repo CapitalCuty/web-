@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+
+
+	<button>开关灯</button>
+	<!-- 1.获取要操作的按钮和body元素
+
+2.给按钮注册单击事件
+
+3.使用全局变量记录灯的状态
+
+4.根据灯的状态，控制body元素的背景色，实现开关灯效果 -->
+
+
+
+<!-- 以后要设置一个状态  的话 给一个标识符  flag    0 1  或者是true  false  -->
+
+	<script>
+		var btn = document.querySelector('button')
+		var body = document.body;
+		var flag=true   // true开灯        // false 关灯 
+		
+		btn.onclick = function () {
+			// alert(1)
+		   if(flag) {
+		      body.style.backgroundColor='black'
+			  flag=false  //之前的开灯 点击后关灯  那么flag变为false 
+		   }else {
+			body.style.backgroundColor='white' 
+			flag=true
+			   
+		   }	
+		}
+	</script>
+</body>
+
+</html>

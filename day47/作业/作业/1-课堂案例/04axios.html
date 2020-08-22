@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./js/jquery.min.js"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <script>
+        // get请求
+        // 对象里面有一个属性params 固定写法  也是一个对象  所有需要传递的参数写在params里面
+        axios.get('http://www.liulongbin.top:3006/api/robot', {
+                params: {
+                    spoken: '你好丑'
+                }
+            })
+            .then(function(res) {
+                console.log(res)
+            })
+            .catch(function(err) {
+                console.log(err)
+            })
+
+
+        // post请求
+        // 对象里面没有params，直接写需要传递的参数
+        axios.post('http://www.liulongbin.top:3006/api/addbook', {
+                bookname: '艺术',
+                author: '罗老歪',
+                publisher: '南派三叔'
+            })
+            .then(function(res) {
+                console.log(res)
+            })
+            .catch(function(err) {
+                console.log(err)
+            })
+    </script>
+</body>
+
+</html>

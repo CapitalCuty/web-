@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .father {
+            width: 800px;
+            height: 500px;
+            background-color: green;
+            position: relative;
+            top: 100px;
+        }
+        
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            position: absolute;
+            left: 200px;
+            top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function() {
+            // position()  获取元素偏移 相对于有定位的父级的偏移量  该方法只能获取
+            console.log($('.son').position());
+            //有两个属性
+            console.log($('.son').position().left)
+            console.log($('.son').position().top)
+        })
+    </script>
+</body>
+
+</html>

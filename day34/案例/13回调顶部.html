@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        html,
+        body {
+            height: 2000px;
+        }
+        
+        .back {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: fixed;
+            top: 300px;
+        }
+        
+        .container {
+            background-color: green;
+            height: 1000px;
+            width: 3000px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="back">返回顶部</div>
+    <div class="container"></div>
+
+    <script src="./jquery.min.js"></script>
+    <script>
+        $('.back').click(function() {
+            //   $(document).scrollTop(0).scrollLeft(0)
+            $("body, html").animate({
+                scrollTop: 0
+            }, 2000);
+        })
+    </script>
+
+
+</body>
+
+</html>

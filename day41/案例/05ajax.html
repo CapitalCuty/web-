@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 回调地狱 或者地狱回调 -->
+    <script src="./jquery.js"></script>
+
+
+    <script>
+        // ajax      异步请求  局部刷新  性能高
+
+
+        //请求  请求的对象是谁     找服务器    
+
+        // 逻辑代码与基本api分开  逻辑是逻辑     基本语法是基本语法
+        $.ajax({
+            url: './data/1.json',
+            type: 'get',
+            data: {},
+            beforeSend: function() {
+                console.log('准备发送请求')
+            },
+            success: function(res) {
+                console.log(this)
+                console.log(res)
+
+
+                if (res.a === 1) {
+                    $.ajax({
+                        url: './data/2.json',
+                        success: function(res) {
+                            console.log(res)
+                            if (res.a == 2) {
+                                $.ajax({
+                                    url: './data/4.json',
+                                    error: function(err) {
+
+                                    }
+                                })
+                            } else {
+                                $.ajax({
+                                    url: './data/5.json'
+                                })
+                            }
+                        }
+
+                    })
+                } else {
+                    $.ajax({
+                        url: './data/3.json',
+
+                        success: function(res) {
+                            console.log(res)
+                        }
+                    })
+                }
+            },
+            error: function(err) {
+                console.log(err)
+            },
+            complete: function() {
+                console.log('不管成功或者失败我都要执行')
+            }
+        })
+    </script>
+</body>
+
+</html>

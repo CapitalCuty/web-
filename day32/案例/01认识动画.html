@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+
+	<style>
+	div {
+		width: 200px;
+		height: 200px;
+		background-color: red;
+		border: 1px solid #000;
+		position: relative; /* 必须要有定位*/
+	}
+	
+	</style>
+</head>
+<body>
+	<div></div>
+
+
+	<script>
+	var div=document.querySelector('div')
+	console.log(div.offsetLeft)  //获取自身的偏移量
+
+  setInterval(function(){
+  var step=5;  //步长
+  div.style.left=step+div.offsetLeft+'px'  //这就是动画 
+
+	
+
+
+  },100)
+	
+	
+	</script>
+</body>
+</html>

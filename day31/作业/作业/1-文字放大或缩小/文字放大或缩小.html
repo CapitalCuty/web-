@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            width: 400px;
+            height: 400px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="del">-</button>
+    <button id="add">+</button>
+    <p>爱的杀害动物和而且还打卡大卡高速卡购房款我也认为的军事报道撒谎打不死等哈数据库和地球五百骄傲的 的撒旦和监控手段和方式反抗军对方哈萨克回复按付款记录是否卡拉圣诞节阿三安抚哈利扣税的划分开来
+    </p>
+    <script>
+        var del = document.querySelector("#del");
+        var del = document.querySelector("#del")
+        var txt = document.querySelector("p");
+
+        //缩小
+        var num = 16;
+        del.onclick = function() {
+            num = num - 2;
+            if (num <= 0) {
+                alert("已经是最小字体啦！");
+                return;
+            }
+            txt.style.fontSize = num + "px";
+        }
+
+        //放大
+        add.onclick = function() {
+            num = num + 2;
+            if (num >= 30) {
+                alert("已经是最大字体啦！");
+                return;
+            }
+            txt.style.fontSize = num + "px";
+        }
+    </script>
+</body>
+
+</html>

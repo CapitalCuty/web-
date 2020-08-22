@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/news.css" />
+    <script src="./lib/jquery.js"></script>
+    <script src="./lib/template-web.js"></script>
+</head>
+
+<body>
+
+    <div id="news-list">
+        <!-- 
+		<div class="news-item">
+      <img class="thumb" src="http://www.liulongbin.top:3006/images/0.webp" alt="">
+      <div class="right-box">
+        <h1 class="title">5G商用在即，三大运营商营收持续下降</h1>
+        <div class="tags">
+          <span>三大运营商</span>
+          <span>中国移动</span>
+          <span>5G商用</span>
+        </div>
+        <div class="footer">
+          <div>
+            <span>新京报经济新闻</span>&nbsp;&nbsp;
+            <span>2019-10-28 11:50:28</span>
+          </div>
+          <span>评论数：58</span>
+        </div>
+      </div>
+    </div> -->
+
+    </div>
+
+
+
+
+    <!-- cmtcount: 58
+id: 1
+img: "/images/0.webp"
+source: "新京报经济新闻"
+tags: "三大运营商,中国移动,5G商用"
+time: "2019-10-28T03:50:28.000Z"
+title: "5G商用在即，三大运营商营收持续下降" -->
+
+    <script type="text/html" id='tmp'>
+
+        {{each data as value index }}
+        <div class="news-item">
+            <img class="thumb" src="http://www.liulongbin.top:3006{{value.img}}" alt="">
+            <div class="right-box">
+                <h1 class="title">{{value.title|changVal}}</h1>
+                <div class="tags">
+                    {{each value.tags as tag }}
+                    <span>{{tag}}</span> {{/each}}
+                </div>
+                <div class="footer">
+                    <div>
+                        <span>{{value.source}}</span>&nbsp;&nbsp;
+
+                        <!-- {{value.time|mydate}} 过滤  -->
+                        <span>{{value.time|mydate}}</span>
+                    </div>
+                    <span>评论数：{{value.cmtcount}}</span>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+
+
+    <script>
+        $(function() {
+
+            // 定义格式化时间的过滤器
+
+            //   template.defaults.imports  固定 的写法 
+            // mydate  自己定义函数名字   现在这个函数实现的是格式化日期功能
+            template.defaults.imports.mydate = function(dtStr) {
+                var dt = new Date(dtStr)
+
+                var y = dt.getFullYear()
+                var m = dt.getMonth() + 1
+                var d = dt.getDate()
+                var hh = dt.getHours()
+                var mm = dt.getMinutes()
+                var ss = dt.getSeconds()
+
+
+                m = m > 0 ? m : "0" + m
+                d = d > 0 ? d : "0" + d
+                hh = hh > 0 ? hh : "0" + hh
+                mm = mm > 0 ? mm : "0" + mm
+                ss = ss > 0 ? ss : "0" + ss
+
+                return y + '-' + m + '-' + d + ' ' + hh + ':' + mm + ':' + ss
+            }
+        })
+
+
+
+        template.defaults.imports.changVal = function(value) {
+            // 5G商用在即，三大运营商营收持续下降
+            //  var value=' 5G商用在即，三大运营商营收持续下降'
+
+            // 如果找到了含有5的 就把5变成 6  
+            if (value.indexOf('5') != -1) {
+                var value = value.replace('5', '6')
+                return value
+
+            } else {
+                //如果没有就维持原样
+                return value
+            }
+
+
+            //if 的简写
+            //  if(value.indexOf('5')!=-1) 	var value=  value.replace('5','6')
+            // 	return value
+
+        }
+        $.ajax({
+            url: 'http://www.liulongbin.top:3006/api/news',
+            // data:{}
+            // type:'get'
+            success: function(res) {
+                console.log(res)
+
+                if (res.status === 200) {
+
+                    //  数据的二次 封装
+                    $.each(res.data, function(index, ele) {
+                        var tags = ele.tags;
+
+                        var new_tags = tags.split(',')
+                        console.log(new_tags)
+                        ele.tags = new_tags
+
+                    })
+
+
+                    console.log(res)
+
+                    var html = template('tmp', res)
+                    console.log(html)
+
+
+
+                    $('#news-list').html(html)
+
+                }
+            }
+
+        })
+    </script>
+
+
+</body>
+
+</html>

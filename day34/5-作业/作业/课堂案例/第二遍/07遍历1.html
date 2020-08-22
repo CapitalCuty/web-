@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <button>点击更改所有div内容</button>
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function() {
+            //第一种
+            //$('').each(function(index,ele)){}
+            $('button').click(function() {
+                $('div').each(function(index, ele) {
+                    if (index % 2 == 0) {
+                        $(ele).text('我是奇数行' + (index + 1))
+                    } else {
+                        $(ele).text('我是偶数行' + (index + 1))
+                    }
+                })
+            })
+
+
+            //第二种
+            // $.each(obj, function(index,ele) {})
+            $('button').click(function() {
+                $.each($('div'), function(index, ele) {
+                    if (index % 2 == 0) {
+                        $(ele).text('我是奇数行' + (index + 1))
+                    } else {
+                        $(ele).text('我是偶数行' + (index + 1))
+                    }
+                })
+            })
+
+
+
+            var arr = ['red', 'green', 'blue']
+            $.each(arr, function(index, ele) {
+                console.log(index + "-------" + ele)
+            })
+
+
+
+            var obj = {
+                name: 'zs',
+                age: 18
+            }
+            $.each(obj, function(index, ele) {
+                console.log(index + "------" + ele)
+            })
+
+        })
+    </script>
+</body>
+
+</html>

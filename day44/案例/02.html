@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+
+	<style>
+	  canvas {
+		  border: 1px solid #000;
+	  }
+	</style>
+</head>
+<body>
+
+	<canvas  width="600" height="400"></canvas>
+	<script>
+	//1 画2条平行线 
+
+	//  
+	var myCanvas=document.querySelector('canvas')
+	 var ctx=myCanvas.getContext('2d')    // webgl
+	 ctx.moveTo(100,100)
+	 ctx.lineTo(400,100)
+
+    //   填充线条的颜色 
+	 ctx.stroke()  //描边之前
+
+
+
+ ctx.moveTo(100,300)
+ ctx.lineTo(400,300)
+ ctx.stroke() //描边
+
+
+
+
+	
+	
+	</script>
+</body>
+</html>

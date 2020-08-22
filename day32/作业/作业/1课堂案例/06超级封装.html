@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button>点击回到起点</button>
+    <script>
+        var div = document.querySelector("div");
+        var btn = document.querySelector("button");
+
+        function animate(obj, target, time) {
+            if (obj.timeId) {
+                clearInterval(obj.timeId)
+            }
+            obj.timeId = setInterval(function() {
+                var step = (target - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step)
+                if (target == obj.offsetLeft) {
+                    obj.offsetLeft = target + "px";
+                    clearInterval(obj.timeId);
+                    return
+                }
+                obj.style.left = step + obj.offsetLeft + "px"
+            }, time)
+        }
+        animate(div, 600, 100)
+
+        btn.onclick = function() {
+            animate(div, 0, 100)
+        }
+    </script>
+</body>
+
+</html>

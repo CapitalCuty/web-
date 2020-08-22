@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./js/jquery.js"></script>
+    <script>
+        // ajax 异步请求    局部刷新    请求的对象是服务器
+        $.ajax({
+            url: './data/1.json',
+            type: 'get',
+            beforeSend: function() {
+
+            },
+            success: function(res) {
+                console.log(res)
+            },
+            error: function(res) {
+
+            },
+            complete: function() {
+                console.log('不管成功还是失败我都要执行')
+            }
+        })
+
+        console.log('我先执行');
+    </script>
+</body>
+
+</html>

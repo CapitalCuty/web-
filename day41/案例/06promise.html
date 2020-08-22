@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- promise 一个异步 解决方案   原生  统一   对象 -->
+
+    <script>
+        //ajax  
+        // 定时器
+
+        //  promise   （1）对象的状态不受外界影响
+        //   promise	   (2)一旦状态改变，就不会再变，任何时候都可以得到这个结果。
+        // promise  一旦启动 了只有两种结果要么成功要么失败 
+
+
+        // Promise实例生成以后，可以用then方法分别指定resolved状态和rejected状态的回调函数。
+        //   var  p=    new Promise('函数这个函数的第一个参数也是一个函数但是处理成功的结果的函数, 
+        //第二个参数是一个失败的函数 处理失败的结果')
+        // resolve  是函数 处理成功正确结果
+        // reject  也是函数  处理失败  错误结果
+        var n = 10;
+        var p = new Promise(function(resolve, reject) {
+            // alert(1)
+            //定时器
+            setTimeout(function(n) {
+                // alert(2)
+                if (n % 2 == 0) { //表示成功
+
+                    resolve(n + ':是偶数' + '成功')
+
+                } else {
+                    reject(n + ':不是偶数' + '失败')
+                }
+            }, 1000, n)
+        })
+        p.then(function(res) {
+            console.log(res)
+        }, function(err) {
+            console.log(err)
+        })
+        console.log('xxxx')
+    </script>
+
+
+</body>
+
+</html>

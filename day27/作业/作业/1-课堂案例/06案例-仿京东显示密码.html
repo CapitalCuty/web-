@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06案例-仿京东显示密码</title>
+    <style>
+        div {
+            position: relative;
+            width: 200px;
+        }
+        
+        input {
+            width: 200px;
+        }
+        
+        img {
+            height: 20px;
+            position: absolute;
+            top: 2px;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="password">
+        <img src="img/images/close.png" alt="">
+    </div>
+    <script>
+        var img = document.querySelector("img");
+        var input = document.querySelector("input");
+        var flag = "password";
+
+        img.onclick = function() {
+            if (flag == "password") {
+                input.type = "text";
+                img.src = "img/images/open.png";
+                flag = "text";
+            } else if (flag == "text") {
+                input.type = "password";
+                img.src = "img/images/close.png";
+                flag = "password";
+            }
+        }
+    </script>
+</body>
+
+</html>

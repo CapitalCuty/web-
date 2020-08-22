@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //往数组里面添加 1-10的数字 
+        var arr1 = [];
+        for (var i = 1; i <= 10; i++) {
+            arr1.push(i);
+        }
+        document.write("向数组中添加1-10：" + arr1 + "<br><br>");
+
+        //往数组里面添加数据 1-10 但是只要奇数
+        var arr2 = [];
+        for (var i = 1; i <= 10; i++) {
+            if (i % 2 != 0) {
+                arr2.push(i);
+            }
+        }
+        document.write("向数组中添加1-10中的奇数：" + arr2 + "<br><br>");
+
+        //数组返过来排列 
+        var arr3 = [1, 2, 3, 4, 5];
+        document.write("原数组：" + arr3 + "<br><br>");
+        var temp = [];
+        for (var k = arr3.length - 1; k >= 0; k--) {
+            temp.push(arr3[k]);
+        }
+        document.write("翻转后：" + temp + "<br><br>");
+
+        //去掉大于10的值
+        var arr4 = [2, 12, 4, 5, 20, 10, 23, 50, 8, 9];
+        document.write("原数组：" + arr4 + "<br><br>");
+        var newArr4 = [];
+        for (var k = arr4.length - 1; k >= 0; k--) {
+            if (arr4[k] <= 10) {
+                newArr4.push(arr4[k]);
+            }
+        }
+        document.write("去掉大于10的数后：" + newArr4 + "<br><br>");
+    </script>
+</body>
+
+</html>

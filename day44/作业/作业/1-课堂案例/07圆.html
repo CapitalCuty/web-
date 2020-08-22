@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 10px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+        // 1、获取到画布  
+        var myCanvas = document.querySelector('canvas');
+        // 2、告诉别人画布是2D还是3D
+        var ctx = myCanvas.getContext('2d');
+
+        // arc(X的起始坐标，Y的起始坐标，半径，起始的弧度，结束的弧度)
+        ctx.arc(100, 100, 50, 0, Math.PI * 2)
+        ctx.stroke();
+        ctx.fill();
+    </script>
+</body>
+
+</html>

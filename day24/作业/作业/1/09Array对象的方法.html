@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //末位添加
+        //会改变原数组
+        var str1 = [1, 2, 3, 4]
+        var str2 = str1.push(5);
+        console.log(str1);
+        console.log(str2); //5
+
+        //首位添加
+        //会改变原数组
+        var str3 = [1, 2, 3, 4, 5]
+        var str4 = str3.unshift(0)
+        console.log(str3);
+        console.log(str4); //6
+
+
+        //首位删除
+        // 会改变原数组
+        var str5 = [1, 2, 3, 4, 5]
+        var str6 = str5.shift()
+        console.log(str5);
+        console.log(str6); //1
+
+
+        //末位删除
+        // 会改变原数组
+        var str7 = [1, 2, 3, 4, 5]
+        var str8 = str7.pop()
+        console.log(str7);
+        console.log(str8); //5
+
+
+        //数组翻转
+        // 会改变原数组
+        var str9 = [1, 2, 3, 4, 5]
+        var str10 = str9.reverse()
+        console.log(str10);
+
+        //排序
+        //会改变原数组
+        var str11 = [2, 3, 1, 4, 5]
+        var str12 = str11.sort();
+        console.log(str12);
+
+
+        //数组的索引
+        //不会改变原数组
+        //indexOf从左向右查找，找到第一个结束       
+        var str13 = [2, 3, 1, 4, 1]
+        var str14 = str13.indexOf(1);
+        console.log(str13);
+        console.log(str14); //2
+        //lastindexOf从右向坐找，找到第一个结束
+        var str15 = [2, 3, 1, 4, 1]
+        var str16 = str15.lastIndexOf(1);
+        console.log(str15);
+        console.log(str16); //4
+
+
+        //把数组用符号拼接成字符串
+        var arr8 = [1, 2, 3, 4, 5]
+        var str1 = arr8.join("|");
+        console.log(arr8);
+        console.log(str1);
+
+
+        //把字符串用特定符号拼接成数组
+        var arr9 = 'hello'
+        var str2 = arr9.split("");
+        // var str2 = [...arr9]   //这个方法可以直接将字符串转换成数组
+        console.log(arr9);
+        console.log(str2);
+    </script>
+</body>
+
+</html>

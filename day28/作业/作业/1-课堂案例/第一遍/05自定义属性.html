@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='hello' class="red" data-list='我不知道' data-list-name='你是谁'></div>
+    <script>
+        var div = document.querySelector("#hello")
+
+        //获取自定义属性
+        var myDateaList = div.getAttribute("data-list");
+        console.log(div);
+
+        //更改自定义属性值
+        div.setAttribute("data-list", "我知道")
+
+        //设置自定义属性
+        div.setAttribute("data-list-sex", "女")
+
+        //移除自定义属性
+        div.removeAttribute("data-list-name")
+    </script>
+</body>
+
+</html>

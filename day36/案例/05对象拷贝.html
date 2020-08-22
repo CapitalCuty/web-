@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script src="./jquery.min.js"></script>
+   <script>
+   
+     var newObj={}
+	 var obj={
+		 name:'zs',
+		 age:19
+	 }
+	 $.extend(  newObj,obj)  //浅拷贝
+
+	 console.log(newObj)
+
+
+
+
+	 newObj.name='zsf'
+
+ console.log(obj)
+
+
+
+
+
+// <!-- 
+//   var newObj={}
+// 	 var obj={
+// 		 name:'zs',
+// 		 age:19
+// 	 }
+// 	 $.extend (  true,newObj,obj)  //深拷贝
+
+
+// 	 console.log(newObj)
+// 	 newObj.name='zsf'
+
+//    console.log(newObj)
+//    console.log(obj) -->
+
+
+   
+   </script>
+
+</body>
+</html>

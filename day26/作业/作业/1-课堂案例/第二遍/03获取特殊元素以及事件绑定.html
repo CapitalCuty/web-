@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body id="body">
+    <div id="div">
+
+    </div>
+    <p>我会变色</p>
+    <h1>点我自己会变色</h1>
+    <button>点我变色</button>
+    <script>
+        //获取body
+        console.log(document.getElementById("body"));
+
+
+        //获取html
+        console.log(document.documentElement);
+
+
+        //获取div
+        console.log(document.getElementById("div"));
+
+
+        //事件
+        //1.先找元素
+        //2.绑定具体什么类型事件
+        //    click点击 绑定需要on
+
+        // 给js处理事件程序的时候搞清楚三件事情 
+        // 1 给谁绑定事件
+        // 2 绑定什么类型的事件
+        // 3 你要执行这个事件的具体什么效果(函数)
+
+        //1.点击按钮  让h1的字体颜色发生变化（red）
+        var button = document.querySelector("button");
+        button.onclick = function() {
+            var p = document.querySelector("p")
+            p.style.color = "red";
+        }
+
+        //2.点击h1  让自己的背景颜色发生变化(blue)
+        var h1 = document.querySelector("h1");
+        h1.onclick = function() {
+            h1.style.background = "blue"
+        }
+    </script>
+</body>
+
+</html>

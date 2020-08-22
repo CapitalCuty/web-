@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11案例-密码框格式提示错误</title>
+    <style>
+        .txt {
+            font-size: 12px;
+            background: url("img/images/mess.png") no-repeat;
+            padding-left: 18px;
+        }
+        
+        .wrong {
+            color: red;
+            background: url("img/images/wrong.png") no-repeat;
+        }
+        
+        .right {
+            color: green;
+            background: url("img/images/right.png") no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    设置密码：<input type="text">
+    <span class="txt">请输入登录密码</span>
+    <script>
+        var input = document.querySelector("input");
+        var span = document.querySelector("span");
+        //获取焦点的时候input框清空
+        input.onfocus = function() {
+            input.value = "";
+            span.innerText = "请输入登录密码";
+            span.className = " txt";
+        }
+
+        //失去焦点的时候判断
+        input.onblur = function() {
+            if (input.value.length < 6 || input.value.length > 16) {
+                span.innerText = "您的输入有误";
+                span.className = "wrong txt";
+            } else {
+                span.innerText = "您的输入正确";
+                span.className = "right txt";
+            }
+        }
+    </script>
+</body>
+
+</html>

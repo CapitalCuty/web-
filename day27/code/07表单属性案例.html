@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.box {
+			position: relative;
+			width: 400px;
+			border-bottom: 1px solid #ccc;
+			margin: 100px auto;
+		}
+
+		.box input {
+			width: 370px;
+			height: 30px;
+			border: 0;
+			outline: none;
+		}
+
+		.box img {
+			position: absolute;
+			top: 2px;
+			right: 2px;
+			width: 24px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box">
+		<label for="">
+			<img src="./img/images/close.png" alt="" id="eye">
+		</label>
+		<input type="password" name="" id="pwd">
+
+		<!-- type="password"   'text' -->
+	</div>
+	<script>
+		//  点击眼睛按钮  可以切换文本(input的值)进行显示与加密
+		var eye = document.querySelector('#eye')
+		var input = document.querySelector('#pwd')
+		//   var  flag=true    //是显示    false  加密
+		var flag = 'password'
+		eye.onclick = function () {
+			//   alert(1)
+			if (flag == 'password') {
+				//不加密
+				input.type = 'text'
+				eye.src = './img/images/open.png';
+			
+				flag = 'text'
+				// flag = input.type  //动态
+
+
+			} else if (flag == 'text') {
+				input.type = 'password'
+				eye.src = './img/images/close.png';
+			
+				flag = 'password'   
+					// flag = input.type  //动态
+
+			}
+
+
+
+		}
+	</script>
+</body>
+
+</html>

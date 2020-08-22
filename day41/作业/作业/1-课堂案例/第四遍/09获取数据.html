@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./js/jquery.js"></script>
+    <script>
+        //es5
+        $.ajax({
+            url: './data/1.json',
+            success: function(res) {
+                console.log(res)
+            }
+        })
+
+
+        //es6
+        $.ajax({
+            url: './data/2.json'
+        }).then(function(res) {
+            console.log(res)
+        })
+
+
+        //es7
+        async function fn() {
+            var data = await $.ajax({
+                url: './data/3.json'
+            })
+            console.log(data)
+        }
+        fn()
+    </script>
+</body>
+
+</html>

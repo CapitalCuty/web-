@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+
+	<script src="./js/jquery.js"></script>
+</head>
+
+<body>
+	<!-- session 服务端存储数据 跟cookie 本质上是一样的 -->
+
+	<input type="text" placeholder="输入值">
+	<button class="btn1">设置cookie</button>
+
+	<button class="btn2">获取cookie</button>
+
+	<button class="login">登陆</button>
+
+	<script>
+		var cookies = null
+
+		$('.btn1').on('click', function () {
+			var getVal = $("input").val();
+			//设置cookie
+			document.cookie = 'keys=' + getVal
+
+		})
+
+
+
+		$('.btn2').on('click', function () {
+			//获取cookie
+			cookies = document.cookie;
+			alert(cookies) //keys=李四
+
+		})
+
+
+
+
+		$('.login').on('click', function () {
+			cookies = document.cookie;
+         	if (cookies) {
+			var getNameArr = cookies.split('=');
+			alert(100)
+			if (getNameArr[1] == '李四') {
+				window.location.href = 'vip页面'
+			} else {
+				alert('客户你好 第一次来  办理vip更划算')
+				window.location.href = '普通登陆页面 记得办理vip噢'
+			}
+		}
+
+		})
+	
+	</script>
+
+</body>
+
+</html>

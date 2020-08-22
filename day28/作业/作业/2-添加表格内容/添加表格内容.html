@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        button {
+            border: 2px solid skyblue;
+            width: 50px;
+            height: 30px;
+        }
+        
+        thead {
+            background-color: purple;
+            text-align: center;
+        }
+        
+        tbody {
+            background-color: rosybrown;
+            text-align: center;
+        }
+        
+        .yx {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 14px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>
+            请输入姓名：<input type="text" value="" id="name">
+        </p>
+        <p>
+            请输入邮箱：<input type="text" value="" id="email"><span class="yx" onblur="getEmail(this)"></span>
+        </p>
+        <button>添加</button>
+        <table cellpadding="0 " cellspacing="0 " border="2 ">
+            <thead>
+                <tr>
+                    <td style="width: 100px; ">姓名</td>
+                    <td style="width: 400px; ">邮箱</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>小黑</td>
+                    <td>xiaohei@126.com</td>
+                </tr>
+                <tr>
+                    <td>小白</td>
+                    <td>xiaobao@itcast.cn</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var myName = document.querySelector("#name");
+        var myEmail = document.querySelector("#email");
+        var btn = document.querySelector("button");
+        var tbody = document.querySelector("tbody");
+        var span = document.querySelector("span")
+
+
+
+        btn.onclick = function() {
+            // alert(12345);
+            if (myName.value.trim() == "" || myEmail.value.trim() == "") {
+                alert("您输入有误，请重新输入！")
+            }
+            if (myEmail.value.indexOf("@") == -1) {
+                span.innerHTML = "!您的邮箱格式有误";
+                return;
+            }
+            //创建姓名td
+            var tdName = document.createElement("td");
+            tdName.innerText = myName.value;
+            //创建邮箱td
+            var tdEmail = document.createElement("td");
+            tdEmail.innerText = myEmail.value;
+            //创建tr
+            var tr = document.createElement("tr");
+            tr.appendChild(tdName);
+            tr.appendChild(tdEmail);
+            tbody.appendChild(tr);
+
+            //清空input框的内容
+            myName.value = "";
+            myEmail.value = "";
+        }
+    </script>
+</body>
+
+</html>

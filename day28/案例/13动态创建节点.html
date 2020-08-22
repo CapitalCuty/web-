@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<!-- 老大放这里 -->
+		<li>111</li>
+		<li>222</li>
+		<!-- 放在这里 -->
+	</ul>
+
+	<script>
+	  //1 动态创建节点 
+	//   var  addLi=document.createElement('标签名')
+	// var a=document.createElement('a')  //动态创建a
+   // 2 设置创建节点的内容
+var  addLi=document.createElement('li')
+  addLi.innerText='我是动态创建的节点'
+  addLi.style.color='red';
+  // 3 想把动态创建的元素放在具体哪个位置 (元素追加)
+   var  ul=document.querySelector('ul')
+//    appendChild('存放动态创建的元素')  默认是追加到最后
+   ul.appendChild(addLi)
+
+
+
+   var  newLi=document.createElement('li')
+   newLi.innerHTML='我想当老大'
+   newLi.style.color='green';
+// ul.insertBefore('动态创建的节点','需要存放到具体元素的前面的位置')
+
+ul.insertBefore(newLi,ul.children[0])
+
+
+	
+	</script>
+</body>
+</html>

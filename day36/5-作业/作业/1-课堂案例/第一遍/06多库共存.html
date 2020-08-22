@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $(function() {
+            var p1 = $('<p>1234567</p>')
+            $('body').append(p1)
+
+            var p2 = jQuery('<p>987654</p>')
+            $('body').append(p2)
+
+
+
+            //释放对$   jQuery的权利
+            var suiyi = jQuery.noConflict();
+            // console.log(suiyi)
+            var div = suiyi('<div>我是随意div</div>')
+            suiyi('body').append(div)
+
+
+        })
+    </script>
+</body>
+
+</html>

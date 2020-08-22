@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		//  使用场景  给表单进行验证 
+	var  reg=/abc/;   
+
+	// var reg1=new RegExp('abc')
+
+	//方法一  测试正则表达式  test('字符串')  返回值是true 或者false 
+	console.log(reg.test('a'))    //false
+	console.log(reg.test('abc'))  // true
+	console.log(reg.test('abcd')) // true
+	console.log(reg.test('abdc')) // false
+	console.log(reg.test('aabc')) // true
+	console.log(reg.test('dabc')) // true
+
+	
+
+
+ 
+var reg1=/ab*c/  //  * 表示出现0次或者多次  b可以出现0次或者多次
+
+console.log(reg1.test('ac'))
+
+console.log(reg1.test('abc'))
+
+console.log(reg1.test('abbbbcc'))
+
+	
+	</script>
+</body>
+</html>

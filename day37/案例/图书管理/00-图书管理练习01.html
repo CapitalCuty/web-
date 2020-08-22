@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap.css">
+    <script src="./lib/jquery.js"></script>
+</head>
+
+<body style="padding: 15px;">
+    <!-- 添加图书的Panel面板 -->
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">添加新图书</h3>
+        </div>
+        <div class="panel-body form-inline">
+            <!-- 顶部进行图书新增的结构部分 -->
+            <div class="input-group">
+                <div class="input-group-addon">书名</div>
+                <input type="text" class="form-control" id="iptBookname" placeholder="请输入书名">
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-addon">作者</div>
+                <input type="text" class="form-control" id="iptAuthor" placeholder="请输入作者">
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-addon">出版社</div>
+                <input type="text" class="form-control" id="iptPublisher" placeholder="请输入出版社">
+            </div>
+            <!-- 点击添加新图书 -->
+            <button id="btnAdd" class="btn btn-primary">添加</button>
+
+        </div>
+    </div>
+
+
+    <!-- 图书的表格 -->
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>出版社</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="tb">
+            <!-- 用于放置图书信息的tbody标签 -->
+
+        </tbody>
+    </table>
+</body>
+<script>
+    /* 分析：
+    1.请求服务端的图书信息，进行表格展示
+        -根据接口请求数据，进行字符串拼接后，生成到tbody中即可
+    2.新增图书功能：
+        -点击新增按钮
+        -检测前面三个输入框的内容，如果为空，进行提示并阻止后续操作
+        -将合理的内容发送给接口，让服务端保存
+        -添加成功后，将表格内容进行更新
+    3.删除功能：
+        -点击列表后面的删除，删除该行信息即可*/
+
+
+    // 图书信息展示功能：
+
+    //  1.1通过端口请求图书信息数据：
+    function renderBookTable() {
+        $.get('http://www.liulongbin.top:3006/api/getbooks',
+            function (res) {
+                // 1.2检测是否成功的请求到数据---》检测status属性是否为200：
+                if (res.status != 200) {
+                    alert('网络开小差了~请稍后再试');
+                    return;
+                }
+                // 1.3根据数据拼接对应的结构字符串：
+                var str = ''; // 用于保存拼接的结构字符串
+                var data = res.data;
+                $.each(data, function (i, ele) {
+                    str +=
+                        '<tr>\
+                <td>' + ele.id + '</td>\
+                <td>' + ele.bookname + '</td>\
+                <td>' + ele.author + '</td>\
+                <td>' + ele.publisher + '</td>\
+                <td><a href="javascript:;" class="del" data-id="' + ele.id + '">删除</a></td>\
+                </tr>';
+                });
+                // 1.4将拼接的字符串生成到HTML页面的tbody中：
+                $('#tb').html(str);
+            });
+    };
+
+    renderBookTable();
+
+    // --------------------------------------------------------
+
+    // 2.新增图书信息功能：
+    //  2.1给按钮添加事件：
+    $('#btnAdd').on('click', function () {
+        // 2.2获取三个输入框里的内容并进行检测是否为空
+        var val_1 = $('#iptBookname').val().trim(); //trim()清除前后的空格
+        var val_2 = $('#iptAuthor').val().trim();
+        var val_3 = $('#iptPublisher').val().trim();
+        //  检测是否有输入框内容为空：
+        if (val_1 === '' || val_2 === '' || val_3 === '') {
+            alert('请完整填写书籍信息！');
+
+            //  清空输入框---》可选
+            $('#iptBookname').val('');
+            $('#iptAuthor').val('');
+            $('#iptPublisher').val('');
+        }
+        // 2.3发送请求，将数据发送给服务端保存：
+        $.post('http://www.liulongbin.top:3006/api/addbook', {
+            bookname: val_1,
+            author: val_2,
+            publisher: val_3
+        }, function (res) {
+            //2.4检测添加数据操作是否成功：参考端口文档---》201成功：
+            if (res.status === 201) {
+                //  清空输入框
+                $('#iptBookname').val('');
+                $('#iptAuthor').val('');
+                $('#iptPublisher').val('');
+                // 2.5更新数据：---》功能一就是获取服务器的数据 因此此处可以把功能一封装后进行调用
+                renderBookTable();
+            }
+        });
+    });
+    // ------------------------------------------------------------
+
+    // 3.图书信息删除功能：
+    // 给删除按钮添加点击事件：
+    // --因为用于删除的按钮a是动态创建的元素，因此事件必须使用事件委托添加给父元素tbody
+    // --如果tbody中还有其他的a标签,在获取服务器数据进行字符串拼接的时候可以给删除按钮a添加设置类名（这里可选）
+    $('#tb').on('click', '.del', function () {
+        // 3.1获取按钮的id---》在字符串拼接是给a标签添加属性data-id保存id
+        var id = $(this).data('id');
+
+        // 3.2将id发给指定的删除接口：
+        $.ajax({
+            url: 'http://www.liulongbin.top:3006/api/delbook',
+            data: {
+                id: id
+            },
+            success: function (res) {
+                // 3.3检测删除是否成功：
+                if (res.status === 200) {
+                    // 删除成功，再次更新数据
+                    renderBookTable();
+                } else {
+                    // 删除失败：
+                    alert('删除失败，请稍后重试~')
+                }
+            }
+        });
+
+    });
+</script>
+
+</html>

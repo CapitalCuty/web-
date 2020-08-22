@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		div {
+			margin: 100px auto;
+			height: 40px;
+			border: 1px solid #000;
+			width: 400px;
+			overflow: hidden;
+
+		}
+
+		ul {
+
+			position: relative;
+			/* border: 10px solid red; */
+
+		}
+
+		li {
+			line-height: 40px;
+			list-style: none;
+			padding-left: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+
+		<ul>
+			<li>1 没什么空</li>
+			<li> 2 js真牛逼</li>
+			<li> 3 信杰哥 找好工作</li>
+		
+		</ul>
+
+	</div>
+
+
+	<script>
+		//1  ul每隔1s 往上走1个li的高度
+		var ul = document.querySelector('ul')
+		var div = document.querySelector('div')
+
+		var tops = 0;
+
+			function fn1() {
+		
+			tops = tops -40;
+			if (tops <= -120) {
+				tops = 0
+			}
+			ul.style.top = tops + 'px'
+		}
+
+
+
+		var timerId=setInterval(fn1, 1000)
+      //鼠标移入
+		div.addEventListener('mouseover',function(){
+			if(timerId) {
+				clearInterval(timerId)
+				// timerId=null;
+			}
+
+		})
+
+          //鼠标移出
+			div.addEventListener('mouseout',function(){
+				timerId=setInterval(fn1, 1000)
+
+		})
+        
+        
+
+
+
+
+
+
+
+
+    //    优化之后的代码
+		// function fn() {
+		// 	var heigtLi = ul.children[0].offsetHeight
+		// 	console.log(heigtLi)
+		// 	tops = tops - heigtLi;
+		// 	if (tops <= -ul.children.length * heigtLi) {
+		// 		tops = 0
+		// 	}
+		// 	ul.style.top = tops + 'px'
+		// }
+
+		// fn()
+	
+
+
+
+
+
+
+
+	</script>
+</body>
+
+</html>

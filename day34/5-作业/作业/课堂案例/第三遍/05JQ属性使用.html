@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="http://www.itcast.cn" title="都挺好" name='大王' age='100'> 猪肚鸡</a>
+    <input type="checkbox" name="" id="" checked>
+    <div index="1" data-index="2" name='div'>我是div</div>
+    <span>123</span>
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function() {
+            //prop('获取原有属性')  
+            console.log($('a').prop('title'));
+            //prop('设置原有属性','值')
+            $('a').prop('name', '小王')
+
+
+            //attr('获取自定义属性')  
+            console.log($('a').attr('age'));
+            //attr('设置自定义属性','值')
+            $('div').attr('index', 5)
+
+
+            //data('读取data开头的自定义属性')
+            console.log($('div').data('index'));
+            //data('设置读取data开头的自定义属性','值')
+            $('span').data('age', 24)
+            console.log($('span').data('age'))
+        })
+    </script>
+</body>
+
+</html>

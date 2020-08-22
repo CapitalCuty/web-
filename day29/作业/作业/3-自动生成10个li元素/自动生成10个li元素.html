@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul>li {
+            list-style: none;
+            width: 40px;
+            height: 40px;
+            border: 1px solid black;
+            float: left;
+            margin-right: 30px;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>自动生成10个li</button>
+    <ul>
+
+    </ul>
+    <script>
+        var btn = document.querySelector("button");
+        var ul = document.querySelector("ul");
+        //创建li
+
+        btn.onclick = function() {
+            var num = 0;
+            for (var i = 0; i < 10; i++) {
+                var li = document.createElement("li");
+                li.innerHTML = num;
+                ul.appendChild(li);
+                num++;
+                var r = Math.floor(Math.random() * 255);
+                var g = Math.floor(Math.random() * 255);
+                var b = Math.floor(Math.random() * 255);
+                li.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #01D0CA;
+        }
+        
+        .wrap {
+            width: 1200px;
+            height: 80px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .pcone {
+            max-width: 100%;
+        }
+        
+        .pstabs {
+            position: absolute;
+            top: 10px;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="wrap">
+            <img src="img/1.jpg" alt="" class="pc1">
+            <div class="pstabs">
+                <img src="img/2.png" alt="" class="pc2">
+            </div>
+        </div>
+    </header>
+    <script>
+        //获取那个小图标按钮
+        var pstabs = document.querySelector(".pstabs");
+        //点击小图标后header隐藏
+        pstabs.onclick = function() {
+            var head = document.querySelector("header");
+            head.style.opacity = "0";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+
+	<div id='hello'  class="red" data-list='我不知道' data-list-name='罗总'></div>
+	<script>
+		var div=document.querySelector('div')
+
+	 var  id=div.id
+	 console.log(id)
+	var  className=div.className
+	console.log(className)
+ 	
+	 var  dataList=div['da-list']
+ 	console.log(dataList)   //undefined    拿不到自定义属性
+
+
+	 //自定义属性的获取与设置   getAttribute 获取自定义属性
+	 myDataList=div.getAttribute('data-list')
+	 console.log(myDataList)   //我不知道  
+
+
+	 //设置自定义属性 setAttribute('第一个参数是属性的key' ,'第二个是属性的值')
+	 setMyData=div.setAttribute('sex','未知')
+
+	 //更改自定义属性
+	  div.setAttribute('data-list','I 知道')
+
+	  // 移除自定义属性
+    // div.setAttribute('data-list','')  // 不推荐
+	div.removeAttribute('data-list')  //移除  自定义属性
+	
+
+
+
+
+	
+	</script>
+</body>
+</html>

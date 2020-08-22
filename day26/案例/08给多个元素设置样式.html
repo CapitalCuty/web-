@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+
+	<style>
+		li {
+			list-style: none;
+			background-color: 'red'
+		}
+	</style>
+</head>
+
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+
+
+	<script>
+		// <!-- 
+		// 		console.log($$('li').style) -->
+		var lis = $$('li');
+
+		// for(var i=0;i<lis.length;i++) {
+		// 	// var li=lis[i];
+		// 	// console.log(li)  //表示每个li
+		// 	lis[i].style.backgroundColor='pink'
+		// 	lis[i].style.color='blue'
+		// 	lis[i].style.listStyle='none'
+		// }
+
+
+
+		//隔行变色
+		// for (var i = 0; i < lis.length; i++) {
+		// 	// var li=lis[i];
+		// 	// console.log(li)  //表示每个li
+		// 	if (i % 2 == 0) { //奇数行
+
+		// 		lis[i].style.backgroundColor = 'green'
+		// 		lis[i].style.color = 'blue'
+		// 		lis[i].style.listStyle = 'none'
+
+
+
+		// 	} else { //偶数行
+		// 		lis[i].style.backgroundColor = 'pink'
+		// 		lis[i].style.color = 'blue'
+		// 		lis[i].style.listStyle = 'none'
+		// 	}
+
+
+		// }
+
+
+
+
+		//隔行变色优化 1
+		// for (var i = 0; i < lis.length; i++) {
+		// 	var li=lis[i];
+		// 	// console.log(li)  //表示每个li
+		// 	if (i % 2 == 0) { //奇数行
+		// 		li.style.backgroundColor = 'green'
+
+		// 	} else { //偶数行
+		// 		li.style.backgroundColor = 'pink'
+		// 	}
+		// 	li.style.color = 'blue'
+		// 	li.style.listStyle = 'none'
+		// }
+
+
+
+
+		//隔行变色优化 2
+		// for (var i = 0; i < lis.length; i++) {
+		// 	var li = lis[i];
+			
+
+		// 	i % 2 == 0 ? li.style.backgroundColor= 'pink' :
+		// 		li.style.backgroundColor = 'green'
+
+		// 	li.style.color = 'blue'
+		// 	li.style.listStyle = 'none'
+		// }
+
+
+
+
+	   function setElement(color,bgc1,bgc2) {
+		for (var i = 0; i < lis.length; i++) {
+			var li = lis[i];
+			
+
+			i % 2 == 0 ? li.style.backgroundColor= bgc1 :
+				li.style.backgroundColor = bgc2
+
+			li.style.color = color
+			li.style.listStyle = 'none'
+		}
+
+	   }
+
+	   setElement('yellow','orange','skyblue')
+
+
+	   // 1 随机换颜色 
+	//    Math.random()
+    //   2 每隔2秒钟 切换颜色
+		function $$(ele) {
+			return document.querySelectorAll(ele)
+		}
+
+
+		function $(ele) {
+
+			return document.querySelector(ele)
+		}
+	</script>
+</body>
+
+</html>

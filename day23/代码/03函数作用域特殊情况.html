@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	
+	var num1=10;
+	// var num2=20
+     function fn() {
+		 num2=20  // 如果在函数里面没有var声明的变量  那么就是全局变量   强烈不推荐
+		 console.log(num1)
+
+
+		  console.log(num2)  //函数作用域 只能函数里面访问
+		
+	 }
+
+	 fn()
+
+	 console.log(num2)
+	</script>
+</body>
+</html>

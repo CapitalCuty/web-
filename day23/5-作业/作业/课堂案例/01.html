@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var num1 = 10;
+
+        function demo() {
+            var num2 = 20;
+            console.log(num1);
+            console.log(num2);
+
+        }
+        demo();
+        console.log(num2); //结果报错：num2 is not defined  //js运行报错后，下面的不执行
+        console.log(num1);
+
+
+
+
+        var num1 = 10;
+
+        function demo() {
+            num2 = 20; //如果在函数里面没有var声明，那么就是全局变量，不推荐
+            console.log(num1);
+            console.log(num2);
+        }
+        demo();
+        console.log(num2); //结果是20
+        console.log(num1);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $.ajax({
+                url: './data/1.json'
+            })
+            .then(function(res) {
+                if (res.a == 1) {
+                    return $.ajax({
+                        url: './data/2.json',
+                    })
+                } else {
+                    return $.ajax({
+                        url: './data/3.json',
+                    })
+                }
+            })
+            .then(function(res2) {
+                console.log(res2)
+            }).catch(function(err) {
+                console.log(err)
+            })
+    </script>
+</body>
+
+</html>

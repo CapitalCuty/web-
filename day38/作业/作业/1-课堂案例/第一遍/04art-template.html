@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.js"></script>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>名字</th>
+                <th>内容</th>
+                <th>时间</th>
+            </tr>
+        </thead>
+
+        <tbody id="tbody">
+            <!-- <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr> -->
+        </tbody>
+    </table>
+    <!-- 引入 -->
+    <script src="./js/template-web.js"></script>
+    <!-- 定义模板 -->
+    <script type="text/html" id="tmp">
+        {{each data as value index}}
+        <tr>
+            <td>{{value.username}}</td>
+            <td>{{value.content}}</td>
+            <td>{{value.time}}</td>
+        </tr>
+        {{/each}}
+    </script>
+    <!-- 根据数据动态生成 -->
+    <script>
+        // var data = {
+        //     c: 100,
+        //     name: 'zs',
+        //     person: [{
+        //         name: "jack",
+        //         age: 18
+        //     }, {
+        //         name: "tom",
+        //         age: 19
+        //     }, {
+        //         name: "jerry",
+        //         age: 20
+        //     }, {
+        //         name: "kid",
+        //         age: 21
+        //     }, {
+        //         name: "jade",
+        //         age: 22
+        //     }]
+        // }
+        $.ajax({
+            url: 'http://www.liulongbin.top:3006/api/cmtlist',
+            success: function(res) {
+                console.log(res)
+
+                var html = template('tmp', res)
+
+                $('#tbody').html(html)
+            }
+        })
+
+        // var html = template('tmp', data)
+        // $('#tbody').html(html)
+    </script>
+</body>
+
+</html>

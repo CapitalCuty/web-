@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 10px solid red;
+            background: green;
+            transition: all 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="time">
+
+    </div>
+    <script>
+        //5秒后让盒子消失
+        function getBox() {
+            document.getElementById("time").style.opacity = 0;
+        }
+        setTimeout(getBox, 5000)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.parent {
+			width: 1200px;
+			height: 800px;
+			background-color: green;
+			position: relative;
+		
+			top:200px;
+		}
+
+		div {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		
+			/* padding: 10px; */
+			border: 1px solid #000;
+			box-sizing: border-box;
+			position: absolute;
+			left: 200px;
+			top: 0px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="parent">
+			parent
+	<div id='div'>son</div>
+  </div>
+
+	<button> 点击</button>
+	<!-- offset()、position()、scrollTop()/scrollLeft()  -->
+
+	<script src="./jquery.min.js"></script>
+	<script>
+	
+   var  get_off_parent=$('#div').position()
+   console.log(get_off_parent.top)
+   console.log(get_off_parent.left)
+	  
+	  
+	</script>
+</body>
+
+</html>

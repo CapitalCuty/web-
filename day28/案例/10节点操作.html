@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<!-- div.demo>div.box>.erweima -->
+	<div class="demo">
+		<div class="box">
+			<div class="erweima">二维码</div>
+			<div class="erweima">二维码</div>
+		</div>
+	</div>
+
+	<script>
+	
+	 var  erweima=document.querySelector('.erweima')
+      //二维码的父级是谁
+	 //   父节点
+	 //   1  parentNode 找的是最近的直接父元素  (父元素) 
+	 //   2  parentNode 找不到就返回null
+
+	 var  parent=erweima.parentNode
+	 console.log(parent)   //box
+	 console.log(parent.parentNode.parentNode.parentNode.parentNode.parentNode)  // null
+
+var  childNodes=parent.childNodes;
+console.dir(childNodes)  //包含换行空格以及子元素  不用
+
+
+var children=parent.children    //掌握的 children
+console.log(children)
+	
+	
+	</script>
+</body>
+</html>

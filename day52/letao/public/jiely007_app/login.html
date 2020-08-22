@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./assets/mui/css/mui.min.css">
+	<link rel="stylesheet" href="./css/base.css">
+	<link rel="stylesheet" href="./css/form.css">
+</head>
+
+<body>
+	<header class="mui-bar mui-bar-nav  header">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">嗨淘登陆</h1>
+	</header>
+	<nav class="mui-bar mui-bar-tab footer">
+		<a class="mui-tab-item mui-active" href="#tabbar">
+			<span class="mui-icon mui-icon-home"></span>
+			<span class="mui-tab-label">首页</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-chat">
+			<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+			<span class="mui-tab-label">分类</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-contact">
+			<span class="mui-icon mui-icon-contact"></span>
+			<span class="mui-tab-label">购物车</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-map">
+			<span class="mui-icon mui-icon-gear"></span>
+			<span class="mui-tab-label">会员中心</span>
+		</a>
+	</nav>
+
+
+	<div class="mui-content">
+		<div class='mui-scroll-wrapper'>
+			<div class="mui-scroll">
+				<!-- 填写内容的区域 -->
+
+				<form class="mui-input-group">
+					<div class="mui-input-row">
+						<label>用户名</label>
+						<input type="text" class="mui-input-clear  username" placeholder="请输入用户名">
+					</div>
+					<div class="mui-input-row">
+						<label>密码</label>
+						<input type="password" class="mui-input-password  password" placeholder="请输入密码">
+					</div>
+					<div class="mui-button-row">
+						<button type="button" class="mui-btn mui-btn-primary loginBtn">登陆</button>
+
+					</div>
+
+					<div class="mui-button-row">
+						<a href="./register.html" class="mui-btn mui-btn-primary mui-pull-right">免费注册</a>
+
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- 移动的端 jquery  -->
+	<script src="./assets/zepto/zepto.min.js"></script>
+	<script src="./assets/mui/js/mui.min.js"></script>
+	<script src="./assets/artTemplate/template-web.js"></script>
+
+
+
+
+	<script>
+		/*  1  绑定轻敲事件
+	2  或者值 (username pwd)
+	3  判断不能为空
+	4  发送ajax请求   成功了就跳转到个人中心   失败   给出提示 
+
+*/
+
+		$('.loginBtn').on('tap', function () {
+			var username = $('.username').val().trim();
+			var password = $('.password').val().trim();
+			if (!username) {
+				mui.alert('用户名不能为空')
+				return false
+			}
+			if (!password) {
+				mui.alert('密码不能为空')
+				return false
+			}
+			$.ajax({
+				url: ' /user/login',
+				type: 'post',
+				data: {
+					username: username,
+					password: password
+				},
+				beforeSend: function () {
+					$('.loginBtn').html('正在登陆...')
+				},
+				success: function (res) {
+				console.log(res)
+
+					if (res.success) {
+						$('.loginBtn').html('登陆成功')
+						setTimeout(function () {
+							window.location.href = './user.html'
+						}, 2000)
+					}else {
+						mui.alert(res.message)
+						$('.loginBtn').html('登陆')
+					}
+				},
+				error:function(err) {
+					
+				},
+				complete: function () {
+					$('.username').val('')
+					$('.password').val('')
+				}
+
+			})
+
+
+		})
+	</script>
+</body>
+
+</html>

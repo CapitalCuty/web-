@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            border: 1px solid skyblue;
+            list-style: none;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            float: left;
+            text-align: center;
+        }
+        
+        li:hover {
+            cursor: pointer;
+        }
+        
+        ul {
+            overflow: hidden;
+        }
+        
+        video {
+            height: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="music">
+        <ul>
+            <li>
+                我的主页
+                <video src="./素材/music(1-7)/a4.mp3" controls></video>
+            </li>
+
+            <li>新闻头条 <video src="./素材/music(1-7)/b4.mp3"></video></li>
+            <li>电视剧 <video src="./素材/music(1-7)/c4.mp3"></video></li>
+            <li>最新电影 <video src="./素材/music(1-7)/d4.mp3"></video></li>
+            <li>小游戏 <video src="./素材/music(1-7)/e4.mp3"></video></li>
+            <li>小说大全 <video src="./素材/music(1-7)/f4.mp3"></video></li>
+            <li>旅游度假 <video src="./素材/music(1-7)/g4.mp3"></video></li>
+        </ul>
+    </div>
+
+
+
+
+
+</body>
+
+<script src="../jquery.min.js"></script>
+<script>
+    $('.music').on('mouseenter', 'li', function() {
+        // alert(1)
+        console.log($(this).children('video')[0]);
+        $(this).children('video')[0].play()
+    })
+</script>
+
+</html>

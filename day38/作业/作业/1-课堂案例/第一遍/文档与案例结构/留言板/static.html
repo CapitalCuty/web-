@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>留言板</title>
+    <link rel="stylesheet" href="./assets/bootstrap.css" />
+    <style>
+        h4 {
+            margin: 10px 0;
+        }
+        
+        p {
+            margin: 7px 0;
+            text-indent: 20px;
+        }
+        
+        li {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="display-1">留言板</h1>
+        <hr>
+        <ul id="messages" class="list-unstyled">
+            <!-- 留言内容示例结构 -->
+            <!-- <li class="media">
+        <img class="mr-3" src="./assets/default.png" alt="张三" />
+        <div class="media-body">
+          <h4>张三</h4>
+          <p>这是我的留言内容，哈哈哈哈哈哈哈哈哈哈！~</p>
+          <p>2019-06-07 12:08:34</p>
+          <a href="javascript:;">删除</a>
+        </div>
+      </li>
+      <li class="media">
+        <img class="mr-3" src="./assets/pic1.png" alt="李四" />
+        <div class="media-body">
+          <h4>李四</h4>
+          <p>这是我的留言内容，嘿嘿嘿嘿嘿嘿嘿嘿嘿嘿！~</p>
+          <p>2019-06-07 13:12:53</p>
+          <a href="javascript:;">删除</a>
+        </div>
+      </li>
+      <li class="media">
+        <img class="mr-3" src="./assets/pic2.png" alt="王五" />
+        <div class="media-body">
+          <h4>王五</h4>
+          <p>这是我的留言内容，呵呵呵呵呵呵呵呵呵呵！~</p>
+          <p>2019-06-07 08:10:20</p>
+          <a href="javascript:;">删除</a>
+        </div>
+      </li> -->
+        </ul>
+        <hr>
+        <form>
+            <div class="form-group">
+                <label for="txt_name">称呼：</label>
+                <input class="form-control" id="txt_name" type="text" />
+            </div>
+            <div class="form-group">
+                <label for="txt_content">留言：</label>
+                <textarea class="form-control" id="txt_content" cols="80" rows="10"></textarea>
+            </div>
+            <!-- 在form表单中，如果button没有设置type，则默认有一个提交表单的动作
+        设置type="button"，就不会提交表单了。
+        -->
+            <button id="btn_send" type="button" class="btn btn-primary">
+        提交
+      </button>
+        </form>
+    </div>
+    <script src="./assets/jquery.min.js"></script>
+
+    <script src="./assets/template-web.js"></script>
+
+    <script type='text/html' id='tmp'>
+        <li class="media">
+            <img class="mr-3" src="./assets/pic1.png" alt="李四" />
+            <div class="media-body">
+                <h4>{{name}}</h4>
+                <p>{{content}}</p>
+                <p>{{date}}</p>
+                <a href="javascript:;">删除</a>
+            </div>
+        </li>
+    </script>
+
+    <script>
+        //分析  
+        // 1 给发送按钮绑定点击事件
+        //2 获取到名字跟内容
+        //3 判断一下内容与名不能为空
+        //4  把内容跟名字添加到页面上
+        var html = ''
+        $('#btn_send').on('click', function() {
+            var txt_name = $('#txt_name').val().trim();
+            var txt_content = $('#txt_content').val().trim();
+
+            if (!txt_name) {
+                alert('名字不能为空！')
+                return false
+            }
+            if (!txt_content) {
+                alert('留言内容不能为空！')
+                return false
+            }
+
+            var data = {
+                name: txt_name,
+                content: txt_content,
+                date: dateFormat()
+            }
+            html += template('tmp', data)
+            console.log(html)
+
+            $('ul').html(html)
+
+            $('#txt_name').val('')
+            $('#txt_content').val('')
+        })
+
+
+        // 用来进行日期格式化的函数：
+        function dateFormat() {
+            var time = new Date();
+            var y = time.getFullYear();
+            var m = time.getMonth() + 1;
+            m = m > 9 ? m : '0' + m;
+            var d = time.getDate();
+            d = d > 9 ? d : '0' + d;
+            var h = time.getHours();
+            h = h > 9 ? h : '0' + h;
+            var mm = time.getMinutes();
+            mm = mm > 9 ? mm : '0' + mm;
+            var s = time.getSeconds();
+            s = s > 9 ? s : '0' + s;
+            return y + '-' + m + '-' + d + ' ' + h + ':' + mm + ':' + s;
+        }
+    </script>
+
+</body>
+
+</html>

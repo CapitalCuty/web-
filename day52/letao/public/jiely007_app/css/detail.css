@@ -1,0 +1,65 @@
+.detail_des {
+  padding: 4px 0;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+.detail_price {
+  font-size: 14px;
+  padding: 8px 0;
+  border-bottom: 1px solid #ccc;
+}
+.detail_price span:nth-child(2) {
+  color: orange;
+  font-size: 30px;
+}
+.detail_price del {
+  color: #666;
+}
+.detail_size {
+  margin: 20px 0;
+}
+.detail_size div {
+  float: left;
+  margin-right: 10px;
+}
+.detail_size span {
+  text-align: center;
+  font-size: 14px;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  float: left;
+  margin: 5px;
+  border: 1px solid #000;
+}
+.detail_num {
+  padding: 4px  0;
+  line-height: 28px;
+  text-align: center;
+}
+.detail_num span {
+  float: left;
+  height: 28px;
+}
+.detail_num div {
+  margin: 0 8px;
+  float: left;
+}
+.detail_num div input {
+  float: left;
+  width: 28px;
+  height: 28px;
+}
+.detail_num div .inputText {
+  border-left: none;
+  border-right: none;
+  width: 40px;
+}
+.detail_subit button {
+  width: 50%;
+  float: left;
+}
+.current {
+  background-color: orange;
+  color: #fff;
+}

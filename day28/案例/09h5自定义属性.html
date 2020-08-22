@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+		<div id='hello'  class="red" data-list='我不知道' data-list-name-sex='罗总'></div>
+
+		<script>
+		var div=document.querySelector('div')
+		// data 以data开头的都可以认为是自定义属性    
+		//  var arrVal=div.dataset;
+		//  console.log(arrVal)
+        //方法一
+         var list1=div.dataset.list;
+		 console.log(list1)
+        //   方法二
+		var list2=div.dataset['list']
+		console.log(list2)
+
+
+		//方法一 
+		var  listName1=div.dataset.listNameSex;
+		console.log(listName1)
+
+	//方法二
+		var  listName2=div.dataset['listNameSex'];
+		console.log(listName2)
+		
+		</script>
+</body>
+</html>

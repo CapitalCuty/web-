@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+	  * {
+		  margin: 0;
+		  padding: 0;
+	  }
+	
+	</style>
+
+</head>
+<body id='body'>
+
+	<div id='div'>
+		  <h1>点击的时候设置我的背景颜色</h1>
+		  <button>点击</button>
+
+	</div>
+	<script>
+
+	//    var body=document.querySelector('#body')
+	//    console.log(body)
+	//    body.style.backgroundColor='skyblue'
+
+    //    var div=document.querySelector('div')
+	//    div.style.backgroundColor='skyblue'
+	//    div.style.height='200px'
+
+
+	//获取元素html
+
+	// var  html=document.documentElement
+	// console.log(html)
+
+
+	//事件  
+	// 1 点击按钮 让h1的字体颜色发送变化(红色)
+	// 2 点击 h1 当自己的背景颜色发生变化(blue)
+
+	// 给js处理事件程序的时候搞清楚三件事情 
+	// 1 给谁绑定事件
+	// 2 绑定什么类型的事件
+	// 3 你要执行这个事件的具体什么效果好(函数)
+
+
+	// 1 点击按钮 让h1的字体颜色发送变化(红色)
+    //   谁  按钮 
+	//   事件类型  点击
+	//   实现函数效果(事件处理函数)  让h1的字体颜色发送变化(红色)
+	
+	//1 找元素 
+	  var btn=document.querySelector('button')
+	//2 绑定具体什么类型事件
+	//  btn.on(点击类型)
+	// click 点击  绑定需要要on 
+	btn.onclick=function(){
+		// 让h1的字体颜色发送变化(红色)
+	var  h1=document.querySelector('h1')
+	h1.style.color='red';	
+	}  
+
+
+
+
+	// 2 点击 h1 当前自己的背景颜色发生变化(blue)
+	var  h1=document.querySelector('h1')
+	h1.onclick=function(){
+	
+       h1.style.backgroundColor='blue'
+	}
+	
+	</script>
+</body>
+</html>

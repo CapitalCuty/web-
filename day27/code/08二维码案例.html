@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+
+
+	<img src="./img/images/tao.png" alt="" srcset="">
+	<button>点击</button>
+	<script>
+		var btn = document.querySelector('button')
+		var img = document.querySelector('img')
+		var flag = true;
+		btn.onclick = function () {
+
+			// if (flag) {
+			// 	img.style.display = 'none'
+			// 	flag = false
+			// } else {
+			// 	img.style.display = 'block'
+			// 	flag = true
+			// }
+
+			// 方法二 
+			 flag?img.style.display = 'none': 	img.style.display = 'block'
+
+               
+
+		}
+	</script>
+</body>
+
+</html>

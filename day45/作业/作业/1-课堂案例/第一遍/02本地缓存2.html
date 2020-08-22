@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 可以跨页面取值
+        var val1 = localStorage.getItem('key')
+        console.log(val1)
+
+
+        // 只能在当前页面取值
+        var sessionVal = sessionStorage.getItem('sessionkey')
+        console.log(sessionVal); //值为空null
+
+
+
+        //localStorage 与 sessionStorage 区别 
+        //  相同点: 1  都可以存储数据   
+        //           2  localStorage   20mb     sessionStorage  5mb
+        //  不同点:  1 localStorage  可以跨页面取值   sessionStorage 只能在当前页面获取值
+        //           2 localStorage   永久存储数据    sessionStorage 浏览器关闭 自动清空存储数据
+    </script>
+</body>
+
+</html>

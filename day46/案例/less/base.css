@@ -1,0 +1,4 @@
+.bordered {
+  border-top: dotted 20px red;
+  border-bottom: solid 20px red;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var reg = /[abc]/; //只要有a或b或c就可以满足
+
+        console.log(reg.test('a')); //true
+        console.log(reg.test('b')); //true
+        console.log(reg.test('c')); //true
+        console.log(reg.test('abc')); //true
+        console.log(reg.test('aa')); //true
+        console.log(reg.test('bb')); //true
+        console.log(reg.test('ccc')); //true
+        console.log(reg.test('andy')); //true
+        console.log(reg.test('cxk')); //true
+
+        var reg1 = /^[abc]$/; //只能以a或b或c开始，并且只能以a或b或c结束,只有一个数
+
+        console.log(reg1.test('a')); //true
+        console.log(reg1.test('b')); //true
+        console.log(reg1.test('c')); //true
+        console.log(reg1.test('abc')); //false
+        console.log(reg1.test('aa')); //false
+        console.log(reg1.test('bb')); //false
+        console.log(reg1.test('ccc')); //false
+        console.log(reg1.test('andy')); //false
+        console.log(reg1.test('cxk')); //false
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.js"></script>
+</head>
+
+<body>
+    <!-- session    服务端存储数据  跟cookie本质上是一样的 -->
+    <input type="text" placeholder="输入值">
+    <button class="btn1">设置cookie</button>
+    <button class="login">登陆</button>
+
+    <script>
+        $('.btn1').on('click', function() {
+            var getVal = $('input').val();
+            // 设置cookie
+            document.cookie = 'keys=' + getVal
+        })
+
+
+        $('.login').on('click', function() {
+            // 获取cookie
+            var cookies = document.cookie;
+            if (cookies) {
+                var getName = cookies.split('=')
+                if (getName[1] == '李四') {
+                    window.location.href = 'vip页面.html'
+                } else {
+                    alert('客户您好，第一次来，请先办理vip哦')
+                    window.location.href = '登陆页面.html'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

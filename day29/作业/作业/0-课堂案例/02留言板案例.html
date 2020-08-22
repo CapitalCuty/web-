@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        textarea {
+            margin-top: 10px;
+            margin-left: 50px;
+        }
+        
+        ul {
+            color: red;
+            width: 320px;
+            margin-left: 50px;
+            margin-top: 40px;
+        }
+        
+        ul>li {
+            background-color: pink;
+            font-size: 16px;
+            margin: 10px;
+            position: relative;
+        }
+        
+        a {
+            position: absolute;
+            right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>发布</button>
+    <ul>
+
+    </ul>
+    <script>
+        var text = document.querySelector("textarea");
+        var btn = document.querySelector("button");
+        var ul = document.querySelector("ul");
+
+        btn.onclick = function() {
+            if (text.value.trim() == "") {
+                alert("您的输入有误！")
+                return;
+            }
+            var li = document.createElement("li");
+            li.innerText = text.value;
+            if (!ul.children) {
+                ul.appendChild(li)
+            } else {
+                ul.insertBefore(li, ul.children[0]);
+            }
+            text.value = ""
+
+            //添加删除按钮
+            var a = document.createElement("a")
+            a.href = "javascript:;"
+            a.innerText = "删除";
+            li.appendChild(a);
+
+            //给删除按钮绑定事件
+            var as = document.querySelectorAll("a")
+            for (var i = 0; i < as.length; i++) {
+                var a = as[i];
+                a.onclick = function() {
+                    var flag = confirm("您确定删除吗？")
+                    if (flag) {
+                        ul.removeChild(this.parentNode)
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

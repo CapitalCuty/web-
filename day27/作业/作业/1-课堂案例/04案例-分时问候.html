@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例：分时显示不同的图片和问候语</title>
+</head>
+
+<body>
+    <img src="img/images/s.gif" alt="">
+    <h1>上午好！</h1>
+    <script>
+        var img = document.querySelector("img");
+        var h1 = document.querySelector("h1");
+        //获取当前时间
+        var date = new Date();
+        var h = date.getHours();
+        //判断时间段
+        if (h < 12) {
+            img.src = "img/images/s.gif"
+            h1.innerText = "上午好！"
+        } else if (h < 18) {
+            img.src = "img/images/x.gif"
+            h1.innerText = "下午好！"
+        } else {
+            img.src = "img/images/w.gif"
+            h1.innerText = "晚上好！"
+        }
+    </script>
+</body>
+
+</html>

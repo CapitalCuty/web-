@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+	
+	  /* #h1Box {
+
+	  } */
+	</style>
+</head>
+
+<body>
+
+
+	<h1 id='h1Box' class="h1">hello world1 </h1>
+	<h1 id='h1Box' class="h1">hello world2 </h1>
+	<h1 id='h1Box' class="h1">hello world3 </h1>
+	<div class="h1">我是div</div>
+	<div class="h1">我是div</div>
+	<h1>h1我也是 抱大腿</h1>
+	<ul id='ul'>
+		<li class="xxx">1</li>
+		<li class="xxx">2</li>
+		<li class="xxx">3</li>
+		<li class="xxx">4</li>
+		<li class="xxx">5</li>
+	</ul>
+
+
+	<ul>
+			<li>小米手机</li>
+			<li>Redmi 红米</li>
+			<li>电视</li>
+			<li>笔记本</li>
+			<li>家电</li>
+			<li>路由器</li>
+			<li>智能硬件</li>
+			<li>服务</li>
+			<li>社区</li>
+	</ul>
+
+	<div id="divBox">
+		<p></p>
+		<p></p>
+		<p></p>
+		<h2></h2>
+		<h2></h2>
+	</div>
+	
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+	<!-- <div>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div> -->
+
+	<script>
+   // id 一个页面上相同的id 只能有1个    id用于获取单个元素
+   // class  用于获取多个元素 class 相同 不管是什么类型的元素 都可以获取到
+//      class 获取到的元素是一个伪数组 有length 属性 伪数组可以遍历
+//   通过TagName 获取元素(标签名获取元素) 获取所有的相同的标签
+
+    //   var  h1=document.getElementsByTagName('h1') 
+	//   var  lis=document.getElementsByTagName('li') 
+	//   console.log(h1)
+	//   console.log(lis)
+
+
+    //方法一
+	//   var ul=document.getElementById('ul')
+	//   console.dir(ul)            //打印对象
+	//   var selfLis=ul.children   //方法 
+	//   console.log(selfLis[3])  //也是一个伪数组
+
+  
+    //方法二 
+	var ul=document.getElementById('ul')
+	console.dir(ul) 
+	console.log(ul.getElementsByTagName('li'))
+	console.log(ul.getElementsByClassName('xxx'))
+
+
+	
+
+
+	var divBox=document.getElementById('divBox')
+	var ps=divBox.getElementsByTagName('p')
+	console.log(ps)
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+
+</html>

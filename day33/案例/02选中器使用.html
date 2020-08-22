@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li class="three">3</li>
+        <li>4</li>
+    </ul>
+
+
+    <span class='spans'>span</span>
+    <span id='myspan'>span</span>
+    <p>我是p</p>
+    <div></div>
+
+
+
+
+
+
+
+    <div class="divBox">
+        <ul>
+            <li>
+                <a href=""> <span>xxx-------111</span></a>
+            </li>
+            <li>xxx</li>
+            <li>
+                <a href=""> <span>xxx-----33</span></a>
+            </li>
+        </ul>
+        <span>xxxx</span>
+    </div>
+    <a href=""><span></span></a>
+
+
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function() { //入口函数 相当于  window.onload
+
+            //表示匹配所有的选择器  一般不用
+            console.log($('*'))
+                // 并集选择器
+            $('ul,span,p') //同时选中 ul  span  p标签
+            console.log($('ul,span,p'))
+
+            //交集选择器  在元素后面直接写选择器  千万不要空格  
+            $('li.three,span')
+            console.log($('li.three,span#myspan'))
+
+
+            //子代选择器  亲儿子  > 表示子代            
+            //   需求 选择 ul 标签里面的 li标签里面的span 
+            $('div.divBox>ul>li>a>span')
+
+            console.log($('div.divBox>ul>li>a>span'))
+
+
+
+            // 空格表示后代     后代 包括子子孙孙
+
+
+            $('div.divBox  li span')
+            $(' div.divBox  a  span')
+
+
+            console.log($('div.divBox  li span'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        })
+    </script>
+</body>
+
+</html>

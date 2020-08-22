@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+
+	<button>点击并且移入</button>
+	<script src="./jquery.min.js"></script>
+
+	<script>
+	
+	
+	$(function(){
+		//方式一
+    //   $('button').on('click mouseover mouseout',function(){
+	// 	  console.log('1111')
+	//   })
+
+	//方式二 
+
+	$('button').on({
+		'click':function() {
+			console.log('click')
+		},
+		'mouseover':function(){
+			console.log('mouseover')
+		},
+		'mouseout':function(){
+			console.log('mouseout')
+		}
+	})
+
+
+	})
+	
+	</script>
+</body>
+</html>

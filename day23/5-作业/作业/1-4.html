@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //请使用arguments完成函数getResult，实现得到输入的所有的数值中的最小值、最大值、平均数、总和等功能
+        //arguments是伪数组对象，由实参组成的一个类似于数组的对象，里面还有length属性，还可以通过索引找到对应的值
+        function getResult(a, b, c, d, e, f) {
+            var max = arguments[0]; //假设第一个值最大
+            var min = arguments[0]; //假设第一个值最小
+            var sum = 0;
+            var aver;
+            for (var i = 0; i < arguments.length; i++) {
+                if (max < arguments[i]) {
+                    max = arguments[i] //最大值
+                }
+                if (min > arguments[i]) {
+                    min = arguments[i] //最小值
+                }
+                sum += arguments[i]; //求和
+                aver = sum / arguments.length; //求平均值
+            }
+            var obj = {
+                max: max,
+                min: min,
+                sum: sum,
+                averages: aver,
+            }
+            return obj;
+        }
+        var result = getResult(2, 3, 5, 1, 4);
+        console.log(result);
+    </script>
+</body>
+
+</html>

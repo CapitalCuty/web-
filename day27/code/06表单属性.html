@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>表单属性</title>
+</head>
+
+<body>
+
+	<input type="text" placeholder="请输入搜索内容" value="xxxx" >
+	<button>点击</button>
+
+
+	<script>
+		var input = document.querySelector('input')
+		var btn = document.querySelector('button')
+
+		btn.onclick=function() {
+			// alert(1)
+			input.value='我是设置的值'	
+			input.disabled=false;   //disbaled   为真的时候表示不让写  默认的情况下是可以的写的
+          console.log(this)   // this执行事件源  谁点击this指向谁
+
+		//   btn.style.backgroundColor='red';
+		    this.style.backgroundColor='red';
+
+
+		}
+
+
+	</script>
+</body>
+
+</html>

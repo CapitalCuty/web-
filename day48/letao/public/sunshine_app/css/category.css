@@ -1,0 +1,63 @@
+.my_content {
+  position: absolute;
+  left: 0;
+  top: 44px;
+  bottom: 50px;
+  width: 100%;
+  background-color: #f5f5f5;
+}
+.my_content .category_left {
+  height: 100%;
+  width: 80px;
+  float: left;
+  position: relative;
+}
+.my_content .category_left .mui-scroll-wrapper {
+  top: 0;
+  bottom: 0;
+}
+.my_content .category_left .mui-scroll-wrapper .mui-scroll .links {
+  background-color: #fff;
+}
+.my_content .category_left .mui-scroll-wrapper .mui-scroll .links a {
+  display: block;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  color: #000;
+  font-size: 14px;
+  border-right: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+.my_content .category_left .mui-scroll-wrapper .mui-scroll .links a:first-child {
+  background-color: #f5f5f5;
+  border-right: 1px solid transparent;
+}
+.my_content .category_right {
+  height: 100%;
+  margin-left: 90px;
+  position: relative;
+}
+.my_content .category_right .mui-scroll-wrapper {
+  top: 0;
+  bottom: 0;
+}
+.my_content .category_right .mui-scroll-wrapper .mui-scroll {
+  margin-top: 10px;
+  background-color: #fff;
+}
+.my_content .category_right .mui-scroll-wrapper .mui-scroll .brand_list li {
+  width: 33.3%;
+  float: left;
+}
+.my_content .category_right .mui-scroll-wrapper .mui-scroll .brand_list li a {
+  display: block;
+  width: 100%;
+}
+.my_content .category_right .mui-scroll-wrapper .mui-scroll .brand_list li a img {
+  display: inline-block;
+  width: 100%;
+}
+.my_content .category_right .mui-scroll-wrapper .mui-scroll .brand_list li a p {
+  text-align: center;
+}

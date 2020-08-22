@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        
+        ul {
+            list-style: none
+        }
+        
+        .box {
+            width: 600px;
+            margin: 100px auto;
+            border: 1px solid #000;
+            padding: 20px;
+        }
+        
+        textarea {
+            width: 450px;
+            height: 160px;
+            outline: none;
+            resize: none;
+        }
+        
+        ul {
+            width: 450px;
+            padding-left: 80px;
+        }
+        
+        ul li {
+            line-height: 25px;
+            border-bottom: 1px dashed #cccccc;
+            display: none;
+        }
+        
+        input {
+            float: right;
+        }
+        
+        ul li a {
+            float: right;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="box" id="weibo">
+        <span>微博发布</span>
+        <textarea name="" class="txt" cols="30" rows="10"></textarea>
+        <button class="btn">发布</button>
+        <ul>
+        </ul>
+    </div>
+    <script src="./jquery.min.js"></script>
+
+    <script>
+        $(function() {
+            //给发布按钮绑定点击事件
+            $('.btn').click(function() {
+                //获取到文本域内的值
+                var getVal = $('.txt').val();
+                //判断文本框内是否有值
+                if (!getVal.trim()) {
+                    alert('请填写内容再发布！')
+                    return
+                }
+                //创建li,将文本域内的值放到li中，并在li里面创建删除按钮
+                var li = $(`<li>${getVal}<a href="javascript:;">删除</a></li>`)
+                $('ul').append(li);
+                //默认的li是隐藏的，所以要有个滑出的效果
+                $('li').slideDown(500);
+                //清空文本框内的值
+                $('.txt').val('')
+            })
+
+            //给ul里面的a删除按钮绑定点击事件    这里的a是动态创建的,无法绑定点击事件,需要用到事件委托
+            // on('事件类型','绑定事件的具体元素',回调函数)
+            $('ul').on('click', 'a', function() {
+                // console.log(this) //这里的this是指a
+                $(this).parent().slideUp(500, function() {
+                    // console.log(this) //这里的this是指li
+                    $(this).remove()
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

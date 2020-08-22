@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/mui/css/mui.min.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/detail.css">
+
+    <!-- 移动端的jquery -->
+    <script src="./assets/zepto/zepto.min.js"></script>
+    <script src="./assets/mui/js/mui.min.js"></script>
+    <script src="./assets/artTemplate/template-web.js"></script>
+    <script src="./js/detail.js"></script>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav header">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">嗨淘首页</h1>
+    </header>
+    <nav class="mui-bar mui-bar-tab footer">
+        <a class="mui-tab-item mui-active" href="./index.html">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item" href="./category.html">
+            <span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item" href="./cart.html">
+            <span class="mui-icon mui-icon-contact"></span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-tab-item" href="./user.html">
+            <span class="mui-icon mui-icon-gear"></span>
+            <span class="mui-tab-label">个人中心</span>
+        </a>
+    </nav>
+    <!-- mui-content 公共滚动条 -->
+    <div class="mui-content">
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll contantBox">
+                <!-- <div class="mui-slider">
+                    <div class="mui-slider-group mui-slider-loop">
+                        <div class="mui-slider-item mui-slider-item-duplicate">
+                            <a href="#"><img src="./images/detail.jpg" /></a>
+                        </div>
+                        <div class="mui-slider-item mui-slider-item-duplicate">
+                            <a href="#"><img src="./images/detail.jpg" /></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail_title">【莹恋】MIZUNO美津浓V1GA159002乒乓球鞋男鞋女鞋室内综合训练鞋</div>
+                <div class="detail_price mui-clearfix">
+                    <span>价格:</span>
+                    <span>&yen;112</span>
+                    <del>&yen;342</del>
+                </div>
+                <div class="detail_size mui-clearfix">
+                    <div>尺码:</div>
+                    <span>35</span>
+                    <span>35</span>
+                    <span>35</span>
+                    <span>35</span>
+                    <span>35</span>
+                    <span>35</span>
+                    <span>35</span>
+                    <span>35</span>
+                    <span>35</span>
+                    <span>35</span>
+                    <span>35</span>
+                    <span>35</span>
+                    <span>35</span>
+                    <span>35</span>
+                    <span>35</span>
+                    <span>35</span>
+                    <span>35</span>
+                    <span>35</span>
+                    <span>35</span>
+                    <span>35</span>
+                </div>
+                <div class="datail_num mui-clearfix">
+                    <span>数量：</span>
+                    <div>
+                        <input type="button" value="-" class="reduce">
+                        <input type="text" value="1" class="num">
+                        <input type="button" value="+" class="add">
+                    </div>
+                    <span>剩余：<i>44</i>件</span>
+                </div>
+                <div class="detail_btn">
+                    <button type="button" class="mui-btn mui-btn-warning">查看购物车</button>
+                    <button type="button" class="mui-btn mui-btn-danger">加入购物车</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        mui('.mui-scroll-wrapper').scroll({
+            deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+        });
+    </script>
+
+    <!-- 引入模板 -->
+    <script type="text/html" id="detailTmp">
+        <!-- 轮播图开始 -->
+        <div class="mui-slider">
+            <div class="mui-slider-group mui-slider-loop">
+                <!--支持循环，需要重复图片节点-->
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="#"><img src="./images/detail.jpg" /></a>
+                </div>
+                <!--支持循环，需要重复图片节点-->
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="#"><img src="./images/detail.jpg" /></a>
+                </div>
+            </div>
+        </div>
+        <!-- 轮播图结束 -->
+        <div class="detail_title">{{proName}}</div>
+        <div class="detail_price mui-clearfix">
+            <span>价格:</span>
+            <span>&yen;{{price}}</span>
+            <del>&yen;{{oldPrice}}</del>
+        </div>
+        <div class="detail_size mui-clearfix">
+            <div>尺码:</div>
+            {{each sizeArr value}}
+            <span>{{value}}</span> {{/each}}
+        </div>
+        <div class="datail_num mui-clearfix">
+            <span>数量：</span>
+            <div>
+                <input type="button" value="-" class="reduce">
+                <input type="text" value="1" class="num">
+                <input type="button" value="+" class="add">
+            </div>
+            <span>剩余：<i>44</i>件</span>
+        </div>
+        <div class="detail_btn">
+            <button type="button" class="mui-btn mui-btn-warning">查看购物车</button>
+            <button type="button" class="mui-btn mui-btn-danger">加入购物车</button>
+        </div>
+    </script>
+</body>
+
+</html>

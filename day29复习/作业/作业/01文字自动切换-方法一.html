@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            width: 400px;
+            height: 40px;
+            border: 1px solid red;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        
+        ul {
+            position: relative;
+        }
+        
+        ul>li {
+            line-height: 40px;
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>1.每时每刻，给你新机会</li>
+            <li>2.HTML定义了网页的内容</li>
+            <li>3.CSS用来美化网页</li>
+            <li>4.JS用来实现业务逻辑和页面控制</li>
+        </ul>
+    </div>
+    <script>
+        var div = document.querySelector("div");
+        var ul = document.querySelector("ul");
+        var lis = document.querySelectorAll("li");
+
+        var num = 0;
+
+        function fn() {
+            var hei = ul.children[0].offsetHeight;
+            num -= hei;
+            if (num <= -ul.children.length * hei) {
+                num = 0;
+            }
+            ul.style.top = num + "px";
+        }
+        // fn();
+        var temp = setInterval(fn, 1000);
+
+        //鼠标移入的时候清除定时器
+        div.addEventListener('mouseover', function() {
+            clearInterval(temp);
+        })
+
+        //鼠标移出的时候开启定时器
+        div.addEventListener('mouseout', function() {
+            temp = setInterval(fn, 1000);
+        })
+    </script>
+</body>
+
+</html>

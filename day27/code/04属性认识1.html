@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		img {
+			width: 300px;
+			margin: 10px auto;
+			display: block;
+			/* text-align: center; */
+			/* display: inline */
+
+		}
+	</style>
+</head>
+
+<body>
+	<img src="./img/images/ldh.jpg" alt="" srcset="">
+	<!-- <img src="./img/images/zxy.jpg" alt="" srcset=""> -->
+
+	<button class="btn">刘德华</button>
+	<button class="btn">学友哥</button>
+
+	<script>
+		var img =  document.querySelector('img')
+		var btn1 = document.querySelectorAll('button')[0]
+		var btn2 = document.querySelectorAll('button')[1]
+		btn1.onclick = function () {
+			img.src = './img/images/ldh.jpg'
+			img.title='刘德华么么哒'
+		}
+
+		btn2.onclick = function () {
+			console.log(img.src) //获取会带有盘符  绝对路径
+			//设置src  
+			img.src = './img/images/zxy.jpg'
+			img.title='学友思密达'
+
+		}
+	</script>
+
+
+
+</body>
+
+</html>

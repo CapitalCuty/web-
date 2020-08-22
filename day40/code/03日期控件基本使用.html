@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="./jedate/css/jedate.css">
+</head>
+<body>
+		<input type="text" id="test" readonly>
+		<button id="btn">显示日期</button>
+		<!-- <script src="web_back/js/jedate/js/jedate.js"></script> -->
+  <script src="./jquery-1.12.4.min.js"></script>
+  
+		<script src="./jedate/js/jedate.js"></script>
+
+
+    <script>
+	
+$(function(){
+
+	  	$('#btn').on('click',function() {
+		
+		jeDate("#test",{
+            format:"YYYY-MM-DD",
+            isTime:false,
+			trigger: false, // 不使用内置的事件功能，自己进行设置
+           /*  minDate:"2014-09-19 00:00:00" */
+			minDate:"2010-01-01 00:00:00",              //最小日期 或者 "1900-01-01" 或者 "10:30:25"
+            maxDate:"3099-12-31 23:59:59",
+        })
+	})
+  })
+	</script> 
+
+
+	<script>
+
+		// $(function(){
+		// 	jeDate("#test",{
+        //     format:"YYYY-MM-DD",
+        //     isTime:false,
+		// 	trigger: false, // 不使用内置的事件功能，自己进行设置
+        //    /*  minDate:"2014-09-19 00:00:00" */
+		// 	minDate:"2010-01-01 00:00:00",              //最小日期 或者 "1900-01-01" 或者 "10:30:25"
+        //     maxDate:"3099-12-31 23:59:59",
+        // })
+	
+		// })
+	
+	</script>
+
+</body>
+</html>

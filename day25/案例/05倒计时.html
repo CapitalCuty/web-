@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	
+		//写一个倒计时 10s  到0 后停止
+    var  timeId=setInterval(fn,1000)
+    var count=10;
+	   function fn(){
+		document.write(count+'<br>')
+    		if(count==0) {
+				clearInterval(timeId)
+			}else {
+				count--
+
+			
+			}
+	}
+	
+
+
+	
+	</script>
+</body>
+</html>

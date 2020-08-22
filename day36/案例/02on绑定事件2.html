@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+
+
+
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+
+	<button>点击动态创建一个li</button>
+	<script src="./jquery.min.js"></script>
+
+	<script>
+	
+	
+	$(function(){
+		$('li:even').css({'backgroundColor':'red'})
+
+
+    //不能直接绑定动态创建的元素的事件
+    //  $('li').on('click',function() {
+	// 	 alert($(this).text())
+	//  })
+
+
+	 $('button').on('click',function() {
+		 var newLi=$('<li>我是动态创建的li</li>')
+		 $('ul').append(newLi)
+	 })
+
+
+	 //事件代理的形式进行绑定事件(动态创建的元素依然可以绑定事件)
+	 $('ul').on('click','li',function() {
+		alert($(this).text())
+	 })
+
+
+	})
+	
+	</script>
+</body>
+</html>

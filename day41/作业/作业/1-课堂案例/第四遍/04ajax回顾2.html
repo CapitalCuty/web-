@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $.ajax({
+            url: './data/1.json',
+            type: 'get',
+            data: {},
+            beforeSend: function() {
+
+            },
+            success: function(res) {
+                if (res.a == 1) {
+                    $.ajax({
+                        url: './data/2.json',
+                        success: function(res) {
+                            if (res.a == 2) {
+                                $.ajax({
+                                    url: './data/3.json',
+                                    success: function(res) {
+                                        console.log(res)
+                                    }
+                                })
+                            } else {
+                                $.ajax({
+                                    url: './data/5.json',
+                                    success: function(res) {
+                                        console.log(res)
+                                    }
+                                })
+                            }
+                        }
+                    })
+                } else {
+                    $.ajax({
+                        url: './data/4.json',
+                        success: function(res) {
+                            console.log(res)
+                        }
+                    })
+                }
+            },
+            error: function(err) {
+
+            },
+            complete: function() {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

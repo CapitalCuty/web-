@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		//函数 作用  执行一段可以重复执行的(类似)代码
+
+		//     function  fn (a) {
+		//    console.log('我是函数'+a)
+		// 	}
+
+
+
+		// <!-- 
+		// fn()
+		// fn()
+		// fn()
+		// fn() -->
+
+		// fn('xxx')
+
+
+		// 函数的形参与实际参数
+
+
+		//在定义函数的时候()里面写的参数都叫形参  形参个数没有限制0 100 
+		// function fn(a, b, c) {
+		// 	console.log('我是函数' + a + b)
+		// 	console.log(c)
+		// }
+
+		//实际参数  简称 实参  在函数调用的时候传递的参数叫实际参数 实参 
+		//   函数名()    小括号里面传递的函数就叫实参  实际参数 个数以及数据类型没有限制
+
+		//形参与实参的关系1
+		//   一般情况下(正常情况) 实参传递的过来的值 跟形参接受过来的值的数量一致   
+		// fn(1, 2)
+
+
+		// 非正常情况   如果实际参数(实参)个数比形参的个数多 
+		// fn(10, 20, 30) //多的实际参数不用
+
+
+		//   如果实际参数(实参)个数比形参的个数少 
+
+		// fn(100) //  形参没有接受的值  哪一个形参没有接受到值 那么这个形参就是undefined  
+
+
+
+
+
+
+
+
+		// 形参与实参的关系2  
+		// 形参跟实参没有关系  
+		// 函数的调用的时候 只是把实参 复制 了一份传递给了形参  
+
+		//    function  fn (a,b,c) {
+		//    console.log('我是函数'+a+b)
+		//    console.log(c)
+		// 	}
+
+
+
+		// 	fn(100,200,300)
+
+		//   100==100
+		//   200==200
+		//   300=300
+
+
+		function fn(a, b, c) {
+			console.log( a )
+			console.log(b)
+			console.log(c)
+			console.log(a+100)
+		}
+
+
+		var aa = 100;
+		var bb = 200;
+		var cc = 300;
+
+
+		fn(aa, bb, cc)
+		 aa=1000;
+		 console.log(aa)
+	</script>
+</body>
+
+</html>

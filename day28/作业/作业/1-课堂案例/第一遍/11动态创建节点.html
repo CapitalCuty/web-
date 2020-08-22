@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <!-- 老大放这里 -->
+        <li>111</li>
+        <li>222</li>
+        <!-- 放在这里 -->
+    </ul>
+
+    <script>
+        var ul = document.querySelector("ul")
+
+        //创建节点
+        var addli = document.createElement("li");
+        addli.innerHTML = "我是老大";
+        //在前面添加节点
+        ul.insertBefore(addli, ul.children[0]);
+
+
+        //创建节点
+        var newli = document.createElement("li");
+        newli.innerHTML = "我是老小";
+        //在后面添加节点
+        ul.appendChild(newli);
+    </script>
+</body>
+
+</html>

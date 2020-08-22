@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<img src="./img/images/x.gif" alt=""  id='imgId'>
+	<!-- <img src="./img/images/s.gif" alt="" srcset="">
+	<img src="./img/images/z.gif" alt="" srcset="">
+	<img src="./img/images/w.gif" alt="" srcset=""> -->
+	<h1>上午好 我有来了</h1>
+	<script>
+		var h1 = document.querySelector('h1')
+		var img = document.querySelector('img')
+
+
+		function fn() {
+			// console.log(img.id)
+			var date = new Date();
+			var h = date.getHours();
+			if (h < 12) {
+				img.src = './img/images/s.gif'
+				h1.innerText = '美女上午好,要不要给你带一份早餐'
+			} else if (h < 18) {
+				img.src = './img/images/x.gif'
+				h1.innerText = '美女下午好,要不要给你带一份奶茶'
+			} else {
+				img.src = './img/images/w.gif'
+				h1.innerText = '美女晚上好,今天下雨,我小电动车来你接你'
+			}
+		}
+		fn()
+
+		setInterval(fn, 100)
+	</script>
+
+
+</body>
+
+</html>

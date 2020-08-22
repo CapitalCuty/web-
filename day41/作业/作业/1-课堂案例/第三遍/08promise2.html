@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./js/jquery.js"></script>
+    <script>
+        var val = window.prompt('今天的天气')
+        var p1 = new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    if (val == "下雨") {
+                        resolve('下雨')
+                    } else {
+                        reject('晴天')
+                    }
+                })
+            })
+            .then(function(res1) {
+                console.log(res1)
+                return new Promise(function(resolve, reject) {
+                    resolve('回家吃饭')
+                })
+            }, function(err1) {
+                console.log(err1)
+                return new Promise(function(resolve, reject) {
+                    resolve('陪女朋友逛街')
+                })
+            })
+            .then(function(res2) {
+                console.log(res2)
+            }, function(err2) {
+                console.log(err2)
+            })
+            .catch(function(err) {
+                console.log(err)
+            })
+    </script>
+</body>
+
+</html>

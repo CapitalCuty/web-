@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 8px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="600" height="600"></canvas>
+
+    <script>
+        var myCanvas = document.querySelector('canvas')
+        var ctx = myCanvas.getContext('2d')
+
+        // arc(圆心的起始坐标，圆心的结束坐标，半径，起始弧度，结束弧度)
+
+        // 直接访问
+        ctx.beginPath()
+        ctx.moveTo(300, 300)
+        ctx.arc(300, 300, 150, -90 * Math.PI / 180, -45 * Math.PI / 180)
+        ctx.fillStyle = '#D53A35'
+        ctx.fill();
+        ctx.stroke()
+        ctx.closePath()
+
+        ctx.beginPath()
+        ctx.moveTo(300, 300)
+        var y1 = 300 - (Math.sin(65 * Math.PI / 180) * 150 + 30);
+        var x1 = 300 + Math.tan(25 * Math.PI / 180) * y1;
+        ctx.lineTo(x1, y1)
+        ctx.strokeStyle = '#D53A35'
+        ctx.stroke()
+        ctx.closePath()
+
+        ctx.beginPath()
+        ctx.moveTo(x1, y1)
+        ctx.lineTo(x1 + 30, y1)
+        ctx.strokeStyle = '#D53A35'
+        ctx.fillText('直接访问', x1 + 40, y1)
+        ctx.stroke()
+        ctx.closePath()
+
+
+        // 邮件直销
+        ctx.beginPath()
+        ctx.moveTo(300, 300)
+        ctx.arc(300, 300, 150, -45 * Math.PI / 180, 0 * Math.PI / 180)
+        ctx.fillStyle = '#2F4554'
+        ctx.fill()
+        ctx.closePath()
+
+        ctx.beginPath()
+        ctx.moveTo(300, 300)
+        var y2 = 300 - Math.sin(25 * Math.PI / 180) * 150;
+        var x2 = 190 + Math.tan(65 * Math.PI / 180) * y1;
+        ctx.lineTo(x2, y2)
+        ctx.strokeStyle = '#2F4554'
+        ctx.stroke()
+        ctx.closePath()
+
+        ctx.beginPath()
+        ctx.moveTo(x2, y2)
+        ctx.lineTo(x2 + 20, y2)
+        ctx.strokeStyle = '#2F4554'
+        ctx.fillText('邮件直销', x2 + 30, y2)
+        ctx.stroke()
+        ctx.closePath()
+
+
+        // 联盟广告
+        ctx.beginPath()
+        ctx.moveTo(300, 300)
+        ctx.arc(300, 300, 150, 0 * Math.PI / 180, 32 * Math.PI / 180)
+        ctx.fillStyle = '#61A0A8'
+        ctx.fill()
+        ctx.closePath()
+
+
+        // 视频广告
+        ctx.beginPath()
+        ctx.moveTo(300, 300)
+        ctx.arc(300, 300, 150, 32 * Math.PI / 180, 50 * Math.PI / 180, )
+        ctx.fillStyle = '#D48265'
+        ctx.fill()
+        ctx.closePath()
+
+
+
+        // 搜索引擎
+        ctx.beginPath()
+        ctx.moveTo(300, 300)
+        ctx.arc(300, 300, 150, 50 * Math.PI / 180, -90 * Math.PI / 180, )
+        ctx.fillStyle = '#91C7AE'
+        ctx.fill()
+        ctx.closePath()
+    </script>
+</body>
+
+</html>

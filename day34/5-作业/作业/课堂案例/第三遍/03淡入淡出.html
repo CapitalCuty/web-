@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn1">fadeIn</button>
+    <button class="btn2">fadeOut</button>
+    <button class="btn3">fadeToggle</button>
+    <button class="btn4">fadeTo</button>
+    <div></div>
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function() {
+            // fadeIn()  淡入
+            $('.btn1').click(function() {
+                $('div').fadeIn()
+            })
+
+            // fadeOut()    淡出
+            $('.btn2').click(function() {
+                $('div').fadeOut()
+            })
+
+            // fadeToggle()    淡入淡出切换
+            $('.btn3').click(function() {
+                $('div').fadeToggle()
+            })
+
+            //fadeTo()  改变透明度
+            $('.btn4').click(function() {
+                $('div').fadeTo(500, 0.4)
+            })
+
+        })
+    </script>
+</body>
+
+</html>

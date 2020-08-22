@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+	
+	  span {
+		  display: none
+	  }
+	</style>
+</head>
+<body>
+	<input type="text">
+	<span>xxxx</span>
+
+	<script>
+	
+	var input=document.querySelector('input')
+	var span=document.querySelector('span')
+	input.oninput=function() {
+	var reg=/^[0-9]*$/
+	  if(reg.test(input.value)) {
+		  span.innerText='真听话  我要你'
+		
+	  }else {
+		span.innerText='让你输数字 你非要输入别的字符'
+		// return false
+		 
+	  }
+	  span.style.display='block'
+	}
+
+
+	
+
+	// input.onchange=function() {
+	// 	alert('2')
+	// }
+	
+	</script>
+</body>
+</html>

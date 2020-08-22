@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	
+   <input type="text">
+   <span></span>
+
+<script>
+
+var input=document.querySelector('input')
+	var span=document.querySelector('span')
+//  只能是以  数字 英文字符（大写跟小写）  下划线 断横线 并且 6-16位  的字符
+//    [a-z]  //表示范围  表示a-z 26个字母 只要有就符合条件
+  var  reg=/^[a-zA-Z0-9_-]{6,16}$/
+
+    input.oninput=function() {
+		if(reg.test(input.value)) {
+			span.innerHTML='配合条件'
+		}else {
+			span.innerHTML='只能是6位'
+		}
+	}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <span></span>
+    <script>
+        var input = document.querySelector("input")
+        var span = document.querySelector("span")
+        input.oninput = function() {
+            // 0-9任意数字开始和结尾
+            var reg = /^[0-9]*$/
+            if (reg.test(input.value)) {
+                span.innerHTML = "正确"
+            } else {
+                span.innerHTML = "错误"
+            }
+        }
+
+        // input.onchange = function() {
+        //     alert(2);
+        // }
+    </script>
+</body>
+
+</html>

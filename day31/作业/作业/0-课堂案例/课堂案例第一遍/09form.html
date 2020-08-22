@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    window.onload = function() {
+        var search = window.location.search; //?userName=qwqe&pwd=1234
+        console.log(search);
+        //删除掉?
+        var str = search.substr(1); //userName=qwqe&pwd=1234
+        console.log(str);
+        //用特定符号分割成数组
+        var arr = str.split("&"); //["userName=qwqe", "pwd=1234"]
+        console.log(arr);
+        var obj = {};
+        for (var i = 0; i < arr.length; i++) {
+            var newArr1 = arr[i];
+            //用特定符号分割成数组
+            var newArr2 = newArr1.split("="); //["userName", "qwqe"]
+            console.log(newArr2);
+            obj[newArr2[0]] = newArr2[1];
+            console.log(obj);
+        }
+    }
+</script>
+
+</html>

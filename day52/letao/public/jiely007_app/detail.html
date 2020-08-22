@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./assets/mui/css/mui.min.css">
+	<link rel="stylesheet" href="./css/base.css">
+	<link rel="stylesheet" href="./css/detail.css">
+</head>
+
+<body>
+	<header class="mui-bar mui-bar-nav  header">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">嗨淘首页</h1>
+	</header>
+	<nav class="mui-bar mui-bar-tab footer">
+		<a class="mui-tab-item mui-active" href="#tabbar">
+			<span class="mui-icon mui-icon-home"></span>
+			<span class="mui-tab-label">首页</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-chat">
+			<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+			<span class="mui-tab-label">分类</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-contact">
+			<span class="mui-icon mui-icon-contact"></span>
+			<span class="mui-tab-label">购物车</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-map">
+			<span class="mui-icon mui-icon-gear"></span>
+			<span class="mui-tab-label">会员中心</span>
+		</a>
+	</nav>
+
+
+	<div class="mui-content mui-clearfix">
+		<div class='mui-scroll-wrapper'>
+			<div class="mui-scroll  bigBox">
+				<!-- 填写内容的区域 -->
+
+
+
+
+				<!-- l轮播图开始 -->
+
+
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- 移动的端 jquery  -->
+	<script src="./assets/zepto/zepto.min.js"></script>
+	<script src="./assets/mui/js/mui.min.js"></script>
+	<script src="./assets/artTemplate/template-web.js"></script>
+
+
+	<script type="text/html" id='detailTmp'>
+		<div class="mui-slider">
+			<div class="mui-slider-group mui-slider-loop">
+				<!--支持循环，需要重复图片节点-->
+
+				{{each pic  imgs i}}
+
+				<div class="mui-slider-item"><a href="#"><img src="{{imgs.picAddr}}" /></a></div>
+
+                   {{/each}}
+
+				<!--支持循环，需要重复图片节点-->
+
+			</div>
+		</div>
+
+
+
+		<div class="detail_des">
+			{{proName}}
+		</div>
+		<div class="detail_price">
+			<span>价格:</span>
+			<span>&yen;{{price}}</span>
+			<del>&yen;{{oldPrice}}</del>
+		</div>
+		<div class="detail_size  mui-clearfix">
+			<div> 尺码：</div>
+
+			{{each arrSize  size index}}
+			<span class='spansSize'>{{size}}</span>
+			{{/each}}
+
+		</div>
+
+		<div class="detail_num mui-clearfix">
+			<span>数量：</span>
+			<div class="mui-clearfix">
+				<input type="button" value="-" class="reduce">
+				<input type="text" value=1 class="inputText">
+				<input type="button" value="+" class="add">
+
+			</div>
+			<span>剩余: <i>{{num}}</i>件</span>
+		</div>
+		<div class="detail_subit">
+			<button type="button" class="mui-btn mui-btn-danger">查看购物车</button>
+			<button type="button" class="mui-btn mui-btn-royal">加入购物车</button>
+		</div>
+	</script>
+
+
+	<script>
+		/*初始化区域滚动组件 当超过了父容器大小的时候生效*/
+		mui('.mui-scroll-wrapper').scroll();
+
+
+
+
+		//   var  url='http://localhost:3000/jiely007_app/detail.html?id=6';
+
+
+		// size: "35-56"
+		var idArr = location.search.split('=');
+
+
+		var id = idArr[1];
+		console.log(id)
+
+
+
+
+		$.ajax({
+			url: '/product/queryProductDetail',
+			data: {
+				id: id
+			},
+			success: function (res) {
+
+				var mySizeArr = res.size.split('-');
+				var start = Number(mySizeArr[0]);
+				var end = Number(mySizeArr[1]);
+				console.log(start + '--' + end)
+
+
+
+				res.arrSize = [];
+
+				console.log(res)
+				for (var i = start; i <= end; i++) {
+					res.arrSize.push(i)
+				}
+
+
+
+
+
+
+
+				var html = template('detailTmp', res)
+				console.log(html)
+
+				$('.bigBox').html(html)
+			}
+		})
+
+
+
+
+		$('.bigBox ').on('tap', '.spansSize', function (res) {
+			// alert(1)
+			$(this).addClass('current').siblings('span').removeClass('current')
+		})
+
+
+		$('.bigBox').on('tap','.reduce',function() {
+
+		})
+
+
+		$('.bigBox').on('tap','.add',function() {
+
+})
+	</script>
+</body>
+
+</html>

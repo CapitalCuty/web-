@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "科学",
+    "slug": "kexue",
+    "isDelete": false
+  },
+  {
+    "id": 2,
+    "name": "八卦",
+    "slug": "fly",
+    "isDelete": false
+  },
+  {
+    "id": 3,
+    "name": "军事",
+    "slug": "junshi",
+    "isDelete": false
+  },
+  {
+    "id": 4,
+    "name": "新闻",
+    "slug": "comfortablehome",
+    "isDelete": false
+  },
+  {
+    "id": 5,
+    "name": "奇异",
+    "slug": "outhome",
+    "isDelete": false
+  }
+]

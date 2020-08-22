@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        //事件  
+        // 1 点击按钮 让h1的字体颜色发送变化(红色)
+        // 2 点击 h1 当自己的背景颜色发生变化(blue)
+
+        // 给js处理事件程序的时候搞清楚三件事情 
+        // 1 给谁绑定事件
+        // 2 绑定什么类型的事件
+        // 3 你要执行这个事件的具体什么效果好(函数)
+
+
+        // 1 点击按钮 让h1的字体颜色发送变化(红色)
+        //   谁  按钮 
+        //   事件类型  点击
+        //   实现函数效果(事件处理函数)  让h1的字体颜色发送变化(红色)
+
+
+        // 要求是个页面上所有li绑定点击事件
+        var li = document.querySelector('li')
+        console.dir(li)
+        li.onclick = function() {
+            alert(22)
+        }
+
+        // 1找人(找到元素)
+        var lis = document.querySelectorAll('li')
+            //2 绑定事件类型（点击）
+        console.dir(lis) //为数组没有绑定对应的事件
+            // 给多个元素都绑定事件一定进行遍历 
+        for (var i = 0; i < lis.length; i++) {
+            //  console.dir(lis[i])    //lis[i] 表示每个li
+            lis[i].onclick = function() {
+                alert(333)
+            }
+
+        }
+    </script>
+</body>
+
+</html>

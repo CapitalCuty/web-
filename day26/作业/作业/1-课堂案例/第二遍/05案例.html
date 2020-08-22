@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <button>立即消失</button>
+    <button>3s后消失</button>
+    <script>
+        //点击的时候让盒子消失
+        var btn = document.querySelectorAll("button")[0];
+        btn.onclick = function() {
+            var div = document.querySelector("div");
+            div.style.opacity = "0";
+        }
+
+        //点击的时候3s后消失
+        var btn1 = document.querySelectorAll("button")[1];
+        btn1.onclick = function() {
+            setTimeout(function() {
+                var div = document.querySelector("div");
+                div.style.opacity = "0";
+            }, 1000)
+        }
+
+
+        //消失后6s显示        
+        var btn1 = document.querySelectorAll("button")[1];
+        btn1.onclick = function() {
+            setTimeout(function() {
+                var div = document.querySelector("div");
+                div.style.opacity = "0";
+            }, 1000)
+            setTimeout(function() {
+                var div = document.querySelector("div");
+                div.style.opacity = "1";
+            }, 3000)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //写一个函数，能判断传入的一个数值是否是质数，如果是质数返回true，如果不是质数返回false，(质数：从2开始只能被1和自身整数的数)
+        var num = prompt("请输入一个数值");
+        if (num < 2) {
+            alert(num + "不是质数");
+        } else {
+            function getNum(a) {
+                for (var i = 2; i < a; i++) {
+                    if (a % i == 0) {
+                        alert(a + "不是质数");
+                    }
+                }
+                alert(a + "是质数");
+            }
+            getNum(num);
+        }
+    </script>
+</body>
+
+</html>

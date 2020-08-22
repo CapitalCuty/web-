@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <script>
+        //keyCode返回该键的ASCII码值
+
+        //keyup能识别功能键    不区分大小写
+        // document.addEventListener('keyup', function(e) {
+        //     console.log("up:" + e.keyCode);
+        // })
+
+
+        //keypress不能识别功能键    区分大小写  A-Z 65-90   a-z 97-122
+        // document.addEventListener('keypress', function(e) {
+        //     console.log("press:" + e.keyCode);
+        // })
+
+
+        //如果按下了delete键，则清空input内的内容
+        var input = document.querySelector("input")
+        input.onkeyup = function(e) {
+            // console.log(e.keyCode)
+            var code = e.keyCode
+            if (code == 8) {
+                // console.log(e.keyCode)
+                input.value = "";
+            }
+        }
+    </script>
+</body>
+
+</html>

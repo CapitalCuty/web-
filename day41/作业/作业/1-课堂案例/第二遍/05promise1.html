@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./js/jquery.js"></script>
+    <script>
+        //promise
+        // 1.对象的状态不受外界影响
+        // 2.一旦状态改变就不会再变，任何时候都可以得到这个结果
+
+        // promise实例生成后，可以用then方法分别指定resolved状态和rejected状态的回调函数
+        // var p=new Promise(第一个参数是处理成功后的结果的函数，第二个函数是处理失败后的结果的函数)
+        // resolve 是函数  处理成功正确的结果
+        // reject  是函数  处理失败的结果 
+
+
+        var n = 10;
+        var p = new Promise(function(resolve, reject) {
+            setTimeout(function(n) {
+                if (n % 2 == 0) {
+                    resolve(n + "是偶数")
+                } else {
+                    reject(n + "不是偶数")
+                }
+            }, 1000, n)
+        })
+        p.then(function(res) {
+            console.log(res)
+        }, function(err) {
+            console.log(err)
+        })
+    </script>
+</body>
+
+</html>

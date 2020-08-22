@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<button>按钮1</button>
+	<button>按钮2</button>
+	<button>按钮3</button>
+	<button>按钮4</button>
+	<button>按钮5</button>
+
+	<script>
+	// 1 需求  点击当前的按钮     其他按钮的颜色不发生改变    让当前的按钮背景颜色变成pink 
+   
+
+//    1 找人  (所有的按钮)
+var btns=document.querySelectorAll("button")
+for(var i=0;i<btns.length;i++) {
+	// 2 表示每个按钮
+	var btn=btns[i]
+	//3 给每个按钮绑定事件
+	btn.onclick=function() {
+		// alert(1)
+		// alert(i)
+	// this.style.backgroundColor='pink'	
+
+	for(var j=0;j<btns.length;j++) {
+		// console.log(btns[j])
+		var  mybtn=btns[j];  //  表示每个一个按钮
+
+		// 1  干掉所有人(包括自己也干掉)  
+		mybtn.style.backgroundColor='';
+	}
+		// 2 最后在留下自己
+		// 3 顺序不能颠倒  先干掉所有的人 再留下自己
+		   console.log(i)   //5 
+		// btn.style.backgroundColor='pink'  //错误的写法 
+		// btns[i].style.backgroundColor='pink'  //错误的写法
+		 this.style.backgroundColor='pink'   //只能用this  表示当前的
+ 
+
+
+	}
+
+}
+
+
+
+
+	
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>表针式时钟</title>
+  <style>
+  body{
+   background: #fef4d9;
+  }
+  #time{
+   position: absolute;
+   width: 212px;
+   height: 216px;
+   top:50%;
+   left: 50%;
+   margin: -108px 0 0 -106px;
+   border: 2px solid yellow;
+  }
+  .timeNum{
+   position: absolute;
+  }
+  #pt0{
+   position: absolute;
+   top:20px;
+   left: 105px;
+   border: 4px solid red;
+   height: 90px;
+   z-index: 1px;
+  }
+  #pt1{
+   position: absolute;
+   top:35px;
+   left: 105px;
+   border: 4px solid blue;
+   height: 75px;
+   z-index: 100px;
+  }
+  #pt2{
+   position: absolute;
+   top:50px;
+   left: 105px;
+   border: 4px solid yellow;
+   height: 60px;
+   z-index: 110px;
+  }
+  </style>
+ </head>
+ <body>
+  <div id="time">
+   <div id="c0" class="timeNum" > </div>
+   <div id="c1" class="timeNum"><b>1</b></div>
+   <div id="c2" class="timeNum"><b>2</b></div>
+   <div id="c3" class="timeNum"><b>3</b></div>
+   <div id="c4" class="timeNum"><b>4</b></div>
+   <div id="c5" class="timeNum"><b>5</b></div>
+   <div id="c6" class="timeNum"><b>6</b></div>
+   <div id="c7" class="timeNum"><b>7</b></div>
+   <div id="c8" class="timeNum"><b>8</b></div>
+   <div id="c9" class="timeNum"><b>9</b></div>
+   <div id="c10" class="timeNum"><b>10</b></div>
+   <div id="c11" class="timeNum"><b>11</b></div>
+   <div id="c12" class="timeNum"><b>12</b></div>
+   <div id="pt0" > </div>
+   <div id="pt1" ></div>
+   <div id="pt2" ></div>
+  </div>
+ </body>
+ <script language=javascript>
+  function getid(id){
+   return document.getElementById(id);
+  }
+  //将数字以圆形的形式显示在屏幕上。根据三角函数的计算
+  function clockNum(){
+   for (var i=1; i<13;i++){
+    var c1=getid("c"+i);
+    angle=i*30/360*Math.PI*2;
+    c1.style.top=0+(100-Math.cos(angle)*100)+"px";
+    c1.style.left=100+Math.sin(angle)*100+"px";
+   }
+  }
+  function clockRotate(){
+   //获取当前的时间
+   var start= new Date();
+   var H=start.getHours();
+   var M=start.getMinutes();
+   var S=start.getSeconds();
+   //设置其旋转的角度，分针每次6度，秒针每次6度，时针每次0.5度
+   var mDu=M*6;
+   var hDu=M*0.5+H*30;
+   var sDu=S*6;
+   var pt0=getid("pt0");
+   var pt1=getid("pt1");
+   var pt2=getid("pt2");
+   //设置其绕末端旋转，宽度是在中间，高度是在整个高度的末尾，采用百分数的形式
+   pt0.setAttribute('style',''+'transform:rotate('+ sDu +'deg); '+'transform-origin: center 93%;');
+   pt1.setAttribute('style',''+'transform:rotate('+ mDu +'deg); '+'transform-origin: center 94%;');
+   pt2.setAttribute('style',''+'transform:rotate('+ hDu +'deg); '+'transform-origin: center 95%;');
+  }
+  //每隔1毫秒检测一次
+  setInterval(clockRotate,100);
+  function init(){
+   clockNum();
+  }
+   init();
+  </script>
+</html>

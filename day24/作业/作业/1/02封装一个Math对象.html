@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //当实参数量不确定的时候，我们采用arguments  进行收集
+        //伪数组  有length特性    可以遍历    但是没有数组里面的方法
+        var myMath = {
+            max: function() {
+                var max = arguments[0];
+                for (var i = 0; i < arguments.length; i++) {
+                    if (!Number(arguments[i])) {
+                        return NaN;
+                    }
+                }
+                for (var i = 0; i < arguments.length; i++) {
+                    if (max < arguments[i]) {
+                        max = arguments[i];
+                    }
+                }
+                return max;
+            },
+            min: function() {
+                var min = arguments[0];
+                for (var j = 0; j < arguments.length; j++) {
+                    if (!Number(arguments[j])) {
+                        return NaN;
+                    }
+                }
+                for (var j = 0; j < arguments.length; j++) {
+                    if (min > arguments[j]) {
+                        min = arguments[j];
+                    }
+                }
+                return min;
+            }
+        }
+        console.log(myMath.max(3, 4, 2, 5, 8))
+        console.log(myMath.min(3, 4, 2, 5, 8))
+        console.log(myMath.max(3, 4, "30", "hello"))
+        console.log(myMath.min(3, 4, "30", "hello"))
+    </script>
+</body>
+
+</html>

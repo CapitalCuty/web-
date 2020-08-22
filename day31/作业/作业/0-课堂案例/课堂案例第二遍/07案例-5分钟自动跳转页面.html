@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>您将在5秒钟之后跳转到首页</div>
+    <script>
+        var div = document.querySelector('div');
+        //定时5S后跳转
+        var timer = 4;
+        setInterval(function() {
+            if (timer == 0) {
+                location.href = 'http://www.itcast.cn';
+            } else {
+                div.innerHTML = '您将在' + timer + '秒钟之后跳转到首页';
+                timer--;
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

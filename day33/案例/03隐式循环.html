@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>惊喜不，意外不</div>
+    <div>惊喜不，意外不</div>
+    <div>惊喜不，意外不</div>
+    <div>惊喜不，意外不</div>
+    <ul>
+        <li>相同的操作</li>
+        <li>相同的操作</li>
+        <li>相同的操作</li>
+    </ul>
+
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function() {
+            // 隐式迭代
+            // click 绑定点击事件
+            $('li').click(function() {
+                // alert(1)
+                //$(this)当前jquery对象
+                $(this).css('color', 'red') // 设置单个样式
+
+            })
+
+
+            //  链式编程
+            // css() //设置样式
+            // siblings() 当前元素的所有兄弟元素不包含自己
+
+            $("div").click(function() {
+                //  采用对象 一般设置多个样式
+                $(this).css({
+                    'backgroundColor': 'pink'
+                }).siblings().css({
+                    'backgroundColor': ''
+                })
+            })
+        })
+    </script>
+
+</body>
+
+</html>

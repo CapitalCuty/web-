@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #box {
+            width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        ul {
+            width: 2400px;
+        }
+        
+        ul>li {
+            list-style: none;
+            float: left;
+        }
+        
+        img {
+            width: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul>
+            <li><img src="images/1.jpg" alt=""></li>
+            <li><img src="images/2.jpg" alt=""></li>
+            <li><img src="images/3.jpg" alt=""></li>
+        </ul>
+    </div>
+    <script>
+        var ul = document.querySelector("ul");
+        var num = 0;
+
+        function getMove() {
+            num++;
+            if (num == 3) {
+                num = 0;
+            }
+            ul.style.marginLeft = -(num * 800) + "px";
+
+        }
+        var timer = setInterval(getMove, 1000);
+
+        //鼠标经过时定时器暂停
+        ul.onmouseover = function() {
+            clearInterval(timer);
+        }
+
+        //鼠标移出时定时器继续
+        ul.onmouseout = function() {
+            timer = setInterval(getMove, 1000);
+        }
+    </script>
+</body>
+
+</html>

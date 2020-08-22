@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>知否知否 bug我有1</li>
+        <li>知否知否 bug我有2</li>
+        <li>知否知否 bug我有3</li>
+        <li>知否知否 bug我有4</li>
+        <li>知否知否 bug我有5</li>
+    </ul>
+    <script>
+        //事件代理 事件委托 给父元素绑定事件    通过父元素  来执行子元素需要的事件函数
+        var ul = document.querySelector("ul");
+        ul.addEventListener('click', function(e) {
+            alert(e.target.innerText);
+        })
+    </script>
+</body>
+
+</html>

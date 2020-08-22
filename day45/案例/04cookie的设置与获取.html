@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./js/jquery.js"></script>
+</head>
+
+<body>
+    <!-- session 服务端存储数据 跟cookie 本质上是一样的 -->
+
+    <input type="text" placeholder="输入值">
+    <button class="btn1">设置cookie</button>
+
+    <button class="btn2">获取cookie</button>
+
+    <script>
+        $('.btn1').on('click', function() {
+            var getVal = $("input").val();
+            //设置cookie
+            document.cookie = 'keys=' + getVal
+
+        })
+
+
+        $('.btn2').on('click', function() {
+            //获取cookie
+            var cookies = document.cookie;
+            alert(cookies)
+
+        })
+    </script>
+
+</body>
+
+</html>

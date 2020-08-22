@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>让盒子在某个位置停止</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        div,
+        span {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        span {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+    <script>
+        var div = document.querySelector("div")
+        var span = document.querySelector("span")
+
+        var timer1 = setInterval(function() {
+            //判断到什么时候停止
+            if (div.offsetLeft >= 600) {
+                div.style.left = 600 + "px"
+                clearInterval(timer1)
+                return
+            }
+            var step = 10;
+            div.style.left = step + div.offsetLeft + "px";
+        }, 200)
+
+        var timer2 = setInterval(function() {
+            //判断到什么时候停止
+            if (span.offsetLeft >= 400) {
+                span.style.left = 400 + "px"
+                clearInterval(timer2)
+                return
+            }
+            var step = 10;
+            span.style.left = step + span.offsetLeft + "px";
+        }, 100)
+    </script>
+</body>
+
+</html>

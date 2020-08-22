@@ -1,0 +1,115 @@
+/* 导航栏开始 */
+
+.navBox {
+    margin: 5px;
+    margin-bottom: 300px;
+
+}
+
+.navBox .nav li {
+    float: left;
+    width: 33.33%;
+}
+
+.navBox .nav li a {
+    width: 100%;
+    display: block;
+}
+
+
+.navBox .nav li a img {
+
+    width: 100%;
+}
+
+
+
+
+
+/* 导航栏结束 */
+
+.productsBox {
+    margin-top: 10px;
+}
+
+
+.productsBox h2 a {
+    display: block;
+    width: 100%
+}
+
+.productsBox h2 a img {
+    width: 100%;
+}
+
+.productsBox>ul li {
+    float: left;
+    width: 25%;
+
+}
+
+.productsBox>ul li a {
+    display: block;
+    width: 100%;
+}
+
+.productsBox>ul li a img {
+
+    width: 100%;
+}
+
+
+.lifeBox h2 a {
+    width: 100%;
+    display: block;
+}
+
+.lifeBox h2 a img {
+    width: 100%;
+}
+
+.lifeBox .goodsShow li {
+    float: left;
+    width: 50%;
+    padding: 5px;
+
+
+
+}
+
+.lifeBox .goodsShow li a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    border: 1px solid #ccc;
+}
+
+.lifeBox .goodsShow li img {
+    width: 85%;
+
+}
+
+.lifeBox .goodsShow li div {
+    margin: 0 auto;
+    padding: 2px 0px;
+
+}
+
+.lifeBox .goodsShow .nowPrice {
+    color: red;
+    padding-right: 2px;
+}
+
+.lifeBox .goodsShow .oldPrice {
+    text-decoration: line-through;
+    padding-left: 2px;
+}
+
+.mui-table-view:before,
+.mui-table-view::after {
+    height: 0px;
+}
+.mui-table-view-cell:after {
+    height: 0px;
+}

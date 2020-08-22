@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./assets/mui/css/mui.min.css">
+	<link rel="stylesheet" href="./css/base.css">
+	<link rel="stylesheet" href="./css/form.css">
+	<link rel="stylesheet" href="./css/register.css">
+</head>
+
+<body>
+	<header class="mui-bar mui-bar-nav  header">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">嗨淘首页</h1>
+	</header>
+	<nav class="mui-bar mui-bar-tab footer">
+		<a class="mui-tab-item mui-active" href="#tabbar">
+			<span class="mui-icon mui-icon-home"></span>
+			<span class="mui-tab-label">首页</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-chat">
+			<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+			<span class="mui-tab-label">分类</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-contact">
+			<span class="mui-icon mui-icon-contact"></span>
+			<span class="mui-tab-label">购物车</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-map">
+			<span class="mui-icon mui-icon-gear"></span>
+			<span class="mui-tab-label">会员中心</span>
+		</a>
+	</nav>
+
+
+	<div class="mui-content">
+		<div class='mui-scroll-wrapper'>
+			<div class="mui-scroll">
+				<!-- 填写内容的区域 -->
+				<form class="mui-input-group">
+						<div class="mui-input-row">
+							<label>用户名</label>
+						<input type="text" class="mui-input-clear  username"   placeholder="请输入用户名">
+						</div>
+
+
+						<div class="mui-input-row">
+								<label>手机号</label>
+							<input type="text" class="mui-input-clear  mobile" placeholder="请输入手机号码">
+							</div>
+						<div class="mui-input-row">
+							<label>密码</label>
+							<input type="password" class="mui-input-password password  password" placeholder="请输入密码">
+						</div>
+						<div class="mui-input-row">
+								<label>确认密码</label>
+								<input type="password" class="mui-input-password confrimPassword" placeholder="请输入确认密码">
+							</div>
+							
+						
+							<div class="mui-input-row vcodeBox">
+									<label>验证码</label>
+								<input type="text" class="mui-input-clear vCode" placeholder="请输入验证码">
+								<span id='getVcode'>点击获取验证码</span>
+								</div>
+						<div class="mui-button-row">
+							<button type="button" class="mui-btn mui-btn-primary loginBtn" >注册</button>
+							
+						</div>
+					</form>
+			</div>
+		</div>
+
+	</div>
+
+<!-- 移动的端 jquery  -->
+<script src="./assets/zepto/zepto.min.js"></script>
+	<script src="./assets/mui/js/mui.min.js"></script>
+	<script src="./assets/artTemplate/template-web.js"></script>
+</body>
+
+
+
+<script>
+	// 获取验证码
+
+		
+	$('#getVcode').on('tap',function(){
+		$.ajax({
+			url:'/user/vCode',
+			success:function(res) {
+                  $('.vCode').val(res.vCode);
+			}
+
+		})
+	})
+	
+
+
+
+
+
+
+
+		$('.loginBtn').on('tap', function () {
+			var username = $('.username').val().trim();
+			var mobile = $('.mobile').val().trim();
+			var password = $('.password').val().trim();
+			var confrimPassword = $('.confrimPassword').val().trim();
+			var vCode = $('.vCode').val().trim();
+		
+			if (!username) {
+				mui.alert('用户名不能为空')
+				return false
+			}
+			if (!mobile) {
+				mui.alert('手机号不能为空')
+				return false
+			}
+			
+			if (!password) {
+				mui.alert('密码不能为空')
+				return false
+			}
+			if (!confrimPassword) {
+				mui.alert('确认密码不能为空')
+				return false
+			}
+			if(password!==confrimPassword) {
+				mui.alert('两次密码不一致')
+				return false
+			}
+			if (!vCode) {
+				mui.alert('验证码不能为空')
+				return false
+			}
+			
+			$.ajax({
+				url: ' /user/register',
+				type: 'post',
+				data: {
+					username: username,
+					mobile:mobile,
+					password: password,
+					vCode:vCode,
+				},
+				beforeSend: function () {
+					$('.loginBtn').html('正在注册...')
+				},
+				success: function (res) {
+				console.log(res)
+
+					if (res.success) {
+						$('.loginBtn').html('注册成功')
+						setTimeout(function () {
+							window.location.href = './login.html'
+						}, 2000)
+					}else {
+						mui.alert(res.message)
+						$('.loginBtn').html('注册')
+					}
+				},
+				error:function(err) {
+					
+				},
+				complete: function () {
+					$('.username').val('')
+					$('.mobile').val('')
+					$('.password').val('')
+					$('.confrimPassword').val('')
+					$('.vCode').val('')
+				
+				}
+
+			})
+
+
+		})
+
+
+
+
+
+</script>
+</html>

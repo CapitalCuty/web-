@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	//  [10-20]
+	var rand=Math.random()   //[0-1)  0*20=(0     <20+15)
+                                            // (15     35)
+								// [0-1) (20-15)  ==[0,5)+15  ===[15,20)+1=[16,21)	
+								// [0-1) (20-15+1)==[0,6)+15==[15,21) 		       
+
+
+	function fn(min,max) {
+	 var res=	Math.floor(Math.random() *(max-min+1)+min)
+
+	 console.log(res)
+	}
+	
+
+	fn(15,20)
+	fn(10,20)
+	</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            margin: 0 auto;
+            padding: 0;
+            display: block;
+            height: 300px;
+        }
+        
+        button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img/images/ldh.jpg" alt="">
+    <button>刘德华</button>
+    <button>张学友</button>
+    <script>
+        var img = document.querySelector("img");
+        var btn1 = document.querySelectorAll("button")[0];
+        var btn2 = document.querySelectorAll("button")[1];
+        //鼠标点击切换图片
+        // btn1.onclick = function() {
+        //     img.src = "img/images/ldh.jpg"
+        //     img.title = "刘德华你好"
+        // }
+        // btn2.onclick = function() {
+        //     img.src = "img/images/zxy.jpg"
+        //     img.title = "学友思密达"
+        // }
+
+        //鼠标经过切换图片
+        img.onmouseover = function() {
+            img.src = "img/images/zxy.jpg"
+
+        }
+        img.onmouseout = function() {
+            img.src = "img/images/ldh.jpg"
+
+        }
+    </script>
+</body>
+
+</html>

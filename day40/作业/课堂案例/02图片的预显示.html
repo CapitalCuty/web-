@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-1.12.4.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <img src="./images/2.jpg" alt="" class="pic">
+        <input type="file" id="inp">
+    </div>
+    <script>
+        $('#inp').on('change', function() {
+            var file = $(this)[0].files[0];
+            var imgUrl = URL.createObjectURL(file)
+            $('.pic').prop('src', imgUrl)
+        })
+    </script>
+</body>
+
+</html>

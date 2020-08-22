@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+            margin-top: 0px;
+            /* border: 1px solid black; */
+            /* margin: 100px auto; */
+            /* overflow: hidden; */
+        }
+        
+        li {
+            height: 40px;
+            line-height: 40px;
+            ;
+        }
+        
+        div {
+            margin: 120px auto;
+            width: 250px;
+            height: 40px;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul id="ul1">
+            <li>1.每时每刻，给你新机会</li>
+            <li>2.HTML定义了网页的内容</li>
+            <li>3.CSS用来美化网页</li>
+            <li>4.JS用来实现业务逻辑和页面控制</li>
+            <!-- <li>5.每时每刻，给你新机会</li>
+            <li>6.HTML定义了网页的内容</li>
+            <li>7.CSS用来美化网页</li>
+            <li>8.JS用来实现业务逻辑和页面控制</li>
+            <li>9.每时每刻，给你新机会</li>
+            <li>10.HTML定义了网页的内容</li>
+            <li>11.CSS用来美化网页</li>
+            <li>12.JS用来实现业务逻辑和页面控制</li> -->
+        </ul>
+    </div>
+
+    <script>
+        var ul = document.querySelector("#ul1")
+        var lis = document.querySelectorAll("li")
+        var div = document.querySelector("div")
+        var num = 0;
+
+        function getMove() {
+
+            num -= 1;
+            ul.style.marginTop = num + 'px';
+
+            if (num % 40 == 0) {
+                lis = document.querySelectorAll("li")
+                var li = document.createElement('li');
+                li.innerText = lis[Math.abs(num) / 40 - 1].innerText;
+                ul.appendChild(li);
+            }
+        }
+        getMove();
+        var move = setInterval(getMove, 100);
+
+        ul.onmouseover = function() {
+            clearInterval(move);
+        }
+        ul.onmouseout = function() {
+            move = setInterval(getMove, 100);
+        }
+    </script>
+</body>
+
+</html>

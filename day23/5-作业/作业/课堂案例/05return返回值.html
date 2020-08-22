@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function f1(a, b) {
+            var sum = a + b;
+            //1.return 后面的值是什么，这个函数执行完的结果就是什么
+            //2.return 下面的代码不执行  对象除外   如果对象是可以换行的
+            //3.如果函数没有返回值，那默认返回的是undefined
+            return [1, 2, 3];
+            // return ([1, 2, 3]);
+            // return {
+            //     name: 'qwe'
+            // }
+            console.log(sum)
+        }
+        console.log(f1(1, 5));
+    </script>
+</body>
+
+</html>

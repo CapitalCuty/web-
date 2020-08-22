@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //    for(var i=1;i<=5;i++) {
+        // 	   console.log(i)
+        //    }
+
+        // 我想打印 1 2 3  4  5 
+        for (var i = 0; i < 3; i++) {
+            setTimeout(function() {
+                console.log(i)
+            }, 1000)
+        }
+
+
+        // 方法一 
+        //    for (let i = 0; i <5; i++) {
+        // 			setTimeout(function () {
+        // 				console.log(i)
+        // 			}, 1000)
+        // 		}
+
+
+        //js 预解析+ js基本数据类型和复杂数据类型的存放位置（栈 堆）
+        //  js 代码在哪里执行
+        //  js 是单线程执行  (主线程里面执行)
+        // js  执行的顺序 从上往下
+
+
+
+        console.log(1)
+        setTimeout(function() {
+            console.log('1111')
+        }, 1000)
+        setTimeout(function() {
+            console.log('2222')
+        }, 1000)
+
+
+        console.log(22)
+
+        console.log(3333)
+    </script>
+</body>
+
+</html>

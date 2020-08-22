@@ -1,0 +1,51 @@
+html, body {
+	width: 100%;
+	transform-style:preserve-3d;
+	perspective: 1000;
+
+	/* height: 100000px; */
+}
+.w  {
+	margin: 0 auto;
+	width: 1200px;
+
+}
+
+
+
+a {
+	color: #ccc;
+	text-decoration: none;
+
+}
+
+
+.f_left {
+
+	float: left;
+}
+.f_right {
+	float: right;
+}
+
+
+.clearfix::before, .clearfix::after{
+content:'';
+display: block;
+height: 0;
+overflow: hidden;
+clear: both;
+}
+
+
+/* ie6 7 专门清除浮动的样式*/
+.clearfix {
+	*zoom:1;
+	}
+
+
+	form,input {
+		outline: none;
+		border: none;
+	}
+

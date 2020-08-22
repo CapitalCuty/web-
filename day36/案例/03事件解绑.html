@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+
+
+
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+
+	<p>hello world</p>
+
+	<button id='button'>点击动态创建一个li</button>
+	<button class="btnOff">点击按钮 进行事件解绑</button>
+
+	<button class="btn3">点击按钮 进行事件单个事件解绑</button>
+
+	<button class="btn4">点击按钮 进行代理事件解绑</button>
+	<script src="./jquery.min.js"></script>
+
+	<script>
+		$(function () {
+			$('li:even').css({
+				'backgroundColor': 'red'
+			})
+
+
+			$('#button').on('click, mouseover', function () {
+				var newLi = $('<li>我是动态创建的li</li>')
+				$('ul').append(newLi)
+			})
+
+
+			//事件代理的形式进行绑定事件(动态创建的元素依然可以绑定事件)
+			$('ul').on('click', 'li', function () {
+				alert($(this).text())
+			})
+
+
+			//解绑事件一  解绑所有的事件
+			$('.btnOff').on('click', function () {
+				// alert('解绑')
+				$('#button').off() //解绑 #button的所有的事件
+			})
+
+			$('p').on({
+				'click': function () {
+					console.log('click')
+				},
+				'mouseover': function () {
+					console.log('mouseover')
+
+				}
+			})
+
+			//二 解绑单个事件
+			$('.btn3').on('click',function(){
+				$('p').off('mouseover')
+			})
+
+
+
+			//三 事件代理 进行事件解绑 
+
+				$('.btn4').on('click',function(){
+				 $('ul').off('click','li')	
+				})
+
+			  
+
+
+
+
+
+
+
+		})
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='hello' class="red" data-list='我不知道' data-list-name-sex='小新'></div>
+
+    <script>
+        var div = document.querySelector('div');
+        //获取自定义属性
+        //方法一
+        var dataList1 = div.getAttribute("data-List");
+        console.log(dataList1);
+        //方法二
+        var dataList2 = div.dataset.list;
+        console.log(dataList2);
+        //方法三
+        var dataList3 = div.dataset["list"];
+        console.log(dataList3);
+
+
+        //方法一
+        var listName1 = div.dataset.listNameSex;
+        console.log(listName1);
+        //方法二
+        var listName2 = div.dataset["listNameSex"];
+        console.log(listName2)
+    </script>
+</body>
+
+</html>

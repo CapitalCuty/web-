@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //封装一个最小值
+        var myMath = {
+            min: function() {
+                var min = arguments[0];
+                //判断传入的实参是不是数值
+                for (var j = 0; j < arguments.length; j++) {
+                    if (!Number(arguments[j])) {
+                        return NaN;
+                    }
+                }
+                for (var j = 0; j < arguments.length; j++) {
+                    if (min > arguments[j]) {
+                        min = arguments[j];
+                    }
+                }
+                return min;
+            }
+        }
+        console.log(myMath.min(3, 4, 2, 5, 8));
+        console.log(myMath.min(3, 4, "30", "hello"));
+    </script>
+</body>
+
+</html>

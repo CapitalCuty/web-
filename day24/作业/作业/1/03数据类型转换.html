@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //数值转换成字符串
+        var num1 = 10;
+        var str1 = num1 + '';
+        console.log(num1);
+        console.log(str1);
+        console.log(typeof num1); //number
+        console.log(typeof str1); //string
+
+
+        //字符串转换成数值
+        var str2 = '3';
+        var num2 = str2 * 1; //这种方法仅限于字符串里面是数字，"hello"这种就转换不了
+        console.log(num2);
+        console.log(str2);
+        console.log(typeof num2); //number
+        console.log(typeof str2); //string
+
+        var str3 = 'Hello';
+        var num3 = Number(str3); //这种方法比较实用
+        console.log(str3);
+        console.log(num3); //值是NaN    //可以说明str3不是数值
+        console.log(typeof num3); //number
+        console.log(typeof str3); //string
+
+
+        //判断是不是整数
+        console.log(isNaN(123)); //false
+        console.log(isNaN(-1.23)); //false
+        console.log(isNaN(5 - 2)); //false
+        console.log(isNaN(0)); //false
+        console.log(isNaN("hello")); //true
+        console.log(isNaN("2020 / 7 / 1")); //true
+        console.log(isNaN()); //true
+    </script>
+</body>
+
+</html>

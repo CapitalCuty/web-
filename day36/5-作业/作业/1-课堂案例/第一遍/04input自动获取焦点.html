@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="请输入关键字">
+
+    <a href="http:www.baidu.com">百度</a>
+
+    <script src="./jquery.min.js"></script>
+
+    <script>
+        $(function() {
+            //trigger()自动触发事件
+            $(document).on('click', function() {
+                $('input').trigger('focus');
+                // $('input').trigger('click')
+            })
+
+
+            //return false  阻止默认事件发生（写在做后一行）
+            //prevebtDefault()  阻止事件冒泡（事件代理利用的就是事件冒泡机制）
+            $('a').on('click', function(event) {
+                // event.preventDefault()
+                alert(12345678)
+                return false
+            })
+        })
+    </script>
+</body>
+
+</html>

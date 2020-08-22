@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<style>
+		html,
+		body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+
+		iframe {
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+	<title>Document</title>
+
+	<script src="./jquery-1.12.4.min.js"></script>
+</head>
+
+<body>
+
+	<div class="col-sm-10">
+		<img src="images/2.jpg" alt="" class="user_pic">
+		<input type="file" id="exampleInputFile">
+	</div>
+
+
+	<script>
+		$('#exampleInputFile').on('change', function () {
+			//   alert(1)
+			console.log($(this)[0].files[0])
+			var file = $(this)[0].files[0]
+
+			//   var  img_url=URL.createObjectURL('原生的图片的二进制')  //生成一个内存里面的临时路径
+
+			var img_url = URL.createObjectURL(file)
+			console.log(img_url)      //blob:null/6a4ba1fe-d3a3-4156-a923-d5a8b84c2a15
+			$('.user_pic').prop('src',img_url)
+		})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		// 1 给文件域设置change事件
+		// $('#user_pic').on('change', function () {
+		//   // console.log($(this)[0].files); // 查看文件域选择的文件信息
+		//   // console.log(URL.createObjectURL($(this)[0].files[0])); // 将某个文件的信息传入到方法中
+		//   var tempSrc = URL.createObjectURL($(this)[0].files[0]);
+		//   $('#avatar').prop('src', tempSrc); // 将方法生成的临时图片地址设置给img展示即可
+		// });
+	</script>
+</body>
+
+</html>

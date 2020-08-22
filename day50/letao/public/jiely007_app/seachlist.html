@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./assets/mui/css/mui.min.css">
+	<link rel="stylesheet" href="./css/base.css">
+	<link rel="stylesheet" href="./css/searchlist.css">
+</head>
+
+<body>
+	<header class="mui-bar mui-bar-nav  header">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">嗨淘收索列表页面</h1>
+	</header>
+	<nav class="mui-bar mui-bar-tab footer">
+		<a class="mui-tab-item mui-active" href="#tabbar">
+			<span class="mui-icon mui-icon-home"></span>
+			<span class="mui-tab-label">首页</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-chat">
+			<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+			<span class="mui-tab-label">分类</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-contact">
+			<span class="mui-icon mui-icon-contact"></span>
+			<span class="mui-tab-label">购物车</span>
+		</a>
+		<a class="mui-tab-item" href="#tabbar-with-map">
+			<span class="mui-icon mui-icon-gear"></span>
+			<span class="mui-tab-label">会员中心</span>
+		</a>
+	</nav>
+
+	<!-- 填写内容的区域 -->
+
+
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper " 	 id='refreshContainer'>
+				<div class="mui-scroll">
+					<div class="container">
+						<div class="topBox">
+							<div class="mui-row">
+								<div class="mui-col-sm-6   mui-col-xs-6">
+									<span class="mui-table-view-cell mui-icon mui-icon-arrowdown  priceSort ">
+
+										价格
+
+									</span>
+								</div>
+								<div class="mui-col-sm-6   mui-col-xs-6">
+									<span class="mui-table-view-cell mui-icon mui-icon-arrowdown countSort">
+
+										销量
+
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="middleBox mui-clearfix">
+							<ul class="mui-clearfix  queryBox">
+								<!-- 定义数据模板 -->
+								<!-- <li>
+								<a href="">
+									<img src="./images/product.jpg" alt="">
+									<p>adidas阿迪达斯 男式 场下休闲篮球鞋S83700</p>
+									<span>&yen;560</span>
+									<span>&yen;888</span>
+
+									<button>立即购买</button>
+								</a>
+							</li> -->
+
+							</ul>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+	<script src="./assets/zepto/zepto.min.js"></script>
+	<script src="./assets/mui/js/mui.min.js"></script>
+	<script src="./assets/artTemplate/template-web.js"></script>
+
+
+	<!-- 
+brandId: 1
+id: 1
+num: 20
+oldPrice: 888.1
+pic: (2) [{…}, {…}]
+0:
+id: 1
+picAddr: "/mobile/images/product.jpg"
+picName: "product.jpg"
+price: 499.1
+proDesc: "描述"
+proName: "匡威三星标1970s converse复刻 142334c 144757c三星标黑色高帮"
+size: "40-50"
+statu: 1
+updateTime: "2017-01-04T16:28:29.000Z" -->
+
+	<script type="text/html" id='queryData'>
+		{{each data  val  index}}
+		<li>
+			<a href="./detail.html?id={{val.id}}">
+				<img src="{{val.pic[0].picAddr}}" alt="">
+				<p>{{val.proName}}</p>
+				<span>&yen;{{val.price}}</span>
+				<span>&yen;{{val.oldPrice}}</span>
+
+				<button>立即购买</button>
+			</a>
+		</li>
+
+		{{/each}}
+	</script>
+
+	<script>
+		mui('.mui-scroll-wrapper').scroll();
+
+
+		// 参数名称是否必须说明
+		// proName
+		// brandId
+		// idprice
+		// num
+		// page
+		// pageSize
+
+
+		var proName = 1;
+		var brandId = 1;
+		var price = 1;
+		var num = 1;
+		var page = 1;
+		var pageSize = 3;
+
+		var This = '';  
+		/* 初始一个 将来保持 pullfresh_function 执行的this*/
+
+		var dataHtml=''  /* 初始定义模板html字符*/
+
+
+		var refreshContainer = document.querySelector('#refreshContainer')
+
+		mui.init({
+			pullRefresh: {
+				container: refreshContainer, //待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
+				up: {
+					height: 50, //可选.默认50.触发上拉加载拖动距离
+					auto: true, //可选,默认false.自动上拉加载一次
+					contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
+					contentnomore: '没有更多数据了', //可选，请求完毕若没有更多数据时显示的提醒内容；
+					callback: pullfresh_function //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+				}
+			}
+		});
+
+
+// this
+// that  
+// This
+
+		function pullfresh_function() {	
+			if (!This) {
+				This = this;
+			}
+
+			console.log(This)
+
+
+			$.ajax({
+				url: '/product/queryProduct',
+				data: {
+                     price:price,
+					page: page++,  /*   ++在后面是先把1 返回进行请求 等请求完成后再自己加1  */
+					pageSize: pageSize,
+				},
+				success: function (res) {
+					console.log(res)
+
+					if (res.data.length > 0) {
+
+						/*  分页需要把之前的数据加起来*/
+					 dataHtml +=template('queryData', res)
+						console.log(dataHtml)
+
+						$('.queryBox').html(dataHtml)
+
+		//1、加载完新数据后，必须执行如下代码，true表示没有更多数据了：
+     //2、若为ajax请求，则需将如下代码放置在处理完ajax响应数据之后
+
+						This.endPullupToRefresh(false);
+
+					} else {
+						This.endPullupToRefresh(true);
+					}
+				}
+			})
+		}
+
+
+
+
+
+
+//价格排序 
+// 需要先把之前的内容清空  把之前的page 回调首页
+
+
+$('.priceSort').on('tap',function() {
+
+// 判断页面上li个数  把li的个数传递给 pageSize
+pageSize=$('.queryBox').children().length;
+
+ price= price==1 ?2:1;
+ console.log(price)
+ dataHtml='';
+ page=1;
+ 
+pullfresh_function()
+
+
+//pullup-container为在mui.init方法中配置的pullRefresh节点中的container参数；
+//注意：refresh()中需传入true
+mui('#refreshContainer').pullRefresh().refresh(true);
+})
+
+
+  
+
+
+	</script>
+</body>
+
+</html>

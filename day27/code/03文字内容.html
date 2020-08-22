@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		div {
+			margin: 0 auto;
+			padding: 0;
+			background-color: red;
+			width: 200px;
+			height: 200px;
+
+
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<p>xxxx</p>
+
+	</div>
+
+	<script>
+		// innerHTML
+
+		// innerText
+		var div = document.querySelector('div')
+		// div.onclick = function () {
+		// 	//获取元素的内容
+		// 	var text = div.innerText   //获取纯文字
+		// 	alert(text)
+		// 	var html = div.innerHTML;  //获取元素内所有的内容
+		// 	alert(html)
+
+		// }
+
+		// ondblclick  双击点击
+
+		div.ondblclick=function() {
+			// alert('双击')
+			// 设置文本的内容
+			// div.innerText='我被鼠标双击了';    //把这个元素里面所有的内容都重新设置了
+			// div.innerText='<h2>我被鼠标双击了 h2</h2>'  //<h2>我被鼠标双击了 h2</h2> 不能解析html标签
+			div.innerHTML='<h2>我被鼠标双击了 h2  <input type="text" /></h2>'  ///我被鼠标双击了 h2    可以解析html元素
+		}
+	</script>
+</body>
+
+</html>

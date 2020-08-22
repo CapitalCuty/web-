@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script src="./js/jquery-ui.min.js"></script>
+    <script src="./js/jquery.mousewheel.js"></script>
+    <script src="./js/scroll.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- 头内容 -->
+        <div class="header">
+            <h3>小思同学</h3>
+            <img src="./img/person01.png" alt="">
+        </div>
+        <!-- 对话框内容 -->
+        <div class="container">
+            <ul>
+                <li class="left">
+                    <img src="./img/person01.png" alt="">
+                    <img src="./img/corner01.png" alt="" class="abspic">
+                    <span>你好！</span>
+                </li>
+                <!-- <li class="right">
+                    <span>嗨，最近想我没？</span>
+                    <img src="./img/corner02.png" alt="" class="abspic">
+                    <img src="./img/person02.png" alt="">
+                </li> -->
+            </ul>
+        </div>
+        <!-- 发送消息框 -->
+        <div class="footer">
+            <img src="./img/person02.png" alt="">
+            <input type="text" placeholder="说点什么吧..." id="inp">
+            <input type="button" id="btn" value="发送">
+        </div>
+    </div>
+    <audio src="" id="voice" autoplay style="display: none;"></audio>
+
+    <script>
+        $(function() {
+            $('#btn').on('click', function() {
+                var getVal = $('#inp').val().trim();
+                if (!getVal) {
+                    alert('输入框内容不能为空！');
+                    return false
+                }
+                var newLi = $(`<li class="right">
+                                <span>${getVal}</span>
+                                <img src="./img/corner02.png" alt="" class="abspic">
+                                <img src="./img/person02.png" alt="">
+                            </li>`)
+                $('ul').append(newLi);
+
+                //重置滚动条的位置
+                resetui();
+
+                $('#inp').val('');
+                $.ajax({
+                    url: 'http://www.liulongbin.top:3006/api/robot',
+                    type: 'get',
+                    data: {
+                        spoken: getVal
+                    },
+                    success: function(res) {
+                        var backVal = res.data.info.text;
+                        var newLi = $(` <li class="left">
+                                <img src="./img/person01.png" alt="">
+                                <img src="./img/corner01.png" alt="" class="abspic">
+                                <span>${backVal}</span>
+                            </li>`)
+                        $('ul').append(newLi);
+
+                        //重置滚动条的位置
+                        resetui();
+
+                        $.ajax({
+                            url: 'http://www.liulongbin.top:3006/api/synthesize',
+                            type: 'get',
+                            data: {
+                                text: backVal
+                            },
+                            success: function(res) {
+                                var getVoi = res.voiceUrl;
+                                $('#voice').attr('src', getVoi)
+                            }
+                        })
+                    }
+                })
+            })
+
+            $('#inp').on('keyup', function(e) {
+                if (e.keyCode == 13) {
+                    $('#btn').trigger('click')
+                }
+            })
+
+        })
+    </script>
+</body>
+
+</html>

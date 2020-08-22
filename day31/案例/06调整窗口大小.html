@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+<style>
+
+	div {
+	  width: 400px;
+	  height: 400px;
+	  background-color: red;	
+	} 
+
+</style>
+</head>
+<body>
+	   <div>
+
+
+	   </div>
+
+<script>
+ var  div=document.querySelector('div')
+  window.onresize=function() {
+	console.log(window.innerWidth)  //获取当前屏幕的宽度
+	if(window.innerWidth>800) {
+		// alert('大于800')
+		div.style.display='block'
+	}else {
+      div.style.display='none'
+	}
+
+  }
+
+
+</script>
+	
+</body>
+</html>

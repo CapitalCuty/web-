@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10" maxlength="40"></textarea>
+    <span>还可以输入40个字</span>
+    <script>
+        var text = document.querySelector("textarea");
+        var span = document.querySelector("span");
+
+        text.onkeyup = function() {
+            var len = text.value.trim().length;
+            if (!text.value) {
+                alert("未输入内容！")
+                span.style.color = "black";
+                span.innerText = "还可以输入40个字符"
+                return;
+            } else if (len >= 40) {
+                span.innerText = "最多可以输入40个字符"
+                span.style.color = "red";
+            } else {
+                // span.innerText = "还可以输入" + (40 - len) + "个字符"
+                span.innerText = `还可以输入${40 - len}个字符`
+                span.style.color = "green";
+            }
+        }
+    </script>
+</body>
+
+</html>

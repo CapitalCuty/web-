@@ -1,0 +1,66 @@
+.detail_title {
+  padding: 10px;
+  border-bottom: 1px solid #cccccc;
+}
+.detail_price {
+  padding: 10px;
+  border-bottom: 1px solid #cccccc;
+}
+.detail_price span {
+  float: left;
+}
+.detail_price span:first-child {
+  padding-right: 5px;
+}
+.detail_price span:nth-child(2) {
+  color: #ea543d;
+  font-size: 24px;
+  padding-right: 8px;
+}
+.detail_price del {
+  float: left;
+  color: #cccccc;
+}
+.detail_size {
+  padding: 10px;
+  border-bottom: 1px solid #cccccc;
+}
+.detail_size div {
+  height: 28px;
+  line-height: 28px;
+  float: left;
+  margin-right: 6px;
+}
+.detail_size span {
+  float: left;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  line-height: 28px;
+  border: 1px solid #cccccc;
+  margin: 0 10px 10px 0;
+}
+.datail_num {
+  padding: 10px;
+}
+.datail_num input {
+  float: left;
+  width: 28px;
+  height: 28px;
+}
+.datail_num .num {
+  width: 60px;
+  text-align: center;
+  border-right: none;
+  border-left: none;
+}
+.datail_num span {
+  float: left;
+}
+.datail_num span:last-child {
+  margin-left: 8px;
+}
+.detail_btn button {
+  width: 50%;
+  float: left;
+}

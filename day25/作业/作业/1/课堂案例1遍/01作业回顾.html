@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //var  str='abcabcoxoxabcoo'; //查询所有o出现的位置以及次数
+        var str = 'abcabcoxoxabcoo';
+        var index = str.indexOf("o"); //6
+        var sum = 0;
+        while (index != -1) {
+            //先打印出第一个找到的位置
+            console.log(index);
+            sum++;
+            //再从index+1位开始找是否存在o，把o的索引值赋给index，再去判断
+            index = str.indexOf("o", index + 1);
+        }
+        console.log(sum);
+
+
+        //判断一个字符串 'abcoefoxyozzopp' 中出现次数最多的字符，并统计其次数
+        var str = 'abcoefoxyozzopp';
+        var obj = {};
+        for (var i = 0; i < str.length; i++) {
+            var chart = str.charAt(i);
+            if (obj[chart]) {
+                obj[chart]++
+            } else {
+                obj[chart] = 1
+            }
+        }
+        console.log(obj);
+        var count = 0; //出现最多的次数
+        var key = ""; //出现字数最多的字符
+        for (var k in obj) {
+            if (count < obj[k]) {
+                count = obj[k];
+                key = k;
+            }
+        }
+        console.log("出现字数最多的字符是" + key);
+        console.log("其次数是" + count);
+    </script>
+</body>
+
+</html>

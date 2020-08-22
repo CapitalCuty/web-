@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./js/jquery.js"></script>
+    <script>
+        // 同步回调
+        var arr = [10, 20, 30];
+        $.each(arr, function(index, ele) {
+            console.log(index)
+            console.log(ele)
+        })
+
+        console.log('我是后执行')
+
+
+
+        // 异步回调
+        setTimeout(function() {
+            console.log('定时器')
+        }, 1000)
+        console.log('我是先执行')
+    </script>
+</body>
+
+</html>

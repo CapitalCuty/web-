@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./js/jquery.js"></script>
+    <script>
+        // 回调地狱 或  地狱回调
+        // 逻辑代码与基本API分开    逻辑是逻辑  基本语法是基本语法
+
+        $.ajax({
+            url: './data/1.json',
+            type: 'get',
+            beforeSend: function() {
+
+            },
+            success: function(res) {
+                if (res.a == 1) {
+                    $.ajax({
+                        url: './data/2.json',
+                        success: function(res) {
+                            console.log(res.a)
+                            if (res.a == 2) {
+                                $.ajax({
+                                    url: './data/4.json',
+                                })
+                            } else {
+                                $.ajax({
+                                    url: './data/5.json'
+                                })
+                            }
+                        }
+                    })
+                } else {
+                    $.ajax({
+                        url: './data/3.json',
+                        success: function(res) {
+                            console.log(res.a)
+                        }
+                    })
+                }
+            },
+            error: function(err) {
+
+            },
+            complete: function() {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+	  canvas {
+		  border: 10px solid #000;
+	  }
+	
+	</style>
+</head>
+<body>
+	<canvas  width="600" height="400"></canvas>
+
+	<script>
+	
+	// 1 获取到画布  获取到canvas  这个标签  
+	var myCanvas=document.querySelector('canvas')
+	//2  告诉别人你这个画图画的是2d还是3d图   调出画图工具
+	var  ctx=myCanvas.getContext('2d')  //调出2d画图工具   web gl
+
+	//  画一条直线 
+    // 3 起始坐标  从具体哪个位置开始 
+//  	moveTo('x坐标','y坐标') 
+	ctx.moveTo(100,100)
+	// lineTo('x的结束坐标','y结束坐标')
+	ctx.lineTo(300,300)
+
+	ctx.stroke() // 描边 
+
+
+
+	
+	</script>
+</body>
+</html>

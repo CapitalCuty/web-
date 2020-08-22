@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #000;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+    </ul>
+    <span>我是span</span>
+    <div>我是div</div>
+    <button>点击</button>
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function() {
+            //获取宽、高
+            console.log($('div').width());
+            console.log($('div').height());
+
+            //获取宽、高、padding
+            console.log($('div').innerWidth());
+            console.log($('div').innerHeight());
+
+            //获取宽、高、padding、border
+            console.log($('div').outerWidth());
+            console.log($('div').outerHeight());
+
+            //获取宽、高、padding、border、margin
+            console.log($('div').outerWidth(true));
+            console.log($('div').outerHeight(true));
+        })
+    </script>
+</body>
+
+</html>

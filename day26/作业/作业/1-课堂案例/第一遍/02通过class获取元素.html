@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="h1Box" class="h1">hello world</h1>
+    <script>
+        //通过class获取元素
+        var h1 = document.getElementsByClassName("h1");
+        console.log(h1);
+        console.log(h1[0]);
+
+        //CSS设置样式   class获取到的元素是一个伪数组   有length属性    伪数组可以遍历
+        h1[0].style.background = "green";
+    </script>
+</body>
+
+</html>

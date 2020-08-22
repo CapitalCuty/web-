@@ -1,0 +1,12 @@
+﻿
+
+
+jsonp �ӿ�  
+ https://suggest.taobao.com/sug
+
+https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su
+
+
+var    name=confrim('输入歌手名字')
+var  name='周杰伦'
+http://search.kuwo.cn/r.s?all=周杰伦&ft=music&itemset=web_2013&client=kt&pn=1&rn=20&rformat=json&encoding=utf8

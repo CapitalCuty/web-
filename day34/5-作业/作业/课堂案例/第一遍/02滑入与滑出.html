@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn1">slideDown</button>
+    <button class="btn2">slideUp</button>
+    <button class="btn3">slideToggle</button>
+    <div></div>
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function() {
+            // slideDown()  滑出
+            $('.btn1').click(function() {
+                $('div').slideDown()
+            })
+
+            // slideUp()    滑入
+            $('.btn2').click(function() {
+                $('div').slideUp()
+            })
+
+            // slideToggle()    滑入滑出切换
+            $('.btn3').click(function() {
+                $('div').slideToggle()
+            })
+
+        })
+    </script>
+</body>
+
+</html>

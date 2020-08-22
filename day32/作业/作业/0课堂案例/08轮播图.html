@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 600px;
+            margin: 20px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        ul {
+            width: 3600px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        ul>li {
+            width: 600px;
+            list-style: none;
+            float: left;
+        }
+        
+        ul>li>img {
+            width: 100%;
+            display: block;
+        }
+        /* 左右箭头 */
+        
+        .arrow {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            margin-top: -20px;
+            overflow: hidden;
+            display: none;
+        }
+        
+        .left,
+        .right {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 26px;
+            background-color: red;
+            color: white;
+            float: left;
+        }
+        
+        .right {
+            float: right;
+        }
+        /* 小圆点 */
+        
+        ol {
+            list-style: none;
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            overflow: hidden;
+        }
+        
+        ol>li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            background-color: #cccccc;
+            color: white;
+            border-radius: 50%;
+            margin: 0 6px;
+        }
+        /* 小圆点高亮 */
+        
+        .current {
+            background-color: red;
+        }
+    </style>
+
+    <script src="./07animate.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <img src="images/1.jpg" alt="">
+            </li>
+            <li>
+                <img src="images/2.jpg" alt="">
+            </li>
+            <li>
+                <img src="images/3.jpg" alt="">
+            </li>
+            <li>
+                <img src="images/4.jpg" alt="">
+            </li>
+            <li>
+                <img src="images/5.jpg" alt="">
+            </li>
+        </ul>
+        <!-- 左右箭头 -->
+        <div class="arrow">
+            <span class="left">&lt;</span>
+            <span class="right">&gt;</span>
+        </div>
+        <!-- 小圆点 -->
+        <ol>
+
+        </ol>
+    </div>
+
+    <script>
+        var count = 0; //初始化值  定义箭头点击的时候初始化小圆点的值
+        var cirlceNum = 0; //初始化值  定义小圆点跟随变化值
+
+        var ul = document.querySelector("ul");
+        var ol = document.querySelector("ol");
+        var lis = ul.children.length;
+
+        //动态添加小圆点的个数
+        for (var i = 0; i < lis; i++) {
+            var newLi = document.createElement("li");
+            newLi.innerHTML = i + 1;
+            ol.appendChild(newLi);
+        }
+        //第一个圆点高亮
+        ol.children[0].className = "current"
+
+
+        /*
+		  一  鼠标移入图片 左右小箭头显示 离开的时候左右小箭头隐藏
+		  二  点击左右小箭头实现图片滚动
+		  三  点击小圆点 实现图片滚动(并且当前小圆点高亮)
+		  四  自动轮播 
+		  五  鼠标移入图片 停止自动轮播 离开的时候开启自动轮播
+			
+        */
+
+
+        // 一  鼠标移入图片 左右小箭头显示 离开的时候左右小箭头隐藏
+        var box = document.querySelector(".box");
+        var boxWidth = box.offsetWidth; //获取div的宽度
+        var arrow = document.querySelector(".arrow");
+        //鼠标移入box的时候两个箭头显示
+        box.addEventListener('mouseover', function() {
+            arrow.style.display = "block";
+        });
+        //鼠标移出div的时候两个箭头隐藏
+        box.addEventListener('mouseout', function() {
+            arrow.style.display = "none";
+        })
+
+
+        //无缝滚动
+        var new_clone_li1 = ul.children[0].cloneNode(true);
+        ul.appendChild(new_clone_li1);
+
+        // var new_clone_li2 = ul.children[4].cloneNode(true);
+        // ul.insertBefore(new_clone_li2, ul.children[0]);
+
+        // 二  点击左右小箭头实现图片滚动
+        //右箭头
+        var right = document.querySelector(".right");
+        right.onclick = function() {
+            //重新获取li的个数
+            var len = ul.children.length;
+            //图片跟随移动
+            if (count == len - 1) {
+                count = 0;
+                ul.style.left = 0;
+            }
+            count++;
+            animate(ul, -count * boxWidth, 30);
+
+
+            //对应的小圆点高亮
+            cirlceNum++;
+            //调用小圆点高亮的函数
+            if (cirlceNum == len - 1) {
+                cirlceNum = 0;
+            }
+            changeCircle(cirlceNum);
+        };
+
+        //左箭头
+        var left = document.querySelector(".left");
+        left.onclick = function() {
+            //重新获取li的个数
+            var len = ul.children.length;
+            //图片跟随移动
+            if (count == 0) {
+                count = len - 1;
+                ul.style.left = -(len - 1) * boxWidth + "px";
+            }
+            count--;
+            animate(ul, -count * boxWidth, 30);
+
+
+            //对应的小圆点高亮
+            if (cirlceNum == 0) {
+                cirlceNum = len - 1;
+            }
+            cirlceNum--;
+            //调用小圆点高亮的函数
+            changeCircle(cirlceNum);
+        }
+
+
+
+        // 三  点击小圆点 实现图片滚动(并且当前小圆点高亮)  (类似于table栏切换)
+        var ol_lis = ol.children;
+        for (var i = 0; i < ol_lis.length; i++) {
+            var every_li = ol_lis[i];
+            var index = every_li.setAttribute("self_index", i);
+            every_li.onclick = function() {
+                for (j = 0; j < ol_lis.length; j++) {
+                    var every_li = ol_lis[j];
+                    every_li.className = ""
+                }
+                this.className = "current";
+
+                var myIndex = Number(this.getAttribute("self_index"));
+                count = myIndex;
+                cirlceNum = myIndex;
+                animate(ul, -myIndex * boxWidth, 30)
+
+            }
+        }
+
+        //小圆点高亮函数
+        function changeCircle(num) {
+            for (var i = 0; i < ol_lis.length; i++) {
+                var every_li = ol_lis[i];
+                every_li.className = ""
+            }
+            ol_lis[num].className = "current"
+        }
+
+
+
+        // 四  自动轮播 
+        var timeTd = setInterval(function() {
+            //调用执行右箭头的点击事件（从左往右播）
+            right.onclick();
+        }, 2000)
+
+
+
+        // 五  鼠标移入图片 停止自动轮播 离开的时候开启自动轮播
+        //鼠标移入时停止定时器
+        box.addEventListener('mouseover', function() {
+            clearInterval(timeTd);
+        });
+        //鼠标离开的时候开启定时器
+        box.addEventListener('mouseout', function() {
+            timeTd = setInterval(function() {
+                right.onclick();
+            }, 2000)
+        })
+    </script>
+</body>
+
+</html>

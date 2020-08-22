@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 10px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+        // 1、获取到画布  
+        var myCanvas = document.querySelector('canvas');
+        // 2、告诉别人画布是2D还是3D
+        var ctx = myCanvas.getContext('2d');
+
+        // 表示动作开始
+        ctx.beginPath();
+        ctx.moveTo(100, 100);
+        ctx.lineTo(400, 100);
+        // 填充线条的颜色
+        ctx.strokeStyle = 'red';
+        // 描边
+        ctx.stroke();
+        // 表示动作结束
+        ctx.closePath();
+
+
+        // 表示动作开始
+        ctx.beginPath();
+        ctx.moveTo(100, 200);
+        ctx.lineTo(400, 200);
+        ctx.strokeStyle = 'green';
+        // 描边
+        ctx.stroke();
+        // 表示动作结束
+        ctx.closePath();
+
+
+        // 表示动作开始
+        ctx.beginPath();
+        ctx.moveTo(100, 300);
+        ctx.lineTo(400, 300);
+        ctx.strokeStyle = 'blue'
+        ctx.stroke();
+        // 表示动作结束
+        ctx.closePath();
+    </script>
+</body>
+
+</html>

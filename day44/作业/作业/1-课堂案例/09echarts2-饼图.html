@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--第一步 引入echarts -->
+    <script crossorigin="anonymous" integrity="sha384-qjEkmLVnx3Bug3NX1qwMHMw0+HoJNMUQ4ch5U2IVyw8egGTzQtyEzRbyIzpTH9A/" src="https://lib.baomitu.com/echarts/4.7.0/echarts-en.js"></script>
+</head>
+
+<body>
+    <!-- 第二步 为echarts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 600px;height: 400px;"></div>
+    <script type="text/javascript">
+        // 第三步 获取容器  基于准备好的Dom,初始化echarts实例
+        var myCanvas = echarts.init(document.getElementById('main'));
+        // 第四步   配置option  指定图标来配置项和数据
+        var option = {
+            title: {
+                text: '某站点用户访问来源',
+                subtext: '纯属虚构',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b} : {c} ({d}%)'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+            },
+            series: [{
+                name: '访问来源',
+                type: 'pie',
+                radius: '55%',
+                center: ['50%', '60%'],
+                data: [{
+                    value: 335,
+                    name: '直接访问'
+                }, {
+                    value: 310,
+                    name: '邮件营销'
+                }, {
+                    value: 234,
+                    name: '联盟广告'
+                }, {
+                    value: 135,
+                    name: '视频广告'
+                }, {
+                    value: 1548,
+                    name: '搜索引擎'
+                }],
+                emphasis: {
+                    itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }]
+        };
+        // 第五步   option  使用刚指定的配置项和数据显示图标
+        myCanvas.setOption(option);
+    </script>
+</body>
+
+</html>

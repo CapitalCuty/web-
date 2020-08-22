@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //请描述下面代码的输出结果以及运行原因
+        var num = 1;
+
+        function demo() {
+            console.log(num); //undefined
+
+            function demoSon() {
+                console.log(num); //2
+                num = 3;
+                console.log(num); //3
+            }
+            var num = 2
+            demoSon();
+        }
+        demo();
+        //1.变量和函数提升var num     function demo()
+        //2.num=1
+        //3.demo()
+        //4.{
+        //    变量和函数提升var num     function demoSon()
+        //    console.log(num)  所以此时值为undefined
+        //    num=2
+        //    demoSon()
+        //    {                
+        //console.log(num)      此时值为2
+        //num=3
+        //console.log(num)     此时值为3
+        //}
+        //}
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+
+		<img src="./img/images/1.png" alt="" srcset="">
+		<script>
+		// onmouseover  //鼠标移入事件
+		// onmouseout   //  鼠标离开事件
+		 //鼠标通过(二维码图片) 隐藏  离开的时候显示 
+           var  img=document.querySelector('img')
+		   img.onmouseover=function() {
+			//    alert(1)
+			img.style.opacity=0;
+		   }
+
+		   img.onmouseout=function() {
+			   img.style.opacity=1
+		   }
+
+		
+		</script>
+
+
+
+
+	</div>
+</body>
+</html>

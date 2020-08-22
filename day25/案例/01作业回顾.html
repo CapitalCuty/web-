@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	//  var  str='abcabcoxoxabcoocccaaao'; //查询所有o出现的位置以及次数
+
+	//  var count=0;  //初始化出现次数
+	//  var  index=str.indexOf('o');
+	//  console.log(index)  // 6
+	 // 1 先找到第一次出现o的位置 
+	 // 2 从第一次出现o的位置开始进行第二次查找 
+	 // 3 第二次出现o的位置进行第三次查找  一直查找到最后位置  如果最后完成后 再找一次 找不到
+	//  返回值是-1 
+
+	//   false  ====  (-1==!-1)
+	//   while(index!==-1) {
+	// 	  count++;
+	// 	  console.log(index)
+	//    index=	 str.indexOf('o',index+1) 
+
+	//   }
+	//   console.log(count)
+
+
+
+
+
+
+
+
+	  //作业2  //出现最多的字符 并且统计其次数
+	  
+
+
+	//   var  obj={
+	// 	  name:'zs',
+	// 	  age:18
+	// 	//   sex:'1'
+	//   }
+
+    //   obj['name'] ==='zs'
+	//   obj['sex'] ===undefined
+    //  for(var key in obj) {
+	// 	 if(false) {
+
+	// 	 }else {
+		// obj['sex']=1;
+
+          
+	// 	 }
+	//  }
+
+// coxoxabcoocccaaao
+	var  str='abcabaoxaaccccxxxa'  
+	  var obj={};
+     for(var i=0;i<str.length;i++) {
+		 var chart=str.charAt(i)
+		// var charAt=str[i];
+		// console.log(chart)
+		if(obj[chart]) {
+			obj[chart]++
+
+		}else {
+			obj[chart]=1
+		}
+	 }
+
+	//  obj={
+	// 	 a:1+1+1
+	//  }
+	console.log(obj)
+
+    var max=0; //表示出现次数做多的初始值
+    var keys=''// 表示出现最大的字符
+	 for(var key in obj) {
+         if(max<obj[key]) {
+			 max=obj[key]
+			 keys=key
+
+		 }
+	 }
+	 console.log('最多的字符:' + keys)
+	 console.log('做多的次数:'+ max)
+
+
+
+
+
+          
+
+	
+	</script>
+</body>
+</html>

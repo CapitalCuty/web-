@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>我是谁</p>
+    <p>我是谁</p>
+    <p>我是谁</p>
+    <div>我是div</div>
+    <div>我是div</div>
+    <div>我是div</div>
+    <div>我是div</div>
+    <div>我是div</div>
+    <h1>我是h1</h1>
+    <h1>我是h1</h1>
+    <h1>我是h1</h1>
+    <h1>我是h1</h1>
+
+    <script>
+        //封装一个选择器
+        function selctor(sel) {
+            return document.querySelector(sel)
+        }
+        console.log(selctor("p"));
+        console.log(selctor("div"));
+        console.log(selctor("h1"));
+
+
+        function selctor(sel1) {
+            return document.querySelectorAll(sel1)
+        }
+        console.log(selctor("p"));
+        console.log(selctor("div"));
+        console.log(selctor("h1"));
+    </script>
+</body>
+
+</html>

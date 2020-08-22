@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	
+	用户名:<input type="text"  placeholder="用户名" class="user">  <br>
+	密码：<input type="text" placeholder="请输入密码" class="pwd">
+	<button>提交</button>
+
+
+	<script src="./jquery.min.js"></script>
+	<script>
+	
+	// 1 点击的时候获取到用户名与密码的值
+   $('button').on('click',function() {
+	var  userName=$('.user').val()
+	var userPwd=$('.pwd').val()
+	// $.ajax({})
+   if(!userName.trim()) {
+	   alert('用户名不能为空')
+	   return  false
+   }
+   if(!userPwd.trim()) {
+	   alert('密码不能为空')
+	   return  false
+   }
+//    2把数据存储到本地缓存里面
+//   window
+// localStorage.setItem('随便写keys','json格式的字符串类型 值是我们需要存储值')
+//第一种方法
+//   var  arr=[userName,userPwd]
+//第二种 方法  存储多个数据
+var  obj={
+	pwd:userPwd,
+	name:userName
+
+}
+
+//对象转字符 
+
+//JSON.stringify() //把对象转换成json格式的字符串
+//JSON.parse()  // 把json的字符串转换成对象
+
+var  strObj=JSON.stringify( obj)
+
+localStorage.setItem('user',strObj)
+	
+   })
+
+
+
+
+
+
+
+// {} 1 不能写注释   2 只能用双引号  key  value   如果只是数字  那么值可以不加双引号
+   
+// 作用   存储数据与传递数据 交换数据
+
+
+//　如果进来这个页面 需要先判断之前有没有存储自己的名字与密码
+// 如果存储过了 那就不需要再填写 直接获取到之前存储的值 把之前存储的值重新
+// 赋值给我们用户名与密码的输入框  
+// 如果没有就需要自己手动填写用户名与密码
+
+ 
+	
+	
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li><span></span>	1</li>
+		<li><span></span>	2</li>
+		<li class="current"><span></span>	3</li>
+		<li><span></span>	4</li>
+	</ul>
+	
+	<script src="./jquery.min.js"></script>
+
+	<script>
+	
+	//   hasClass('类选择器') 判断有没有这个类名 如果没有返回false  有就返回true
+	   var isFlag= $('li:last').hasClass('current')
+	   console.log(isFlag)
+     var isFlag2= $('li').eq(2).hasClass('current')
+		console.log(isFlag2)
+		
+
+    // parent()  //表示查找当前jquery对象的父级元素  返回是一个jquery对象
+	console.log(	$('li').parent().parent())
+
+    //  children()  //查找直接子代 亲儿子  
+	console.log($('ul').children())
+
+
+//  find('需要查找的标签名')  //查找    子代 包含亲儿子以及所有的后代（子子孙孙）  
+		console.log($('ul').find('span'))
+	  
+	</script>
+</body>
+</html>

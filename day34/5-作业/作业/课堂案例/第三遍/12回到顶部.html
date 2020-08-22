@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html,
+        body {
+            height: 2000px;
+        }
+        
+        .back {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: fixed;
+            top: 300px;
+        }
+        
+        .box {
+            background-color: green;
+            height: 1000px;
+            width: 3000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back">回到顶部</div>
+    <div class="box"></div>
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function() {
+            // $('.back').click(function() {
+            //     $(document).scrollTop(0);
+            // })
+
+            //动画效果
+            $('.back').click(function() {
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 2000)
+            })
+        })
+    </script>
+</body>
+
+</html>

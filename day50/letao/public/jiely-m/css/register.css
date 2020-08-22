@@ -1,0 +1,10 @@
+#getCode {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #006699;
+}
+#formBox div input {
+    font-size: 14px;
+}

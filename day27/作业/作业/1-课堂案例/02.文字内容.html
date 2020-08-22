@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 0 auto;
+            padding: 0;
+            background-color: red;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>xxxx</p>
+    </div>
+    <script>
+        var div = document.querySelector("div");
+        // 获取元素内容
+        div.onclick = function() {
+            //获取纯文字
+            var text = div.innerText;
+            console.log(text);
+
+            //获取元素内所有内容
+            var html = div.innerHTML;
+            console.log(html);
+        }
+
+        //双击 ondblclick
+        div.ondblclick = function() {
+            div.innerText = "<h2>我被双击了</h2>"; //不能解析html标签
+            div.innerHTML = "<h2>我被双击了</h2>";
+        }
+    </script>
+</body>
+
+</html>

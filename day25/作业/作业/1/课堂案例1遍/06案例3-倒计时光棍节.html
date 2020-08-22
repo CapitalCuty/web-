@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="time"></p>
+    <script>
+        //光棍节倒计时
+        function getTime() {
+            //获取当前时间戳
+            var nowTime = +new Date();
+            console.log(nowTime);
+
+            //获取目标时间戳
+            var targetTime = +new Date('2020-11-11 00:00:00');
+            console.log(targetTime);
+
+            //获得时间差(毫秒->秒数)
+            var t = (targetTime - nowTime) / 1000;
+
+            if (t == 0) {
+                clearInterval(set);
+            } else {
+                //天、小时、分、秒
+                var day = Math.floor(t / 60 / 60 / 24);
+                var hour = Math.floor(t / 60 / 60 % 24);
+                var min = Math.floor(t / 60 % 60);
+                var sec = Math.floor(t % 60);
+
+                //将剩余时间放到p标签中
+                document.getElementById("time").innerHTML = "距离光棍节还有" + day + "天" + hour + "时" + min + "分" + sec + "秒";
+            }
+
+        }
+        getTime();
+        var set = setInterval(getTime, 1000);
+    </script>
+</body>
+
+</html>

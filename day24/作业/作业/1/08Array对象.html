@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //判断是不是一个数组
+        var arr = [1, 2, 3, 4]
+        var obj = {
+            name: name,
+        }
+
+        //方法一    建议用这个
+        console.log(Array.isArray(arr))
+        console.log(Array.isArray(obj))
+
+        // 方法二
+        console.log(typeof arr)
+        console.log(typeof obj)
+
+
+        // 方法三
+        console.log(arr instanceof Array)
+        console.log(obj instanceof Object)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>1按钮</button>
+    <button>2按钮</button>
+    <button>3按钮</button>
+    <button>4按钮</button>
+    <button>5按钮</button>
+    <script>
+        //需求  点击当前的按钮  让当前的按钮背景颜色发生变化    其他按钮的颜色不发生改变
+
+        var btns = document.querySelectorAll("button");
+        for (var i = 0; i < btns.length; i++) {
+            //找到每个按钮
+            var btn = btns[i];
+            //给每个按钮绑定事件
+            btn.onclick = function() {
+                //排他思想：1.干掉所有人（包括自己）    2.最后在留下自己
+                for (j = 0; j < btns.length; j++) {
+                    var mybtn = btns[j];
+                    mybtn.style.backgroundColor = "";
+                }
+                this.style.backgroundColor = "red";
+            }
+        }
+    </script>
+</body>
+
+</html>

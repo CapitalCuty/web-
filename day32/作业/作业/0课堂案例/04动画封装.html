@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画封装-缓慢移动</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        div,
+        span {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        span {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+
+    <button>点击回到起点</button>
+    <script>
+        var div = document.querySelector("div")
+        var span = document.querySelector("span")
+        var btn = document.querySelector("button")
+
+
+        function animate(ele, target, time) {
+            var timeId = setInterval(function() {
+
+                //动态计算步长,使得动画缓慢运行
+                var step = (target - ele.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+
+                //判断到什么时候停止
+                if (ele.offsetLeft == target) {
+                    ele.style.left = target + "px"
+                    clearInterval(timeId)
+                    return
+                }
+                // var step = 10;
+                ele.style.left = step + ele.offsetLeft + "px";
+            }, time)
+        }
+
+
+        animate(div, 600, 100);
+        animate(span, 400, 80);
+
+
+        btn.onclick = function() {
+            animate(div, 100, 50);
+            animate(span, 0, 50);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+https://www.bootcdn.cn/echarts/
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts-en.min.js"></script>
+
+
+https://github.com/longwosion/geojson-map-china
+
+
+https://echarts.apache.org/zh/download-map.html?qq-pf-to=pcqq.c2c

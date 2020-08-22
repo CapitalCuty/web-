@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //表示字符串中含有abc
+    var reg = /abc/;
+    //用test('字符串')测试
+    console.log(reg.test('a')); //false
+    console.log(reg.test('abc')); //true
+    console.log(reg.test('aabc')); //true
+    console.log(reg.test('abcc')); //true
+    console.log(reg.test('abbc')); //false
+    console.log(reg.test('adbc')); //false
+
+
+    // *表示出现0次或者多次     
+    var reg1 = /ab*c/; //b出现0次或者多次
+    console.log(reg1.test('ac')); //true
+    console.log(reg1.test('abc')); //true
+    console.log(reg1.test('abbbbcc')); //true
+</script>
+
+
+</html>

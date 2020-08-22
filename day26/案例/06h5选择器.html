@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<ul id='ulId' class="ulBox">
+		<li>1
+			<a href="#">我是a 你来找我呀</a>
+			<!-- <a href="#">我是a 你来找我呀</a> -->
+		</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+
+	<ul id='ulId'>
+		<li>11</li>
+		<li>22</li>
+		<li>33</li>
+		<li>44</li>
+		<li>55</li>
+	</ul>
+
+
+  <script>
+//   h5 新的浏览器支持  (ie8以下)
+// querySelector('选择器(任意选择器 只要是选择器都可以)') 
+// var  ul=document.querySelector('ul')   //获取的是元素 只找第一个匹配上的
+// var  ulId=document.getElementById('ulId')
+
+// console.log(ul)
+// console.log(ulId)
+// var li=document.querySelector('li')
+// console.log(li)
+
+// var  ul=document.querySelector('#ulId')  //id选择器
+// console.log(ul)
+// var  ulBox=document.querySelector('.ulBox')
+// console.log(ulBox);
+
+
+
+
+// querySelectorAll('任何选择器都可以')  //伪数组 
+//  var  lis=document.querySelectorAll('li')
+//  console.log(lis) 
+//  console.log(lis[8])
+
+// <!-- 
+// var lis=document.querySelector('.ulBox').children
+// console.log(lis) -->
+var  lis=document.querySelectorAll('.ulBox>li')
+console.log(lis) 
+
+  
+//   var  a=document.querySelectorAll('.ulBox>li>a')[0]
+//   console.log(a)  
+
+  var a=document.querySelector('.ulBox>li>a')  
+  console.log(a)
+  
+  </script>
+
+</body>
+</html>

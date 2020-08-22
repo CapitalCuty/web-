@@ -1,0 +1,52 @@
+#refreshContainer {
+  position: absolute;
+  left: 0;
+  top: 44px;
+  bottom: 50px;
+  width: 100%;
+}
+.container {
+  padding: 5px;
+  padding-top: 0px;
+}
+.container .topBox {
+  background-color: #efeff4;
+  width: 100%;
+  text-align: center;
+}
+.container .middleBox ul li {
+  text-align: center;
+  width: 50%;
+  float: left;
+}
+.container .middleBox ul li a {
+  display: block;
+  margin: 5px;
+  box-shadow: 0 0 5px #ccc;
+  padding-bottom: 10px;
+}
+.container .middleBox ul li a img {
+  width: 80%;
+}
+.container .middleBox ul li a p {
+  font-size: 12px;
+}
+.container .middleBox ul li a span:nth-of-type(1) {
+  color: red;
+  padding-right: 4px;
+  font-weight: 700;
+  font-size: 16px;
+}
+.container .middleBox ul li a span:nth-of-type(2) {
+  color: #333;
+  text-decoration: line-through;
+}
+.container .middleBox ul li a button {
+  display: block;
+  width: 80%;
+  background-color: #006699;
+  color: #fff;
+  height: 36px;
+  font-size: 16px;
+  margin: 5px auto;
+}

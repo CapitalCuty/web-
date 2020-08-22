@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		div,
+		span {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			border: 1px solid #000;
+			position: relative;
+			/* 必须要有定位*/
+		}
+
+		span {
+			display: block
+		}
+	</style>
+</head>
+
+<body>
+	<div></div>
+	<span></span>
+
+	<button>点击回到起点</button>
+	<button class="btn2">点击回到起点</button>
+
+
+
+	<script>
+		var div = document.querySelector('div')
+	
+		var span = document.querySelector('span')
+		var btn = document.querySelector('button')
+		var btn2 = document.querySelector('.btn2')
+
+
+		// div.timerId=setInterval(function(){
+		// 	console.log(1)
+		// },1000)
+
+		// var obj={
+		// 	name:'zs',
+		// 	say:function(){},
+		// 	timeId:setInterval()
+		// } 
+
+	
+		function animate(obj, target, time) {
+			console.log('move')
+			//往
+			if(obj.timerId) {
+				 
+				clearInterval(obj.timerId)
+			}
+	//往当前对象身上挂载一个timerId	 
+	          obj.timerId= setInterval(function () {
+				var steps = (target - obj.offsetLeft) / 10; // (300-277=23/10===2.3)
+
+				steps = steps > 0 ? Math.ceil(steps) : Math.floor(steps)
+
+
+				if (obj.offsetLeft == target) {
+					obj.style.left = target + 'px';
+					clearInterval(obj.timerId)  //清除的自己身上的timerId
+					// return 
+				}
+
+				obj.style.left = obj.offsetLeft + steps + 'px' //这就是动画 
+
+			}, time)
+		}
+
+
+		animate(div, 600, 80)
+
+		animate(span, 800, 50)
+
+
+		btn.onclick = function () {
+			animate(div, 200, 80)
+		}
+
+		btn2.onclick = function () {
+			animate(span, 200, 80)
+		}
+	</script>
+</body>
+
+</html>

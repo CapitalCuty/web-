@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //JS中所有的代码都在主线程里面执行完成后，没有代码了，才去执行事件队列
+        //JS预解析 + JS基本数据类型和复杂数据类型的存放位置（栈 堆）
+        //JS是单线程执行（主线程里面执行）
+        //JS执行的顺序从上往下
+
+        //案例一
+        for (var i = 0; i < 3; i++) {
+            setTimeout(function() {
+                console.log(i)
+            }, 1000)
+        }
+
+        //案例二
+        console.log(1)
+        setTimeout(function() {
+            console.log('1111')
+        }, 1000)
+        setTimeout(function() {
+            console.log('2222')
+        }, 1000)
+        console.log(22)
+        console.log(3333)
+    </script>
+</body>
+
+</html>

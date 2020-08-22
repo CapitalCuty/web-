@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //取值
+        var arr1 = [1, 2, 3, 4, 5, 6, 7, 8];
+        document.write("原数组是：" + arr1 + "<br><br>");
+        var arr2 = arr1[3];
+        document.write("取出的第4位数是：" + arr2 + "<br><br>");
+
+        //往数组里面添加值 push方法
+        var arr3 = arr1.push(9);
+        document.write("末尾添加9：" + arr1 + "<br><br>");
+
+        //数组中所有的值都删除
+        var arr4 = [2, 3, 4, 5, 6];
+        arr4.length = 0;
+        arr4 = [];
+
+        //删除某个值
+        var arr5 = arr1.splice(2, 1);
+        document.write("删除3后的数组：" + arr1 + "<br><br>");
+
+
+        //添加一个值
+        var arr6 = arr1.splice(2, 0, 3);
+        document.write("添加3后的数组：" + arr1 + "<br><br>");
+
+
+        //修改某个值
+        var arr6 = arr1.splice(4, 1, 0);
+        document.write("把0修改成5后的数组：" + arr1 + "<br><br>");
+    </script>
+</body>
+
+</html>

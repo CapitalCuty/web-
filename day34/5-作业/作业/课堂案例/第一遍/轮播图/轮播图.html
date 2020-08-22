@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 600px;
+            margin: 20px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        ul,
+        ol {
+            list-style: none;
+        }
+        
+        ul {
+            width: 3600px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        ul>li {
+            width: 600px;
+            float: left;
+        }
+        
+        ul>li>img {
+            width: 100%;
+            display: block;
+        }
+        
+        .arrow {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -20px;
+            overflow: hidden;
+            display: none;
+        }
+        
+        .left,
+        .right {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 26px;
+            background-color: red;
+            float: left;
+        }
+        
+        .right {
+            float: right;
+        }
+        
+        ol {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            overflow: hidden;
+        }
+        
+        ol>li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: #cccccc;
+            margin-left: 10px;
+        }
+        
+        .current {
+            background-color: red;
+        }
+    </style>
+    <script src="./animate.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <img src="images/1.jpg" alt="">
+            </li>
+            <li>
+                <img src="images/2.jpg" alt="">
+            </li>
+            <li>
+                <img src="images/3.jpg" alt="">
+            </li>
+            <li>
+                <img src="images/4.jpg" alt="">
+            </li>
+            <li>
+                <img src="images/5.jpg" alt="">
+            </li>
+        </ul>
+        <div class="arrow">
+            <span class="left">&lt;</span>
+            <span class="right">&gt;</span>
+        </div>
+        <ol>
+
+        </ol>
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        var myIndex = 0; //小圆点初始的索引默认值为0
+        var count = 0; //初始化值  定义箭头点击的时候的初始化小圆点的值
+        var circleNum = 0; //初始化值   定义小圆点跟随变化值
+        //获取box的宽度
+        var boxWidth = $('.box').outerWidth();
+        
+		//动态添加小圆点的个数       
+        var lis = $('.box>ul>li')
+        $(lis).each(function(index, ele) {
+            $('ol').append($(`<li>${index+1}</li>`))
+        });
+        //第一个小圆点高亮
+        $('ol>li').eq(0).addClass('current')
+
+
+
+        // 一  鼠标移入时箭头显示，移出时箭头隐藏
+        $('.box').hover(function() {
+            $('.arrow').show()
+
+            //关闭定时器
+            clearInterval(timer)
+        }, function() {
+            $('.arrow').hide()
+
+            //开启定时器
+            timer = setInterval(function() {
+                $('.right').click()
+            }, 2000)
+        })
+
+
+
+        //  二  点击小圆点 当前小圆点高亮 并且图片滚动
+        $('ol>li').click(function() {
+            $(this).addClass('current').siblings().removeClass('current');
+            //给每个小圆点动态生成自定义属性
+            myIndex = $(this).index()
+            count = myIndex;
+            circleNum = myIndex;
+            var leftWidth = -myIndex * boxWidth;
+            $('ul').animate({
+                left: leftWidth
+            }, 300)
+        })
+
+
+
+        //  三  点击左右键图片滚动
+        //无缝滚动  克隆第一张到ul的最后面
+        var newCloneLi = $('ul>li').eq(0).clone();
+        $('ul').append(newCloneLi)
+        $('.right').click(function() {
+            var leng = $('ul>li').length
+            if (count == leng - 1) {
+                count = 0;
+                $('ul').css({
+                    left: 0
+                })
+            }
+            count++;
+            var leftWidth = -count * boxWidth;
+            $('ul').animate({
+                left: leftWidth
+            }, 500)
+
+
+            circleNum++;
+            if (circleNum == leng - 1) {
+                circleNum = 0;
+            }
+            $('ol>li').eq(circleNum).addClass('current').siblings().removeClass('current');
+
+        })
+        $('.left').click(function() {
+            var leng = $('ul>li').length
+                //轮播图跟随
+            if (count == 0) {
+                count = leng - 1;
+                $('ul').css({
+                    left: -count * boxWidth
+                })
+            }
+            count--;
+            var leftWidth = -count * boxWidth;
+            $('ul').animate({
+                left: leftWidth
+            }, 500)
+
+
+            //小圆点跟随
+            if (circleNum == 0) {
+                circleNum = leng - 1;
+            }
+            circleNum--;
+            $('ol>li').eq(circleNum).addClass('current').siblings().removeClass('current');
+
+        })
+
+
+        //  四  轮播图自己滚动
+        var timer = setInterval(function() {
+            $('.right').click()
+        }, 2000)
+    </script>
+</body>
+
+</html>

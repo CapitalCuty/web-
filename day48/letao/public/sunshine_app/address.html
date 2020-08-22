@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/mui/css/mui.min.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/address.css">
+
+    <!-- 移动端的jquery -->
+    <script src="./assets/zepto/zepto.min.js"></script>
+    <script src="./assets/mui/js/mui.min.js"></script>
+    <script src="./assets/artTemplate/template-web.js"></script>
+    <script src="./js/address.js"></script>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav header">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">嗨淘收获地址管理</h1>
+        <a class="mui-icon mui-icon-search mui-pull-right"></a>
+    </header>
+    <nav class="mui-bar mui-bar-tab footer">
+        <a class="mui-tab-item " href="./index.html">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item" href="./category.html">
+            <span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item" href="./cart.html">
+            <span class="mui-icon mui-icon-contact"></span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-tab-item mui-active" href="./user.html">
+            <span class="mui-icon mui-icon-gear"></span>
+            <span class="mui-tab-label">个人中心</span>
+        </a>
+    </nav>
+    <!-- mui-content 公共滚动条 -->
+    <div class="mui-content">
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <ul class="mui-table-view">
+                    <li class="mui-table-view-cell" style="text-align: center;">
+                        <a href="./addAddress.html?isEdit=0">添加收货地址</a>
+                    </li>
+                </ul>
+                <ul class="mui-table-view addresssUl">
+                    <!-- 模板引擎 -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/html" id="addressTmp">
+        {{each data}}
+        <li class="mui-table-view-cell mui-media">
+            <div class="mui-slider-right mui-disabled">
+                <span class="mui-btn mui-btn-primary editBtn" data-id="{{$value.id}}">修改</span>
+                <span class=" mui-btn mui-btn-red deleteBtn" data-id="{{$value.id}}">删除</span>
+            </div>
+            <div class="mui-slider-handle">
+                邮编：<span class="postcode">{{$value.postCode}}</span> 收货人：<span class="recipients">{{$value.recipients}}</span>
+                <p><span class="address">{{$value.address}}</span><span class="addressDetail">{{$value.addressDetail}}</span></p>
+            </div>
+        </li>
+        {{/each}}
+    </script>
+
+
+    <script>
+        mui('.mui-scroll-wrapper').scroll({
+            deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+        });
+    </script>
+</body>
+
+</html>

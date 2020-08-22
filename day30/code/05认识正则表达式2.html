@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	
+	var  reg=/[abc]/  //只要有a 或者b或者c  就符号条件  
+
+
+	console.log(reg.test('a'))
+	console.log(reg.test('b'))
+	console.log(reg.test('c'))
+	console.log(reg.test('abc'))
+	console.log(reg.test('aa'))
+	console.log(reg.test('bb'))
+	console.log(reg.test('bcc'))
+	console.log(reg.test('andy'))
+	console.log(reg.test('dilareba'))
+	console.log(reg.test('cxk'))
+
+
+
+	var  reg1=/^[abc]$/  //只能是以 a 或者b或者c 并且也只能是以a或者b或者c结尾的
+
+		console.log(reg1.test('dilareba'))   //false
+
+
+	
+	</script>
+</body>
+</html>

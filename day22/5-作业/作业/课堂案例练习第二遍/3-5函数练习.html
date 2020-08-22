@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr2 = [3, 5, 2, 4, 7, 1, 8, 0, 6, 9];
+        document.write("原数组：" + arr2 + "<br><br>");
+
+        function getNum() {
+            for (var j = 0; j < arr2.length - 1; j++) {
+                for (var k = 0; k < arr2.length - j - 1; k++) {
+                    var temp = arr2[k];
+                    if (arr2[k] > arr2[k + 1]) {
+                        arr2[k] = arr2[k + 1];
+                        arr2[k + 1] = temp;
+                    }
+                }
+            }
+            document.write("冒泡排序后：" + arr2 + "<br><br>");
+        }
+        getNum();
+    </script>
+</body>
+
+</html>

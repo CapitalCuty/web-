@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./js/jquery.js"></script>
+    <script>
+        var n = 10;
+        var p = new Promise(function(resolve, reject) {
+            setTimeout(function(n) {
+                if (n % 2 == 0) {
+                    resolve(n + "是偶数")
+                } else {
+                    reject(n + "不是偶数")
+                }
+            }, 1000, n)
+        })
+        p.then(function(res) {
+            console.log(res)
+        }, function(err) {
+            console.log(err)
+        })
+    </script>
+</body>
+
+</html>

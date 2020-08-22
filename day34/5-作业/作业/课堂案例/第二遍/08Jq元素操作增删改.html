@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>修改</button>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <span>我是原生的</span>
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function() {
+            //创建元素
+            $('<li></li>')
+
+            //内部添加元素
+            $('ul').append($('<li>我是添加到最后的</li>')) //添加到后面
+            $('ul').prepend($('<li>我是添加到前面的</li>')) //添加到前面
+
+            //外部添加元素
+            $('ul').before($('<h1>我是添加到ul前面的</h1>')) //添加到前面
+            $('ul').after($('<h1>我是添加到ul后面的</h1>')) //添加到后面
+
+
+            //删除元素
+            $('div').html('')
+            $('div').remove()
+            $('div').empty()
+
+
+            //修改元素
+            $('button').click(function() {
+                $('span').text('我是修改后的')
+            })
+        })
+    </script>
+</body>
+
+</html>

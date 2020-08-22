@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            padding: 10px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            position: relative;
+            left: 200px;
+            top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div></div>
+    <button>点击</button>
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function() {
+            // offset() 获取元素偏移   是相对于文档的偏移量     有两个属性：offset().left   offset().top
+            console.log($('div').offset());
+            //offset()可设置偏移量
+            $('button').click(function() {
+                $('div').offset({
+                    left: 20,
+                    top: 30
+                })
+            });
+        })
+    </script>
+</body>
+
+</html>

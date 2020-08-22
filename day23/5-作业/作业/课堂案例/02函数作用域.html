@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var fn = function() {
+            console.log("ni,hao")
+        }
+        fn();
+
+
+        function f1() {
+            var num = num1 = num2 = 123;
+            //这里相当于var num=123;
+            //            num2=123;     //num2全局作用域
+            //            num3=123;     //num3全局作用域
+            function f2() {
+                console.log(num); //123
+                console.log(num1); //123
+                console.log(num2); //123
+            }
+            f2();
+        }
+        var num = 456;
+        f1();
+        console.log(num); //456
+        console.log(num1); //123
+        console.log(num2); //123
+
+
+        // function f1() {
+        //     function f2() {
+        //         console.log(num)
+        //     }
+        //     f2()
+        // }
+        // var num = 123;
+        // f1()
+    </script>
+</body>
+
+</html>

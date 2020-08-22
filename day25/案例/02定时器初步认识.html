@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			background: red;
+			border: 10px solid green;
+			/* border: 1px solid #000; */
+			/* display: none; */
+			/* visibility: hidden;  */   /*BFC*/
+			/* opacity: 0; */
+			transition:  all 2s;
+		
+		}
+	</style>
+</head>
+
+<body>
+		<!-- style="display: none" -->
+	<div class="box" id='box' >
+
+	</div>
+
+	<script>
+		// setTimeout('第一个参数是函数或者是函数名','第二个参数是设置时间单位是毫秒 可以不写 那么默认的就是0毫秒' )
+
+
+		//第一种
+		// setTimeout(function(){
+		// 	console.log('5秒后我炸了')
+		// },5000)
+
+		//第二种 
+
+		// function fn() {
+		// console.log('某某准备开始炸了')
+		// }
+		//  setTimeout(fn,5000)
+
+		//  (BOM+DOM+ECMA(JS))
+
+		//5秒 这个div盒子消失 
+
+
+    //   内置api
+	    var divBox=document.getElementById('box')
+		console.log(divBox)
+       //1 获取这个div元素  
+	   // 2 绑定属性 设置 display:none
+		setTimeout(function(){
+			// divBox.style.display='none'
+			divBox.style.opacity=0;
+		},5000)
+
+	</script>
+</body>
+
+</html>

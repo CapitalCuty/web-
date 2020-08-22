@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            outline: none;
+            display: block;
+            margin: 100px auto;
+        }
+        
+        .bgc {
+            border: 1px solid green;
+        }
+        
+        .focusClass {
+            border: 1px solid red;
+            font-size: 20px;
+            transform: scale(2);
+        }
+        
+        .onblurClass {
+            border: 1px solid black;
+            font-size: 14px;
+            transform: scale(1);
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" value="" placeholder="ni hao " class="bgc">
+    <script>
+        var input = document.querySelector("input");
+        //获取焦点
+        input.onfocus = function() {
+            input.value = "获取焦点";
+            input.className = "focusClass";
+        }
+
+        //失去焦点
+        input.onblur = function() {
+            input.value = "失去焦点";
+            input.className = "onblurClass";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./jquery.js"></script>
+    <script>
+        var p1 = new Promise(function(resolve, reject) {
+                resolve('洗菜做饭')
+            })
+            .then(function(res1) {
+                console.log(res1)
+                return new Promise(function(resolve, reject) {
+                    resolve('坐下来吃饭')
+                })
+            })
+            .then(function(res2) {
+                console.log(res2)
+                return new Promise(function(resolve, reject) {
+                    resolve('收拾桌子洗碗')
+                })
+            })
+            .then(function(res3) {
+                console.log(res3)
+            })
+            .catch(function(err) {
+                console.log(err)
+            })
+    </script>
+</body>
+
+</html>

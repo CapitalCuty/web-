@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <!-- 第一步 引入mui css -->
+        <link rel="stylesheet" href="./assets/mui/css/mui.css">
+        <!-- 第二步引入我们的base.css -->
+        <link rel="stylesheet" href="./css/base.css">
+        <link rel="stylesheet" href="./assets/fontAwesome/css/font-awesome.min.css">
+
+
+
+        <link rel="stylesheet" href="./css/register.css">
+
+    </head>
+
+<body>
+    <div class="mui-inner-wrap">
+        <!-- 主页面标题   头部-->
+        <header class="mui-bar mui-bar-nav  header">
+            <a class="mui-icon mui-action-menu   mui-icon-search mui-pull-left"></a>
+
+            <h1 class="mui-title">嗨淘代购 注册</h1>
+        </header>
+
+
+
+        <!-- 底部导航栏 -->
+        <nav class="mui-bar mui-bar-tab  footer">
+            <a class="mui-tab-item mui-active" href="#tabbar">
+                <span class="mui-icon mui-icon-home"></span>
+                <span class="mui-tab-label">首页</span>
+            </a>
+            <a class="mui-tab-item" href="#tabbar-with-chat">
+                <span class="mui-icon mui-icon-bars"></span>
+                <span class="mui-tab-label">分类</span>
+            </a>
+            <a class="mui-tab-item" href="#tabbar-with-contact">
+                <!-- <span class="mui-icon mui-icon-contact"></span> -->
+                <span class=" mui-icon  fa fa-shopping-cart"></span>
+                <span class="mui-tab-label">购物</span>
+            </a>
+            <a class="mui-tab-item" href="#tabbar-with-map">
+                <span class="mui-icon  mui-icon-person"></span>
+                <span class="mui-tab-label">个人中心</span>
+            </a>
+        </nav>
+
+        <!-- 主体内容部分 -->
+        <div class="mui-content mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <form class="mui-input-group" id="formBox">
+                    <div class="mui-input-row">
+                        <label>用户名</label>
+                        <input type="text" class="mui-input-clear username " placeholder="请输入用户名">
+                    </div>
+
+                    <div class="mui-input-row">
+                        <label>密码</label>
+                        <input type="password" class="mui-input-password password" placeholder="请输入密码">
+                    </div>
+
+
+                    <div class="mui-button-row">
+                        <button type="button" class="mui-btn mui-btn-primary" id='loginBtn'>确认登录</button>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+
+        <script src="./assets/mui/js/mui.min.js"></script>
+        <script src="./assets/zepto/zepto.min.js"></script>
+        <script src="./js/common.js"></script>
+
+        <script>
+            /*初始化区域滚动组件 当超过了父容器大小的时候生效*/
+            mui('.mui-scroll-wrapper').scroll();
+        </script>
+
+
+        <script>
+            $('#loginBtn').on('click', function () {
+                // alert(1)
+                var username = $('.username').val().trim();
+                var password = $('.password').val().trim();
+                $.ajax({
+                    url: '/user/login',
+                    type: 'post',
+                    data: {
+                        username,
+                        password,
+
+                    },
+                    success: function (res) {
+                        console.log(res);
+                        if (res.success) {
+                            setTimeout(function () {
+                                window.location.href = './user.html'
+                            }, 2000)
+                        }
+
+                    }
+                })
+
+
+            })
+        </script>
+</body>
+
+</html>

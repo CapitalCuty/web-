@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            padding: 100px;
+        }
+        
+        textarea {
+            width: 200px;
+            height: 100px;
+            border: 1px solid pink;
+            outline: none;
+            resize: none;
+        }
+        
+        ul {
+            margin-top: 50px;
+        }
+        
+        li {
+            width: 300px;
+            padding: 5px;
+            background-color: rgb(245, 209, 243);
+            color: red;
+            font-size: 14px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id=""></textarea>
+    <button>发布</button>
+    <ul>
+
+    </ul>
+
+    <script>
+        //1  把 textarea 动态的添加到ul里面去
+        //2  每次添加的新的数据要放在最上面
+        var btn = document.querySelector("button");
+        var text = document.querySelector("textarea");
+        var ul = document.querySelector("ul");
+        btn.onclick = function() {
+            if (text.value.trim() == "") {
+                alert("您未填写内容，发布失败！")
+            }
+            //创建li
+            var li = document.createElement("li");
+            //把文本域中的值放到创建的li中
+            li.innerText = text.value;
+            //如果ul中没有li,那么就直接加到ul中;否则就加到第一个子元素节点的前面
+            if (!ul.children) {
+                ul.appendChild(li);
+            } else {
+                ul.insertBefore(li, ul.children[0]);
+            }
+            text.value = "";
+        }
+    </script>
+</body>
+
+</html>

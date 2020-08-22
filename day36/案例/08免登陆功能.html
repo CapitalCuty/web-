@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	
+	用户名:<input type="text"  placeholder="用户名" class="user">  <br>
+	密码：<input type="text" placeholder="请输入密码" class="pwd">
+	<button id='btn1'>提交</button>
+
+
+	<button id='btn2'>清空本地缓存</button>
+
+
+	<script src="./jquery.min.js"></script>
+	<script>
+
+
+//　如果进来这个页面 需要先判断之前有没有存储自己的名字与密码
+// 如果存储过了 那就不需要再填写 直接获取到之前存储的值 把之前存储的值重新
+// 赋值给我们用户名与密码的输入框  
+// 如果没有就需要自己手动填写用户名与密码
+
+// 取数据
+// get 
+// localStorage.getItem('keys')
+
+var  getUsers=localStorage.getItem('user')
+// console.log(getUsers)
+
+ var obj=JSON.parse(getUsers)
+ console.log(obj)
+
+if(obj) {  //之前存储过值
+	var  userName=obj.name
+	var userPwd=obj.pwd
+
+
+		$('.user').val(userName)
+	$('.pwd').val(userPwd)
+
+
+
+}else {  //之前没有
+
+	// 1 点击的时候获取到用户名与密码的值
+	$('#btn1').on('click',function() {
+	var  userName=$('.user').val()
+	var userPwd=$('.pwd').val()
+	// $.ajax({})
+   if(!userName.trim()) {
+	   alert('用户名不能为空')
+	   return  false
+   }
+   if(!userPwd.trim()) {
+	   alert('密码不能为空')
+	   return  false
+   }
+
+var  obj={
+	pwd:userPwd,
+	name:userName
+
+}
+
+//对象转字符 
+
+//JSON.stringify() //把对象转换成json格式的字符串
+//JSON.parse()  // 把json的字符串转换成对象
+
+var  strObj=JSON.stringify( obj)
+
+
+//存数据
+localStorage.setItem('user',strObj)
+
+$('.user').val('')
+$('.pwd').val('')
+
+
+
+	
+   })
+
+
+}
+
+
+
+// 清空本地缓存数据
+$('#btn2').on('click',function() {
+	// localStorage.removeItem('key的名字')
+	localStorage.removeItem('user')
+	// loreload()
+	location.reload()//重新自动刷新页面
+})
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+ 
+
+
+
+
+
+
+// {} 1 不能写注释   2 只能用双引号  key  value   如果只是数字  那么值可以不加双引号
+   
+// 作用   存储数据与传递数据 交换数据
+
+
+	
+	
+	
+	</script>
+</body>
+</html>

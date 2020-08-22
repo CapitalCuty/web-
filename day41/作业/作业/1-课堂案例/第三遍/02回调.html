@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./js/jquery.js"></script>
+    <script>
+        function ck(n, m) {
+            console.log(n + m)
+        }
+
+        function fn(a, b, back) {
+            console.log(a)
+            console.log(b)
+            back && back(a, b)
+        }
+        fn(10, 20, ck);
+        fn(10, 20); //这种情况下不传值是不会报错的
+    </script>
+</body>
+
+</html>

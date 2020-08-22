@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var newDate = new Date();
+        var year = newDate.getFullYear();
+        var month = newDate.getMonth() + 1;
+        var date = newDate.getDate();
+        var week = newDate.getDay();
+        var h = newDate.getHours();
+        var m = newDate.getMinutes();
+        var s = newDate.getSeconds();
+
+        month = month < 10 ? "0" + month : month;
+        date = date < 10 ? "0" + date : date;
+        h = h < 10 ? "0" + h : h;
+        m = m < 10 ? "0" + m : m;
+        s = s < 10 ? "0" + s : s;
+
+        var str = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", ];
+        console.log("现在是：" + year + "年" + month + "月" + date + "日" + str[week] + h + ":" + m + ":" + s);
+    </script>
+</body>
+
+</html>

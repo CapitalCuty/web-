@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //获取数组中最大值以及数组中最小的值
+        var arr1 = [3, 1, 5, 2, 6, 4];
+        document.write("原数组：" + arr1 + "<br><br>");
+        var max = arr1[0]; //假设第一个数最大
+        var min = arr1[0]; //假设第一个数最小
+        for (var i = 1; i < arr1.length; i++) {
+            if (max < arr1[i]) {
+                max = arr1[i];
+            }
+            if (min > arr1[i]) {
+                min = arr1[i];
+            }
+        }
+        document.write("最大值：" + max + "&nbsp;&nbsp;&nbsp;");
+        document.write("最小值：" + min + "<br><br>");
+
+        //从小到大排列  冒泡排序
+        var arr2 = [3, 5, 2, 4, 7, 1, 8, 0, 6, 9];
+        document.write("原数组：" + arr2 + "<br><br>");
+        for (var j = 0; j < arr2.length - 1; j++) {
+            for (var k = 0; k < arr2.length - j - 1; k++) {
+                var temp = arr2[k];
+                if (arr2[k] > arr2[k + 1]) {
+                    arr2[k] = arr2[k + 1];
+                    arr2[k + 1] = temp;
+                }
+            }
+        }
+        document.write("冒泡排序后：" + arr2 + "<br><br>");
+    </script>
+</body>
+
+</html>

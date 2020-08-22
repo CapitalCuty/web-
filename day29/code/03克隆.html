@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+	
+	 ul>li:last-child {
+		 color: red;
+	 }
+	 /* ul>li:first-child {
+		color: yellow;
+	 } */
+	 ul>li:nth-child(2n+1) {  /*n=0   2  n=1    n=2*/ 
+		 color: blue   
+	 }
+	</style>
+</head>
+
+<body>
+	<ul>
+		<!-- 放到这里 -->
+		<li>第1li</li>
+		<li>第2li</li>
+		<li>第3li</li>
+	</ul>
+
+	<script>
+		// 1 需求 我们想克隆第一个li 把克隆出来的li放到最上面
+		var ul = document.querySelector('ul')
+
+		// cloneNode() 浅克隆 只克隆标签 不克隆内容  默认是浅克隆
+		var newLi = ul.children[2].cloneNode()  //
+
+		console.log(newLi)
+		// cloneNode(true)  深克隆  标签加内容
+		var  deepNewLi=ul.children[2].cloneNode(true)
+		console.log(deepNewLi)
+
+   ul.insertBefore(deepNewLi,ul.children[0])
+
+	</script>
+</body>
+
+</html>

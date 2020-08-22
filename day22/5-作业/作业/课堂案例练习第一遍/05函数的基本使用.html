@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //函数作用：执行一段可重复执行的代码
+
+        //定义函数  （函数名最好为动词）
+        function fn() {
+            console.log("我是函数")
+        }
+
+        //函数执行：函数名()    //如果没有这个代码，函数等于啥都没有
+        fn();
+
+
+        //把右边这个函数赋值给了fn1fn1充当了这个匿名函数的函数名
+        var fn1 = function() {
+            console.log("我也是函数")
+        }
+        fn1();
+
+
+        //形参和实参没有关系，只是用来传递对应的值
+        //如果形参比实参多，那么多的那个形参返回值是undefined
+        //如果形参比实参少，那么多的那个实参不用
+        function fn(a, b, c) {
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+        var aa = 100;
+        var bb = 200;
+        var cc = 300;
+        fn(aa, bb, cc);
+
+        aa = 1000;
+        console.log(aa); //此时给aa重新赋值，与形参a没有关系，并不会改变形参的值
+
+
+        //输出的结果不变就不需要传参
+    </script>
+</body>
+
+</html>

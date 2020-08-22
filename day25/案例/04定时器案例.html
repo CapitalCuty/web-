@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	
+	
+	//写一个倒计时 10s
+	//  var count=10
+ 
+    //   setInterval(function(){
+	//   if(count==0) {
+	//  		 count=0;
+	//  	 }
+	//  	 count--;
+
+	//  	 document.write( count+'<br>')
+	//   },2000)
+
+
+	//       setInterval(function(){
+	//   if(count==0) {
+	//  		 count=0;
+	//  	 }
+	//  	 count--;
+
+	//  	 document.write( count+'<br>')
+	//   },2000)
+
+
+
+
+// 1  10没看到 
+// 2  定时器停不下来
+// 3 定时器必须给标志(循环定时器)
+    var count=10;
+	function fn(){
+		console.log('xxxx')
+	}
+  var timeId=setInterval(fn,1000)   // 定时器的返回值就是定时器的标志符 来变量存储一下
+//   var timeId2=setTimeout(fn,2000)
+
+
+ var timeId2= setTimeout(function(){
+	// clearInterval('定时器的标示符')
+	clearInterval(timeId)
+	clearTimeout(timeId2)
+	// timeId2=null;
+
+},5000)
+
+
+
+
+	//清空定时器
+
+
+
+
+
+
+
+
+	
+	</script>
+</body>
+</html>

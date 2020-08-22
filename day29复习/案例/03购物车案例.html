@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		input {
+			outline: none
+		}
+
+		body {
+			background-color: #bcdecf;
+		}
+
+		div.box {
+			width: 700px;
+			margin: 50px auto 0;
+		}
+
+		div.box table {
+			border-collapse: collapse;
+			width: inherit;
+			text-align: center;
+			background-color: #f6f6f6;
+		}
+
+		div.box table td,
+		div.box th {
+			border: 1px solid #999;
+		}
+
+		div.box th {
+			height: 40px;
+		}
+
+		div.box table tbody img {
+			height: 50px;
+		}
+
+		div.box table tbody tr span {
+			cursor: default;
+		}
+
+		div.box table tbody tr td:nth-child(2) img {
+			vertical-align: middle;
+		}
+
+		div.box table tbody tr td:nth-child(4) span {
+			display: inline-block;
+			width: 15px;
+			line-height: 30px;
+			background-color: #666;
+			color: #eee;
+			vertical-align: middle;
+		}
+
+		div.box table tbody tr td:nth-child(4) input {
+			width: 20px;
+			height: 20px;
+			outline: none;
+			vertical-align: middle;
+			text-align: center;
+		}
+
+		div.box table tbody tr td:nth-child(6) span {
+			padding: 4px 10px;
+			background-color: #999;
+			color: white;
+		}
+
+		div.box div.bottom {
+			padding: 15px 0;
+			margin-top: 15px;
+			height: 25px;
+			background-color: white;
+			display: flex;
+			justify-content: space-between;
+			position: relative;
+		}
+
+		div.box div.bottom span.delAll {
+			cursor: default;
+		}
+
+		div.box div.bottom div.js {
+			padding: 0 6px;
+			background-color: #00A5FF;
+			color: white;
+			margin-right: 10px;
+			cursor: default;
+		}
+
+		div.box div.bottom aside div {
+			display: inline-block;
+		}
+
+		div.box div.bottom aside div span {
+			position: absolute;
+			width: 50px;
+			line-height: 20px;
+			padding: 0 5px;
+			background-color: rgba(255, 255, 255, .4);
+			color: #333;
+			font-size: 10px;
+			margin-left: -60px;
+			margin-top: 20px;
+			transform: rotate(30deg);
+			cursor: pointer;
+		}
+
+		div.box div.bottom aside img {
+			height: 60px;
+			vertical-align: middle;
+		}
+
+		div.box div.bottom aside {
+			position: absolute;
+			background-color: #0a74cb;
+			width: 100%;
+			top: -70px;
+			padding: 5px;
+			box-sizing: border-box;
+			display: none;
+		}
+
+		div.box div.bottom aside.on {
+			display: block;
+		}
+
+		div.box div.bottom aside:after {
+			position: absolute;
+			content: "";
+			border: 10px solid transparent;
+			border-top-color: #0a74cb;
+			bottom: -19px;
+			right: 280px;
+		}
+
+		div.box div.bottom a,
+		div.box div.bottom a:visited {
+			color: #0b97ff;
+			text-decoration: none;
+		}
+
+		form {
+			margin-bottom: 20px;
+		}
+
+		.text {
+			margin: 0 4px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box" id="box">
+		<!-- 商品展示表格 -->
+		<!-- <form action="">
+			商品名称: <input type="text" id='productName'>
+			商品单价: <input type="text" id='productPrice'>
+			<button id='addBtn'>点击添加</button>
+
+		</form> -->
+
+
+		<table>
+			<thead>
+				<tr>
+					<th>
+						<label>
+							<input type="checkbox" class="checkAll check" checked>全选
+						</label>
+					</th>
+					<th>商品</th>
+					<th>单价</th>
+					<th>数量</th>
+					<th>小计</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody id="tbody">
+				<tr>
+					<td>
+						<input type="checkbox" class="check" checked>
+					</td>
+					<td>
+						Casio/卡西欧 EX-TR350
+					</td>
+					<td>6000</td>
+					<td>
+						<span class="reduce">-</span>
+						<input class="text" value="1">
+						<span class="add">+</span>
+					</td>
+					<td>6000</td>
+					<td>
+						<span class="del">删除</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" class="check" checked>
+					</td>
+					<td>
+						Canon/佳能 PowerShot SX50 HS
+					</td>
+					<td>6000</td>
+					<td>
+						<span class="reduce">-</span><input class="text" value="1"><span class="add">+</span>
+					</td>
+					<td>6000</td>
+					<td>
+						<span class="del">删除</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" class="check" checked>
+					</td>
+					<td>
+						Sony/索尼 DSC-WX300
+					</td>
+					<td>6000</td>
+					<td>
+						<span class="reduce">-</span><input class="text" value="1"><span class="add">+</span>
+					</td>
+					<td>6000</td>
+					<td>
+						<span class="del">删除</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" class="check" checked>
+					</td>
+					<td>
+						Fujifilm/富士 instax mini 25
+					</td>
+					<td>6000</td>
+					<td>
+						<span class="reduce">-</span>
+						<input class="text" value="1">
+						<span class="add">+</span>
+					</td>
+					<td>6000</td>
+					<td>
+						<span class="del">删除</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<!-- 全选反选模板 -->
+		<div class="bottom" id="bottom">
+			<span class="delAll">全部删除</span>
+			<div>已选商品(选中的)：
+				<span class="selected" id="num">3</span>件
+			</div>
+			<div>
+				商品个数 <span id="number" style='width: 50px; height: 20px;'> </span>
+			</div>
+			<div>合计：￥
+				<span class="total" id="total">7000</span>
+			</div>
+			<div class="js">结算</div>
+		</div>
+	</div>
+
+
+
+
+	<script>
+		//  该案例购物车主要功能如下：
+		//   1 点击添加商品按钮把商品添加到table列表(扩展)
+		//   2  商品单选、全选、反选功能
+		//   3  商品数量的增加 减少 
+		//   4  商品总价格 总数量  自动计
+		//   5  商品的删除功能
+
+		//   2.1  商品全选功能
+		var checkAll = document.querySelector('.checkAll')
+		var tbody = document.querySelector('tbody')
+
+		var inputs = tbody.querySelectorAll('.check')
+		console.log(inputs)
+
+		var num = document.querySelector('#num')
+		var number = document.querySelector('#number')
+		var total = document.querySelector('#total')
+
+
+
+		checkAll.onclick = function () {
+			for (var i = 0; i < inputs.length; i++) {
+				//让每个单选按钮的状态等于全选的状态
+				var input = inputs[i]
+				input.checked = checkAll.checked
+
+			}
+
+
+			getTotal()
+
+		}
+
+		//  2.2  商品单选功能
+		for (var i = 0; i < inputs.length; i++) {
+			//让每个单选按钮的状态等于全选的状态
+			var input = inputs[i]
+			input.onclick = function () {
+				for (var j = 0; j < inputs.length; j++) {
+					var input = inputs[j]
+					if (!input.checked) {
+						checkAll.checked = false
+						countNum = 0;
+
+
+						break;
+					} else {
+						checkAll.checked = true
+					}
+
+				}
+				getTotal()
+			}
+		}
+
+
+
+		//   3  商品数量的增加 减少 
+
+		var adds = document.querySelectorAll('.add')
+		for (var i = 0; i < adds.length; i++) {
+			var add = adds[i]
+			add.onclick = function () {
+				//   console.log(1)
+				var inputNum = this.previousElementSibling
+				//  var inputNum=this.parentNode.children[1]
+				inputNum.value++;
+				var tr = this.parentNode.parentNode
+				var td3 = tr.children[2]
+				var td5 = tr.children[4]
+				td5.innerHTML = parseFloat(td3.innerText) * parseFloat(inputNum.value)
+				getTotal()
+
+
+
+			}
+		}
+
+		//   减少
+		var reduces = document.querySelectorAll('.reduce')
+		for (var i = 0; i < reduces.length; i++) {
+			var reduce = reduces[i]
+			reduce.onclick = function () {
+				var inputNum = this.nextElementSibling
+				var tr = this.parentNode.parentNode
+				var td3 = tr.children[2]
+				var td5 = tr.children[4]
+				inputNum.value--
+
+				if (inputNum.value <= 0) {
+					alert('老兄 不能再少了  是不是不想要')
+					inputNum.value = 0
+					td5.innerHTML = parseFloat(td3.innerText) * parseFloat(inputNum.value)
+					getTotal()
+
+					return
+
+				}
+				td5.innerHTML = parseFloat(td3.innerText) * parseFloat(inputNum.value)
+				getTotal()
+
+			}
+		}
+
+
+
+		//    4  商品总价格 总数量  自动计算
+
+
+
+		function getTotal() {
+			var countNum = 0 //选中商品的商量
+			var sumNum = 0 // 商品的总数量
+			var totalNum = 0 //商品的总价格
+			for (var i = 0; i < inputs.length; i++) {
+				var input = inputs[i]
+				if (input.checked) {
+
+					var tr = input.parentNode.parentNode
+					sumNum += parseInt(tr.children[3].children[1].value)
+					totalNum += parseFloat(tr.children[4].innerText)
+					countNum++
+				}
+			}
+
+			console.log(countNum)
+			console.log(sumNum)
+			console.log(totalNum)
+			num.innerHTML = countNum
+			number.innerHTML = sumNum
+			total.innerHTML = totalNum
+
+
+		}
+
+		getTotal()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		//   5  商品的删除功能
+
+		var dels = tbody.querySelectorAll('.del')
+		for (var i = 0; i < dels.length; i++) {
+			var del = dels[i]
+			del.onclick = function () {
+				var flag = confirm('确定要删除我吗 不再考虑一下么')
+				if (flag) {
+					// tbody.removeChild(tr)	
+					tbody.removeChild(this.parentNode.parentNode)
+					inputs = tbody.querySelectorAll('.check')
+
+					getTotal()
+
+				}
+
+			}
+		}
+
+     //全部删除
+		var delAll = document.querySelector('.delAll')
+		delAll.onclick = function () {
+			tbody.innerHTML = ''
+			inputs = tbody.querySelectorAll('.check')
+			checkAll.checked = false
+			var bottom = document.querySelector("#bottom")
+
+			getTotal()
+			if (tbody.children.length == 0) {
+				alert(1)
+
+				bottom.style.display = 'none'
+			} else {
+				bottom.style.display = 'block'
+			}
+
+
+		}
+	</script>
+
+</body>
+
+</html>

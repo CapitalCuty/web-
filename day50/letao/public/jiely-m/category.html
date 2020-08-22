@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <!-- 第一步 引入mui css -->
+        <link rel="stylesheet" href="./assets/mui/css/mui.css">
+        <!-- 第二步引入我们的base.css -->
+        <link rel="stylesheet" href="./css/base.css">
+        <link rel="stylesheet" href="./assets/fontAwesome/css/font-awesome.min.css">
+
+        <!-- 引入我们自己的样式css -->
+        <link rel="stylesheet" href="./css/category.css">
+        <script src="./assets/mui/js/mui.min.js"></script>
+
+    </head>
+
+<body>
+    <div class="mui-inner-wrap">
+        <!-- 主页面标题   头部-->
+        <header class="mui-bar mui-bar-nav  header">
+            <a class="mui-icon mui-action-menu   mui-icon-search mui-pull-right" href="./search.html"></a>
+
+            <h1 class="mui-title">嗨淘代购</h1>
+        </header>
+
+        <!-- 底部导航栏 -->
+        <nav class="mui-bar mui-bar-tab  footer">
+            <a class="mui-tab-item" href="./index.html">
+                <span class="mui-icon mui-icon-home"></span>
+                <span class="mui-tab-label">首页</span>
+            </a>
+            <a class="mui-tab-item mui-active" href="#">
+                <span class="mui-icon mui-icon-bars"></span>
+                <span class="mui-tab-label">分类</span>
+            </a>
+            <a class="mui-tab-item" href="#tabbar-with-contact">
+                <!-- <span class="mui-icon mui-icon-contact"></span> -->
+                <span class=" mui-icon  fa fa-shopping-cart"></span>
+                <span class="mui-tab-label">购物</span>
+            </a>
+            <a class="mui-tab-item" href="#tabbar-with-map">
+                <span class="mui-icon  mui-icon-person"></span>
+                <span class="mui-tab-label">个人中心</span>
+            </a>
+        </nav>
+
+
+        <!-- 主体内容部分 -->
+        <div class="mycontent">
+            <div class="leftBox">
+                <div class="mui-scroll-wrapper">
+                    <div class="mui-scroll">
+                        <!--这里放置真实显示的DOM内容-->
+                        <div class="links">
+                            <!-- <a href="#" class='active'>品牌1</a>
+                            <a href="#">品牌1</a>
+                            <a href="#">品牌1</a>
+                            <a href="#">品牌1</a>
+                            <a href="#">品牌1</a>
+                            <a href="#">品牌1</a>
+                            <a href="#">品牌1</a>
+                            <a href="#">品牌1</a>
+                            <a href="#">品牌1</a> -->
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="rightBox">
+                <div class="mui-scroll-wrapper">
+                    <div class="mui-scroll">
+                        <!--这里放置真实显示的DOM内容-->
+                        <ul class="brandBox">
+                            <!-- <li>
+                                <a href="">
+                                    <img src="./images/brand1.png" alt="">
+                                    <p>耐克</p>
+                                </a>
+
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images/brand1.png" alt="">
+                                    <p>耐克</p>
+                                </a>
+
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images/brand1.png" alt="">
+                                    <p>耐克</p>
+                                </a>
+
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images/brand1.png" alt="">
+                                    <p>耐克</p>
+                                </a>
+
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <script>
+            mui('.mui-scroll-wrapper').scroll({
+                deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+            });
+        </script>
+
+
+
+        <script src="./assets/zepto/zepto.min.js"></script>
+        <script src="./assets/artTemplate/template-web.js"></script>
+
+        <script src="./js/common.js"></script>
+
+        <!-- 一级分类数据模板展示 -->
+        <!-- id: 1
+categoryName: "运动馆"
+isDelete: 1 -->
+        <script type="text/template" id='first-category'>
+            {{each rows  val  i }}
+
+            <a href="#" data-id='{{val.id}}'>{{val.categoryName}}</a>
+            {{/each}}
+        </script>
+
+
+        <!-- 二级分类数据模板展示 -->
+
+
+        <!-- id: 1
+brandName: "耐克"
+categoryId: 1
+brandLogo: "/mobile/images/brand1.png"
+isDelete: 1
+hot: 1 -->
+        <script type="text/template" id='second-category'>
+            {{each rows  val  i }}
+            <li>
+                <a href="#">
+                    <img src="{{val.brandLogo}}" alt="">
+                    <p>{{val.brandName}}</p>
+                </a>
+
+            </li>
+
+            {{/each}}
+        </script>
+
+
+
+        <script>
+            // <!--1 一级分类查询功能 -->
+
+            // /category/queryTopCategory
+
+
+            // xmlhttprequest()
+            // $.ajax()
+            // fetch
+
+            //方式一 fetch 请求数据
+            // fetch('/category/queryTopCategory').then(res => {
+            //     return res.json();
+            // }).then(res => {
+            //     console.log(res);
+
+            // })
+
+            //方式二 $.ajax()
+
+            $(function () {
+                /*
+             1 第一步请求数据
+             2 定义我们的模板结构
+             3 调用模板template  
+             4 进行数据生成
+             */
+                $.ajax({
+                    url: '/category/queryTopCategory',
+                    success: function (res) {
+                        // console.log(res);
+                        //调用我们template 
+                        //   template('模板的id','这里传我们的数据对象')
+                        var htmlStr = template('first-category', res)
+                        // console.log(htmlStr);
+                        $('.links').html(htmlStr)
+
+                        //一上来需要展示第一个一级分类的二级分类数据
+                        var firstId = res.rows[0].id;
+                        getSeconData(firstId)
+
+                        //一进来的时候第一个高亮
+                        $('.links').find('a').eq(0).addClass('active').siblings().removeClass(
+                            'active')
+                    }
+                })
+
+                //  二级分类数据获取与展示
+                /*
+                  1 点击一级分类具体的名字 获取到对应的id 
+                  2 传递id 给我们的二级分类  
+                  3  发送ajax请求
+                  4  拿到数据
+                  5 定义模板 进行数据展示
+                */
+
+                //动态生成的a绑定点击事件需要用事件代理的形式进行绑定
+                $('.links').on('click', 'a', function () {
+                    // alert(1)
+                    var myid = $(this).attr('data-id');
+                    //  console.log(myid);
+                    getSeconData(myid)
+                    // 点击的时候当前高亮
+                    $(this).addClass('active').siblings().removeClass('active')
+
+
+                })
+
+
+
+
+
+
+
+                function getSeconData(myid) {
+                    $.ajax({
+                        url: '/category/querySecondCategory',
+                        data: {
+                            id: myid
+                        },
+                        success: function (res) {
+
+                            // 优化部分  
+                            if (res.rows.length > 0) {
+                                //表示有数据 在进行渲染
+
+                                var htmlStr = template('second-category', res)
+                                // console.log(htmlStr);
+
+                                $('.brandBox').html(htmlStr)
+                            } else {
+                                // 给出提示 暂无数据 正在准备上架
+                                $('.brandBox').html('暂无数据 正在准备上架')
+                            }
+
+
+
+                        }
+                    })
+                }
+
+
+
+
+            })
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>让盒子动起来</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: relative;
+            /* 必须要有定位 */
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <script>
+        var div = document.querySelector("div");
+
+        setInterval(function() {
+            var step = 10; //步长
+            div.style.left = step + div.offsetLeft + "px"; //offsetLeft自身的偏移量
+        }, 100)
+    </script>
+</body>
+
+</html>

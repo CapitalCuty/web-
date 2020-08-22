@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 随机取出arr 里面的省 在页面上随机生成对应的城市 
+        var arr = ['湖北省', '湖南省', '河南省']
+        var arr1 = [
+            ['武汉市', '黄冈市'],
+            ['长沙市', '湘潭市'],
+            ['郑州市', '信阳市']
+        ]
+        var random1 = Math.floor(Math.random() * 3);
+        var random2 = Math.floor(Math.random() * 2);
+
+        console.log(arr[random1]);
+        console.log(arr1[random1][random2]);
+    </script>
+</body>
+
+</html>

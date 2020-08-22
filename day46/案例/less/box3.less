@@ -1,0 +1,40 @@
+.box3 {
+
+	color: @color;
+	font-size: @fontSzie;
+		img {
+	
+			display: none;
+			width: @width+200px;
+	
+			.bordered();
+		
+	
+		}
+		.links {
+			color: @color;
+			display: block;
+			width: @width*(@num);
+	
+			&:hover {
+			  em {
+				  color: green;
+			  }	
+			}
+			&:hover+img {
+			  display: block;
+			} 
+	
+			&::after {
+				content:"我是伪类加的内容"
+			}
+	
+			
+	
+	
+	
+		}
+	
+	
+	}
+	

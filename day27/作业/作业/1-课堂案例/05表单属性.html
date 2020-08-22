@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button>点击</button>
+    <script>
+        var input = document.querySelector("input")
+        var btn = document.querySelector("button")
+        btn.onclick = function() {
+            input.disabled = true; //disabled为真的时候表示不让写，默认情况下是可以写的
+            this.style.backgroundColor = 'red';
+        }
+    </script>
+</body>
+
+</html>

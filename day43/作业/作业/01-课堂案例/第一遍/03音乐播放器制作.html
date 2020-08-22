@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+
+
+
+<style>
+    .wrap {
+        width: 300px;
+        margin: 50px auto 0;
+    }
+    
+    button {
+        font-size: 25px;
+    }
+    
+    #btnNext {
+        float: right;
+    }
+    
+    #mlist {
+        width: 300px;
+        background: #ccc;
+        border: 1px solid #666;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 10px;
+    }
+    
+    #mlist li {
+        font-size: 24px;
+        color: blue;
+        line-height: 40px;
+        border-bottom: 1px solid #666;
+        padding-left: 5px;
+    }
+    
+    #mlist li:last-child {
+        border-bottom: none;
+    }
+    
+    #mlist li:hover {
+        color: red;
+    }
+    
+    #mlist .play {
+        background: pink;
+    }
+</style>
+
+
+</head>
+
+<body>
+    <div class="wrap">
+        <audio src="./data/李荣浩-老街.mp3" controls autoplay id="aud"></audio>
+        <button id="btnPre">上一首</button>
+        <button id="btnNext">下一首</button>
+        <ol id="mlist">
+            <li class="play">李荣浩-老街.mp3</li>
+            <li>熊梓淇-体面.mp3</li>
+            <li>云汐-女驸马.mp3</li>
+        </ol>
+    </div>
+    <script src="./js/jquery.js"></script>
+
+    <script>
+        //  一   双击歌曲列表  可以播放对应的歌曲 
+        //  二   点击上一首 跟播放当前歌曲的上一首   点击下一首按钮 跟播放当前歌曲的下一首歌
+        //  三   当前歌曲播放完毕后能自动播放到下一首 
+        //  四   随机播放按钮  可以随机播放     
+        //  五   点击循环播放按钮 可以循环当前歌曲播放 
+
+        var index = 0; //初始化 当前播放歌曲正在播放的索引值
+        //事件代理的写法给每个li绑定双击事件  dblclick 表示鼠标双击
+        $('#mlist').on('dblclick', 'li', function() {
+            // alert(1)
+            var this_text = $(this).text();
+            index = $(this).index()
+                // console.log(index);
+            alert(this_text)
+
+            $('#aud').prop('src', './data/' + this_text) //设置播放具体哪一首歌
+            $(this).addClass('play').siblings('li').removeClass('play') //当前播放高亮
+
+        })
+
+
+        $('#btnNext').on('click', function() {
+            //找到  当前播放的的歌曲 的索引
+            index++
+            //获取整个播放歌曲的长度
+            var leg = $('#mlist').children().length - 1;
+            if (index > leg) {
+                index = 0;
+            }
+
+            // console.log(index);
+
+            var this_text = $('#mlist li').eq(index).text(); //确定索引
+            $('#aud').prop('src', './data/' + this_text) //设置播放具体哪一首歌
+            $('#mlist li').eq(index).addClass('play').siblings('li').removeClass('play') //当前播放高亮
+
+        })
+
+        //上一首
+
+        $('#btnPre').on('click', function() {
+            //找到当前播放的歌曲的索引
+            index--
+            //获取整个歌曲的长度
+            var leg = $('#mlist').children().length - 1;
+            if (index < 0) {
+                index = leg
+            }
+
+            console.log(index);
+
+            var this_text = $('#mlist li').eq(index).text(); //确定索引
+            $('#aud').prop('src', '.data/' + this_text) //设置播放具体哪一首
+            $('#mlist li').eq(index).addClass('paly').siblings('li').removeClass('play')
+
+        })
+
+
+        //自动播放 下一首 确定当前这个首播放完毕  ended 表示播放完毕
+        $('#aud').on('ended', function() {
+            // alert(1)
+            $('#mlist li').each(function(index, ele) {
+                var play = $(this).hasClass('play') //判断是否正在播放
+                if (play) {
+                    index = $(this).index()
+                    return
+                }
+            })
+
+            // 方案一
+            // index++
+            // // 获取整个播放歌曲的长度
+            // var leg = $('#mlist').children().length - 1;
+            // if (index > leg) {
+            //     index = 0;
+            // }
+            // // console.log(index);
+
+            // var this_text = $('#mlist li').eq(index).text(); //确定索引
+            // $('#aud').prop('src', '/data/' + this_text)
+            // $('#mlist li').eq(index).addClass('play').siblings('li').removeClass('play')
+
+
+            // 方案二
+            $('#btnNext').trigger('click') //触发btnNext的点击事件
+
+        })
+    </script>
+
+</body>
+
+</html>

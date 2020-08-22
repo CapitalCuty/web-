@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>世纪佳缘</title>
+    <style>
+        .input_text {
+            border: 1px solid #d9d9d9;
+            color: #aaa;
+            outline: none;
+        }
+        
+        .input_text_focus {
+            border: 1px solid #ffd6db;
+            color: #888;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="new_header">
+        <div class="new_wrap">
+            <form id="hder_login_form_new" method="post">
+                <input type="text" class="input_text" id="uname" value="邮箱/ID/手机号">
+            </form>
+        </div>
+    </div>
+    <script>
+        var input = document.querySelector("input");
+        //输入框获得焦点
+        input.onfocus = function() {
+            input.value = "";
+            input.style.border = "1px solid black";
+        }
+
+        //输入框失去焦点
+        input.onblur = function() {
+            if (input.value == "") {
+                input.value = "邮箱/ID/手机号";
+                input.style.border = "1px solid red"
+            } else {
+                input.style.border = "1px solid green"
+            }
+        }
+    </script>
+</body>
+
+</html>

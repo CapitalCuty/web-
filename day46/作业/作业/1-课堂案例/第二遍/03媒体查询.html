@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 从大往小写 */
+        
+        .box {
+            height: 300px;
+        }
+        
+        @media (min-width: 1200px) {
+            .box {
+                background-color: red;
+                height: 100px;
+            }
+        }
+        
+        @media (min-width: 992px) and (max-width:1190px) {
+            .box {
+                background-color: green;
+                height: 200px;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width:991px) {
+            .box {
+                background-color: blue;
+                height: 400px;
+            }
+        }
+        
+        @media (max-width:767px) {
+            .box {
+                background-color: purple;
+                height: 600px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

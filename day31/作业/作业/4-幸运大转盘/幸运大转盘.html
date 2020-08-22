@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>幸运大转盘</title>
+    <style>
+        .box {
+            width: 620px;
+            height: 620px;
+            margin: 100px auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .box>div {
+            float: left;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            background-color: skyblue;
+            /* margin: 0 10px 10px 0; */
+        }
+        
+        .box>div>button {
+            width: 80px;
+            height: 40px;
+            font-size: 20px;
+        }
+        
+        .box>.bg1 {
+            background-color: #666666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div index="0">600元优惠券</div>
+        <div index="1">800元优惠券</div>
+        <div index="2">1000元优惠券</div>
+        <div index="7">800元优惠券</div>
+        <div index="8">
+            <button id="sta">开始</button>
+            <button id="sto">停止</button>
+        </div>
+        <div index="3">600元优惠券</div>
+        <div index="6">600元优惠券</div>
+        <div index="5">1000元优惠券</div>
+        <div index="4">800元优惠券</div>
+    </div>
+    <script>
+        var sta = document.querySelector("#sta")
+        var sto = document.querySelector("#sto")
+        var box = document.querySelector(".box")
+        var divs = document.querySelectorAll(".box>div")
+        var timer = null;
+        var num = 0;
+        sta.onclick = function() {
+            timer = setInterval(function() {
+                for (var i = 0; i < divs.length; i++) {
+                    var div = divs[i];
+                    div.className = "";
+                }
+                for (j = 0; j < divs.length; j++) {
+                    var div = divs[j];
+                    if (div.getAttribute("index") == num % 8) {
+                        div.className = "bg1";
+                    }
+                }
+                num++;
+            }, 100)
+        }
+        sto.onclick = function() {
+            // alert(234)
+            clearInterval(timer);
+        }
+    </script>
+</body>
+
+</html>

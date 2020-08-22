@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+
+
+		<div></div>
+		<button class="button1">fadeIn</button>
+		<button class="button2">fadeOut</button>
+	
+		<button class="button3">fadeToggle</button>
+		<button class="button4">fadeTo</button>
+
+	
+	
+	<script src="./jquery.min.js"></script>
+
+	<script>
+
+
+		$('div').css({
+			width: '200px',
+			height: '200px',
+			backgroundColor: 'red',
+			display: 'none'
+		})
+
+	
+	// fadeIn() / fadeOut() / fadeToggle() / fadeTo() ; 
+	$('.button1').click(function () {
+			$('div').fadeIn(1000)
+		})
+
+
+		// slideDown  滑入(隐藏)
+		$('.button2').click(function () {
+			$('div').fadeOut(1000)
+		})
+
+
+            // slideToggle 如果是滑入 那么再次点击就是滑出 
+			$('.button3').click(function () {
+			$('div').fadeToggle(1000)
+		})
+
+
+		$('.button4').click(function () {
+			   //  修改透明度 fadeTo() 这个速度和透明度要必须写
+			$('div').fadeTo(1000,0.5)
+		})
+	  
+	</script>
+</body>
+</html>

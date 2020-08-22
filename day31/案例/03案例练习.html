@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text">
+
+
+	<script>
+	
+	var input=document.querySelector('input')
+	// input.=function(e) {
+    //  var code=e.keyCode
+	//  if(code===83) {
+	// 	 alert('按的是s键')
+	// 	 //获取焦点
+	// 	 input.focus()
+		 
+	//  }else {
+	// 	 alert('不是s键')
+	//  }
+	// }
+
+
+	document.onkeyup=function(e) {
+		alert(e.keyCode)
+		if(e.keyCode===83) {
+			input.focus()
+		}
+		
+	}
+ 
+
+
+	//  onclick=function(){
+
+//	}  //定义
+
+
+  //	click()  //直接调用
+       //blur()   //直接调用失去焦点 
+
+
+	</script>
+</body>
+</html>

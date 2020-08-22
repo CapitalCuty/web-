@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./jedate/css/jedate.css">
+</head>
+
+<body>
+    <input type="text" id="test" readonly>
+    <button id="btn">日期</button>
+    <script src="./jquery-1.12.4.min.js"></script>
+    <script src="./jedate/js/jedate.js"></script>
+
+    <script>
+        $(function() {
+            $('#btn').on('click', function() {
+                jeDate('#test', {
+                    format: 'YYYY-MM-DD',
+                    isTime: false,
+                    trigger: false, //不使用内置的事件功能，自己进行设置
+                    minDate: '2015-01-01 00:00:00', //最小日期
+                    maxDate: '2022-12-31 23:59:59', //最大日期
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

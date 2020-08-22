@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<script>
+		//函数的返回值 
+
+		function fn1() {
+			console.log('函数1')
+		}
+		fn1()
+		//  console.log( fn1())
+
+		//  需求  1-10的和  把这个结果 再与num1=100相加 
+
+
+		function fn2(a, b) {
+			var sum = 0;
+			for (var i = a; i <= b; i++) {
+				sum += i;
+
+			}
+
+			console.log(sum)
+			return  sum   //需要这个值 唯一的方法就是return   
+			
+
+		}
+
+		//  如果你想要这个函数执行完成后需要这个结果再去外面参数运算或者赋值  那么就需要把这个
+		//  结果给我返回到js运行环境里面去  返回到全局作用域里面去
+		// console.log(fn2(1, 5))
+
+		fn2(1, 5)
+		fn2(1, 10)
+		var num1 = 100;
+		 var res = fn2(1, 5) + num1;
+		console.log(res)
+
+		
+	</script>
+</body>
+
+</html>

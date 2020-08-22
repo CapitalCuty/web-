@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1 往数组里面添加 1-10的数字  
+
+        /*
+	var arr=[];
+	for(var i=1;i<=10;i++) {
+    //方法一
+	//    arr.push(i)
+    // 方法二 
+	// arr.length==0
+     arr[arr.length]=i;
+	//  arr[1]=2
+	}
+
+	console.log(arr)
+	*/
+        // 2 往数组里面添加数据 1-10 但是只要奇数 
+
+        //    var  arr=[];
+        //    for(var i=1;i<=10;i++) {
+        //      if(i%2!==0) {
+        // 		//  arr.push(i)
+        // 		arr[arr.length]=i
+        // 	 }
+        //    }
+
+        //    console.log(arr);
+
+
+
+        // 3 数组返过来排列 [9,7,5,3,1]
+        //  var  arr=  [1, 3, 5, 7, 9]
+        // var newArr=[];
+        // for(var i=arr.length-1;i>=0;i--) {
+        //     newArr.push(arr[i])
+        // }
+
+        // console.log(arr)
+        // console.log(newArr)
+
+
+
+
+        // <!--  错误的方法 
+        //  var  arr=  [1, 3, 5, 7, 9]
+        //  var len=arr.length-1;
+
+
+        // for(var i=arr.length-1;i>=0;i--) {
+
+        //     arr[len-i]=arr[i]    // [9,7,5,7,9]
+        // }
+
+        // console.log(arr)
+
+
+        //  -->
+        //    先写不成立 先写错误的 先写容易的代码 返过来写 代码写得少
+        // 去掉 大于10的值
+        // var  arr=  [10,1, 3, 5, 7, 9,20,30];
+        // var newArr=[];
+        // for(var i=0;i<arr.length;i++) {
+        // 	if(arr[i]<10) {
+        //        newArr.push(arr[i])
+        // 	}
+        // }
+
+        // console.log(newArr);
+
+
+        //思想的升华  
+
+        // 第一种写法
+        // var  arr=  [10,1, 3, 5, 7, 9,20,30];
+        // var newArr=[];
+        // for(var i=0;i<arr.length;i++) {
+        // 	if(arr[i]<10) newArr.push(arr[i])
+        // }
+
+        // console.log(newArr);
+
+        //第二种写法
+        var arr = [10, 1, 3, 5, 7, 9, 20, 30];
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            arr[i] < 10 ? newArr.push(arr[i]) : ''; //三元表达式
+        }
+
+
+        // <!-- 
+
+        // console.log(newArr);
+
+        // var num1=10;
+        // var num2=20;
+
+
+        // // a>b?'执行表达式1':"表达式2"
+
+        // num1>num2?console.log(true):console.log(false)
+
+
+
+        //  -->
+
+
+
+        // <!--   es6 
+        // var  arr=  [10,1, 3, 5, 7, 9,20,30];
+        //   var newArr=arr.filter(item=>item<10)
+        // console.log(newArr)
+        //  -->
+    </script>
+</body>
+
+</html>

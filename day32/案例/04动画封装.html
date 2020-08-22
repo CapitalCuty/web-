@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        div,
+        span {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border: 1px solid #000;
+            position: relative;
+            /* 必须要有定位*/
+        }
+        
+        span {
+            display: block
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+
+    <button>点击回到起点</button>
+    <button class="btn2">点击回到起点</button>
+
+
+
+    <script>
+        var div = document.querySelector('div')
+        console.log(div.offsetLeft) //获取自身的偏移量
+        var span = document.querySelector('span')
+        var btn = document.querySelector('button')
+        var btn2 = document.querySelector('.btn2')
+
+
+        function animate(ele, target, time) {
+            console.log('move')
+
+            var timerId = setInterval(function() {
+                var steps = (target - ele.offsetLeft) / 10; // (300-277=23/10===2.3)
+
+                steps = steps > 0 ? Math.ceil(steps) : Math.floor(steps)
+
+
+                if (ele.offsetLeft == target) {
+                    ele.style.left = target + 'px';
+                    clearInterval(timerId)
+                        // return 
+                }
+
+                ele.style.left = ele.offsetLeft + steps + 'px' //这就是动画 
+
+            }, time)
+        }
+        animate(div, 600, 80)
+
+        animate(span, 800, 50)
+
+
+        btn.onclick = function() {
+            animate(div, 200, 80)
+        }
+
+        btn2.onclick = function() {
+            animate(span, 200, 80)
+        }
+    </script>
+</body>
+
+</html>

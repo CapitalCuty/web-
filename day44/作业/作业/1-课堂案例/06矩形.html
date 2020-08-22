@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 10px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="600" height="500"></canvas>
+
+    <script>
+        var myCanvas = document.querySelector('canvas');
+        var ctx = myCanvas.getContext('2d');
+
+        ctx.beginPath()
+        ctx.rect(100, 100, 300, 300)
+        ctx.fillStyle = 'red'
+        ctx.fill()
+        ctx.closePath()
+
+        ctx.beginPath()
+        ctx.rect(150, 150, 200, 200)
+        ctx.fillStyle = 'green'
+        ctx.fill()
+        ctx.closePath()
+
+        ctx.stroke()
+    </script>
+</body>
+
+</html>

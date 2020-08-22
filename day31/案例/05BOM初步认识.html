@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			background-color: red;
+		}
+	</style>
+
+	<!-- 获取不到 -->
+	<!-- <script>
+			var  box=document.querySelector('.box')
+			console.log(box)
+			
+			</script> -->
+
+
+	<script>
+		// onload 等待加载  等待加载dom元素 (所有的img,css资源)
+		//    window.onload=function() {
+		// 	var  box=document.querySelector('.box')
+		// 			console.log(box)
+		//    }
+
+
+		// window.addEventListener('load',function(){
+		// 	var  box=document.querySelector('.box')
+		// 			console.log(box)
+		// })
+
+
+		// 只加载dom元素  不需要等待 图片加载完成就可以触发
+		window.addEventListener('DOMContentLoaded', function () {
+			var box = document.querySelector('.box')
+			console.log(box)
+		})
+	</script>
+
+</head>
+
+<body>
+	<div class="box"></div>
+
+
+</body>
+
+</html>

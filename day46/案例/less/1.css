@@ -1,0 +1,37 @@
+.bordered {
+  border-top: dotted 20px red;
+  border-bottom: solid 20px red;
+}
+.box1 p {
+  color: green;
+}
+.box1 .box2 span {
+  color: blue;
+}
+.box1 .box2 ul li {
+  background-color: pink;
+}
+.box3 {
+  color: red;
+  font-size: 20px;
+}
+.box3 img {
+  display: none;
+  width: 300px;
+  border-top: dotted 20px red;
+  border-bottom: solid 20px red;
+}
+.box3 .links {
+  color: red;
+  display: block;
+  width: 1000px;
+}
+.box3 .links:hover em {
+  color: green;
+}
+.box3 .links:hover + img {
+  display: block;
+}
+.box3 .links::after {
+  content: "我是伪类加的内容";
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- div.demo>div.box>.erweima -->
+    <div class="demo">
+        <div class="box">
+            <div class="erweima">二维码</div>
+            <div class="erweima">二维码</div>
+        </div>
+    </div>
+
+    <script>
+        var box = document.querySelector(".box");
+        //父节点
+        var parent = box.parentNode;
+        console.log(parent);
+
+        //子节点    返回的是所有子节点的集合，包含空格和换行，不用
+        var child = box.childNodes;
+        console.log(child)
+
+        //子元素节点    (掌握)
+        var childern = box.children;
+        console.log(childern);
+    </script>
+</body>
+
+</html>

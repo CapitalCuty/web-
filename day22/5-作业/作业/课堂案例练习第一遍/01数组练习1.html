@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //删除数组中所有的值
+        var arr = [1, 2, 3, 4, 5];
+        //方法一
+        arr = [];
+        console.log(arr);
+        //方法二
+        arr.length = 0;
+        console.log(arr);
+
+
+        //添加数据
+        var arr1 = [1, 2, 3, 4, 5, 6]
+        arr1.splice(2, 0, 7); //(长度起始位，删除几个，添加什么) 
+        console.log(arr1);
+
+
+        //删除数据
+        var arr2 = [1, 2, 3, 4, 5, 6]
+        arr2.splice(2, 1); //(索引起始位，删除几个) 
+        console.log(arr2);
+
+        //修改数据
+        var arr1 = [1, 2, 3, 4, 5, 6]
+        arr1.splice(2, 1, 7); //(索引起始位，删除几个，添加什么) 
+        console.log(arr1);
+    </script>
+</body>
+
+</html>

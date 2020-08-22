@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./lib/bootstrap.css" />
+  <script src="./lib/jquery.js"></script>
+</head>
+
+<body style="padding: 15px;">
+  <!-- 添加图书的Panel面板 -->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">添加新图书</h3>
+    </div>
+    <div class="panel-body form-inline">
+      <!-- 顶部进行图书新增的结构部分 -->
+      <div class="input-group">
+        <div class="input-group-addon">书名</div>
+        <input type="text" class="form-control" id="iptBookname" placeholder="请输入书名">
+      </div>
+
+      <div class="input-group">
+        <div class="input-group-addon">作者</div>
+        <input type="text" class="form-control" id="iptAuthor" placeholder="请输入作者">
+      </div>
+
+      <div class="input-group">
+        <div class="input-group-addon">出版社</div>
+        <input type="text" class="form-control" id="iptPublisher" placeholder="请输入出版社">
+      </div>
+      <!-- 点击添加新图书 -->
+      <button id="btnAdd" class="btn btn-primary">添加</button>
+
+    </div>
+  </div>
+
+
+  <!-- 图书的表格 -->
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>书名</th>
+        <th>作者</th>
+        <th>出版社</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody id="tb">
+      <!-- 用于放置图书信息的tbody标签 -->
+
+    </tbody>
+  </table>
+
+  <script src="./lib/jquery.js"></script>
+  <script>
+    /*
+      分析：
+        1 请求服务端的图书信息，进行表格展示
+          - 根据接口请求数据，进行字符串拼接后，生成到tbody中即可
+        2 新增图书功能
+          - 点击新增按钮
+          - 检测前面的三个输入框内容，如果为空，进行提示并阻止后续操作
+          - 将合理的内容发送给接口，让服务端保存
+          - 添加成功后，将表格内容进行更新
+        3 删除功能
+    */
+
+    // 1 图书信息展示功能
+    renderBookTable();
+
+    // 2 图书信息新增功能
+    // 2.1 添加事件
+    $('#btnAdd').on('click', function () {
+      // 2.2 获取输入框内容并进行检测
+      var val1 = $('#iptBookname').val().trim();
+      var val2 = $('#iptAuthor').val().trim();
+      var val3 = $('#iptPublisher').val().trim();
+
+      if (val1 === '' || val2 === '' || val3 === '') {
+        alert('请完整填写新增的内容!');
+        $('#iptBookname').val('');
+        $('#iptAuthor').val('');
+        $('#iptPublisher').val('');
+        return;
+      }
+      // 2.3 发送请求，将数据发送给服务端保存
+      $.post('http://www.liulongbin.top:3006/api/addbook', {
+        bookname: val1,
+        author: val2,
+        publisher: val3
+      }, function (res) {
+        // 2.4 检测添加操作是否成功
+        if (res.status === 201) {
+          // 2.5 清空输入框内容
+          $('#iptBookname').val('');
+          $('#iptAuthor').val('');
+          $('#iptPublisher').val('');
+
+          // 2.6 更新tbody的数据
+          renderBookTable();
+        }
+      });
+
+    });
+
+
+    // 3 图书信息删除功能
+    // 3.1 给删除按钮添加点击事件
+    //    - 用于删除按钮a是动态创建的元素，添加事件必须使用事件委托方式
+    //    - 如果tbody中还有其他的a标签，可以给删除按钮a设置类名（此案例中可选）
+    $('#tb').on('click', '.del', function () {
+      // 3.2 获取按钮的data-id属性
+      //    - 回到创建结构的部分，给a标签添加data-id属性保存id即可
+      var id = $(this).data('id'); // this.dataset.id 
+
+      // 3.3 将id发送给指定的接口
+      $.ajax({
+        // type: 'GET',
+        url: 'http://www.liulongbin.top:3006/api/delbook',
+        data: {
+          id: id
+        },
+        success: function (res) {
+          // 3.4 检测删除是否成功，如果res.status为200即为成功
+          if (res.status === 200) {
+            // 3.5 更新数据即可
+            renderBookTable();
+          } else {
+            alert('删除失败');
+          }
+        }
+      });
+
+      // 3.4 删除成功后，更新表格即可
+    });
+
+
+    // 封装一个用来获取和展示图书数据的函数
+    function renderBookTable() {
+      //  1.1 请求图书信息
+      $.get('http://www.liulongbin.top:3006/api/getbooks', function (res) {
+        // 1.2 检测是否成功的请求到数据：检测status属性是否为200
+        if (res.status !== 200) {
+          alert('网络开小差了，请稍后再试!~');
+          return;
+        }
+        // 1.3 根据数据拼接对应的结构字符串
+        var data = res.data;
+        var str = ''; // 用于保存拼接的结构字符串
+        $.each(data, function (i, ele) {
+          str +=
+            '<tr>\
+            <td>' + ele.id + '</td>\
+            <td>' + ele.bookname + '</td>\
+            <td>' + ele.author + '</td>\
+            <td>' + ele.publisher + '</td>\
+            <td><a href="javascript:;" class="del" data-id="' + ele.id + '">删除</a></td>\
+          </tr>';
+        });
+
+        // 1.4 将拼接的结构字符串生成到html页面的tbody中
+        $('#tb').html(str);
+
+
+      });
+    }
+
+  </script>
+
+</body>
+
+</html>

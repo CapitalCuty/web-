@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+	<script>
+		// get 
+		// 上面的请求也可以这样做
+
+		// axios.get('url地址','{对象}')
+
+	// 对象里面有一个属性 params   固定写法 也是一个对象   所有需要传递的参数写在params里面
+		axios.get('http://www.liulongbin.top:3006/api/robot', {
+				params: {
+					spoken:"你腿好长",
+
+				}
+			})
+			.then(function (res) {  // 表示成功后会执行的函数   response 
+				console.log(res);
+			})
+			.catch(function (err) {   // 表示失败 
+				console.log(err);
+			});
+
+
+		//post 请求 
+		
+		// axios.post ('url 地址',对象  )  对象里面没有params    直接写需要传递的参数
+
+
+// 接口URL： /api/addbook
+// 调用方式： POST
+// 参数格式：
+// 参数名称	参数类型	是否必选	参数说明
+// bookname	String	是	图书名称
+// author	String	是	作者
+// publisher	String	是	出版社
+
+
+		axios.post('http://www.liulongbin.top:3006/api/addbook', {
+			bookname: '艺术',
+			author: '罗老歪',
+			publisher:'南派三叔'
+			})
+			.then(function (res) {
+				console.log(res);
+			})
+			.catch(function (err) {
+				console.log(err);
+			});
+
+
+
+
+
+
+
+
+
+// 添加请求拦截器
+// axios.interceptors.request.use(function (config) {
+//     // 在发送请求之前做些什么
+//     return config;
+//   }, function (error) {
+//     // 对请求错误做些什么
+//     return Promise.reject(error);
+//   });
+
+// // 添加响应拦截器
+// axios.interceptors.response.use(function (response) {
+//     // 对响应数据做点什么
+//     return response;
+//   }, function (error) {
+//     // 对响应错误做点什么
+//     return Promise.reject(error);
+//   });
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>

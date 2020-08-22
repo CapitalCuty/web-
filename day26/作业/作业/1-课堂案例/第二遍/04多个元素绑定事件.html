@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        //1.找元素
+        //2.给多个元素都绑定事件一定先遍历
+
+        //要求页面上所有li绑定点击事件
+
+        var lis = document.querySelectorAll("li");
+        console.log(lis);
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].onclick = function() {
+                this.style.backgroundColor = "red";
+            }
+        }
+
+        //百度后有两种解决方案
+        //1将for循环里面的var改成let
+        //2将 lis[i].style.backgroundColor = "red";改成this.style.backgroundColor = "red";
+    </script>
+</body>
+
+</html>

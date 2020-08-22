@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	// 1 数组  存放一些数据的集合   有顺序 
+	// 2 对象 存放键值对数据的集合(描述某一个特征以及行为/方法)   没有顺序
+	var arr1=[]; //空数组 
+	// var flag=Array.isArray(arr);
+//    var arr2=new Array()
+//    var obj=new  Object()
+
+ //定义数组
+ var arr2=[1,2,3] 
+//取值
+var arrVal1=arr2[0]   // 这里0 专业术语叫索引  数组的索引从0 开始
+console.log(arrVal1)
+//设置数组的值
+
+
+var  newArr=arr2.splice(0,1,'hello')  //返回的之前该的那个值
+// <!-- 
+// console.log(arr2);  
+// console.log(newArr) -->
+
+
+// 往数组里面添加值 push方法
+
+ var arr3=[1,2,3] 
+//  方法一 
+arr3.push('hello')
+console.log(arr3)
+
+arr3.push('world','老王')
+console.dir(arr3)  //[1, 2, 3, "hello", "world", "老王"]
+
+
+// console.dir() //表示是对象 
+// console.log(arr3[5])
+// 数组的长度 
+
+ var len=arr3.length
+ console.log(len)
+
+
+ arr3.push('xxxx')
+ 
+ console.dir(arr3) 
+
+
+//arr3.length   //1 表示数组的长度  2 动态改变 
+
+
+	
+	</script>
+</body>
+</html>

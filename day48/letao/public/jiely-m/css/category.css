@@ -1,0 +1,73 @@
+.mycontent {
+    position: absolute;
+    left: 0;
+    top: 44px;
+    bottom: 50px;
+    width: 100%;
+    background: #f5f5f5;
+
+}
+
+.leftBox {
+    width: 80px;
+    float: left;
+    /* background-color: red; */
+    height: 100%;
+    position: relative;
+}
+
+
+.leftBox .links {
+    width: 100%;
+    background-color: #fff;
+}
+
+.leftBox .links a {
+    display: block;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    font-size: 12px;
+
+
+}
+
+/* 高亮样式设置 */
+.leftBox .links a.active {
+    color: red;
+
+}
+
+.rightBox {
+    margin-left: 90px;
+    /* background-color: pink; */
+    height: 100%;
+    position: relative;
+}
+
+
+.rightBox .brandBox {
+    overflow: hidden;
+    background-color: #fff;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.rightBox .brandBox li {
+    float: left;
+    width: 33.33%;
+}
+
+.rightBox .brandBox li a {
+    display: block;
+    text-align: center;
+
+}
+
+.rightBox .brandBox li a img {
+    width: 100%;
+}
+
+.rightBox .brandBox li a p {}

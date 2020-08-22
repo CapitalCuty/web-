@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./js/jquery.js"></script>
+    <script>
+        function cb(n, m) {
+            console.log(n + m)
+        }
+
+        // function fn(a, b, back) {
+        //     console.log(a)
+        //     console.log(b)
+        //     back(a, b)
+        // }
+        // fn(10, 20, cb)
+        // fn(10, 20) //不传会报错 back is not function
+
+
+        //解决方案
+        function fn2(a, b, back) {
+            console.log(a)
+            console.log(b)
+            back && back(a, b)
+        }
+        fn2(10, 20, cb)
+        fn2(10, 20)
+    </script>
+</body>
+
+</html>

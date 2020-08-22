@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $.ajax({
+            url: './data/1.json',
+            type: 'get',
+            data: {},
+            beforeSend: function() {
+                console.log('准备发送请求')
+            },
+            success: function(res) {
+                console.log(res)
+            },
+            error: function(err) {
+                console.log(err)
+            },
+            complete: function() {
+                console.log('不管成功失败都会执行')
+            }
+        })
+        console.log('我是在请求发送成功之前执行')
+    </script>
+</body>
+
+</html>

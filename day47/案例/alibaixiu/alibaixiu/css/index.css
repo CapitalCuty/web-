@@ -1,0 +1,100 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+.imgs {
+	background-color: skyblue;
+}
+
+
+
+.imgs_list {
+  width: 100%;	
+}
+
+.imgs_list li {
+	float: left;
+	width: 25%;
+}
+
+
+
+
+.imgs_list li {
+	height: 128px;
+	padding-left: 10px;
+
+} 
+
+.imgs_list li:first-child {
+	width: 50%;
+	height: 256px;
+}
+
+.imgs_list li  img  {
+	width: 100%;
+	height: 100%;
+}
+
+
+.imgs_list li:nth-child(2),
+.imgs_list li:nth-child(3) {
+padding-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+.ulBox {
+	  width: 100%;
+	  margin: 20px 0 0 0;
+}
+
+.ulBox li {
+   margin: 20px 0;
+}
+
+.info  img {
+  display: block;
+  width: 100%;
+}
+
+.info .txtBox {
+	width: 100%;
+}
+
+
+.media-right a {
+	width: 100%;
+	display: block;
+}
+
+.media-object {
+	width: 100%;
+}
+
+
+.nav_list a {
+  display: block;
+  width: 100%;
+  line-height: 24px;
+}
+
+
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+@media (max-width:992px) { 
+	.nav_list  a {
+		float: left;
+		width: 20%;
+	}
+ }

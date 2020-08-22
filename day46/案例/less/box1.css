@@ -1,0 +1,9 @@
+.box1 p {
+  color: green;
+}
+.box1 .box2 span {
+  color: blue;
+}
+.box1 .box2 ul li {
+  background-color: pink;
+}

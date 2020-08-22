@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box1">aaaaaaaaaaaaaaaaaaaaaa</div>
+    <div class="box2">bbbbbbbbbbbbbbbbbbbbbb</div>
+    <script>
+        var div = document.querySelector(".box1")
+
+        //contextmenu鼠标右键事件
+        div.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        })
+
+        //selectstart选中事件
+        div.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        })
+    </script>
+</body>
+
+</html>

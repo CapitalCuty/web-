@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <div></div>
+    <script>
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+
+        //location.href 获取或设置整个URL
+        btn.addEventListener('click', function() {
+            console.log(location.href);
+            location.href = 'http://www.itcast.cn';
+        })
+    </script>
+</body>
+
+</html>

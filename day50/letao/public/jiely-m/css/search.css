@@ -1,0 +1,54 @@
+ .container {
+     padding: 5px;
+
+ }
+
+ .container .searchBox {
+     position: relative;
+     line-height: 30px;
+
+ }
+
+ .container .searchBox input {
+     height: 28px;
+     font-size: 14px;
+     border: 1px solid #006699;
+     margin-bottom: 0;
+
+ }
+
+ .container .searchBox button {
+     position: absolute;
+     right: 0;
+     background-color: #006699;
+     height: 30px;
+     width: 60px;
+     color: #fff;
+     /* border-radius: 0; */
+ }
+
+ .container .histroyBox {
+     height: 30px;
+     margin: 5px 0;
+     line-height: 30px;
+ }
+
+ .container .histroyBox span:nth-child(1) {
+     /* float: left; */
+ }
+
+ .container .histroyBox span:nth-child(2) {
+     /*float: right;*/
+     font-size: 14px;
+     line-height: normal;
+     margin-top: 6px;
+ }
+
+ /* .histroyList .mui-table-view-cell {
+     padding-left: 0 !important;
+ } */
+
+ .mui-table-view-cell:after {
+     left: 0;
+
+ }

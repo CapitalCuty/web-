@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <span>我是内容</span>
+    </div>
+    <input type="text" value="请输入内容">
+
+
+
+    <script src="./jquery.min.js"></script>
+    <script>
+        // text('如果有一个参数就是设置读文本内容')
+        // text() //获取文本内容
+
+        // html('如果有一个参数就是设置读文本内容 可以解析html标签')
+        // html() //获取文本内容(html)
+
+        // val('如果有一个参数就是设置表单元素内容')
+        // val()  //获取表单元素内容
+
+        //   var getHtml=$('div').html()
+        //   console.log(getHtml)
+
+        //     var setHtml=$('div').html('<h1>xxxx</h1>')
+        //   console.log(setHtml)
+
+
+        var getText = $('div').text()
+        console.log(getText)
+
+        var setText = $('div').text('xxxx')
+        console.log(setText)
+
+
+
+        var getVal = $('input').val()
+        alert(getVal)
+        var setVal = $('input').val('我是设置的值')
+        var getVal = $('input').val()
+        alert(getVal)
+    </script>
+</body>
+
+</html>

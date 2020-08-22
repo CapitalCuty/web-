@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/mui/css/mui.min.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./assets/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/mui/css/iconfont.css">
+    <link rel="stylesheet" href="./css/searchlist.css">
+
+    <!-- 移动端的jquery -->
+    <script src="./assets/zepto/zepto.min.js"></script>
+    <script src="./assets/mui/js/mui.min.js"></script>
+    <script src="./assets/artTemplate/template-web.js"></script>
+    <script src="./js/searchlist.js"></script>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav header">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">嗨淘代购搜索中心</h1>
+    </header>
+    <nav class="mui-bar mui-bar-tab footer">
+        <a class="mui-tab-item" href="./index.html">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item mui-active" href="./category.html">
+            <span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item" href="./cart.html">
+            <span class="mui-icon mui-icon-contact"></span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-tab-item" href="./user.html">
+            <span class="mui-icon mui-icon-gear"></span>
+            <span class="mui-tab-label">个人中心</span>
+        </a>
+    </nav>
+    <div class="mui-content">
+        <div class="mui-scroll-wrapper" id="refreshContainer">
+            <div class="mui-scroll">
+                <div class="container">
+                    <!-- 商品筛选 -->
+                    <div class="mui-row">
+                        <div class="mui-col-xs-6 price searchBar">
+                            价格
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <div class="mui-col-xs-6 sale searchBar">
+                            销量
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                    </div>
+
+                    <!-- 商品列表展示区域 -->
+                    <div class="lifeBox">
+                        <ul class="mui-clearfix productBox">
+                            <!-- 模板引入数据 -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 定义模板引擎 -->
+    <script type="text/html" id="searchTmp">
+        {{each data}}
+        <li class="mui-media goodShow">
+            <a href="javascript:;">
+                <img class="mui-pull-center" src="./images/{{$value.pic[0].picName}}">
+                <div class="mui-media-body">
+                    <p class="goodsTitle">{{$value.proName}}</p>
+                    <p class='mui-ellipsis'>
+                        <span class="nowPrice">¥{{$value.price}}</span>
+                        <span class="oldPrice">¥{{$value.oldPrice}}</span>
+                    </p>
+                    <button type="button" class="mui-btn mui-btn-blue buyBtn" data-id="{{$value.id}}">立即购买</button>
+                </div>
+            </a>
+        </li>
+        {{/each}}
+    </script>
+
+    <script>
+        mui('.mui-scroll-wrapper').scroll({
+            deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+        });
+    </script>
+</body>
+
+</html>

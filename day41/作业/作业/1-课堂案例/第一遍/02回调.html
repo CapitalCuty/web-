@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //回调      一般指的是函数  回来再执行或者回来再调用
+
+        function cb(n, m) {
+            console.log(this); //window调用
+            console.log(n + m);
+        }
+
+        function fn1(a, b, back) { //back就是回调函数
+            console.log(a)
+            console.log(b)
+            back(a, b)
+        }
+        fn1(10, 20, cb);
+
+        fn(10, 20); //不传会报错 back is not a function
+
+
+        //解决方案
+        function fn2(a, b, back) {
+            console.log(a)
+            console.log(b)
+            back && back(a, b); //表示如果&&左边的为真，那么就执行右边的代码；如果左边的代码为假，那么执行左边的代码
+        }
+        fn2(10, 20, cb)
+        fn2(10, 20); //不会报错
+    </script>
+</body>
+
+</html>

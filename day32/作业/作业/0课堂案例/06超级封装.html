@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超级封装</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        div,
+        span {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        span {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+
+    <button>点击回到起点</button>
+    <script>
+        var div = document.querySelector("div")
+        var span = document.querySelector("span")
+        var btn = document.querySelector("button")
+
+
+        function animate(obj, target, time) {
+            //清除原有的定时器
+            if (obj.timeId) {
+                clearInterval(obj.timeId)
+            }
+            obj.timeId = setInterval(function() {
+
+                //动态计算步长,使得动画缓慢运行
+                var step = (target - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+
+                //判断到什么时候停止
+                if (obj.offsetLeft == target) {
+                    obj.style.left = target + "px"
+                    clearInterval(obj.timeId)
+                }
+                // var step = 10;
+                obj.style.left = step + obj.offsetLeft + "px";
+            }, time)
+        }
+
+
+        animate(div, 600, 100);
+        animate(span, 400, 80);
+
+
+        btn.onclick = function() {
+            animate(div, 100, 50);
+            // animate(span, 0, 50);
+        }
+    </script>
+</body>
+
+</html>

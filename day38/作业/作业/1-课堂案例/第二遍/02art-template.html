@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+
+    </div>
+    <!-- 第一步引入jQuery -->
+    <script src="./js/jquery.js"></script>
+
+    <!--  引入template-web模板-->
+    <script src="./js/template-web.js"></script>
+
+    <!-- 第二步 定义模板    必须要有type 属性和id -->
+    <script type="html/text" id="tmp">
+        <h1>{{name}}</h1>
+        <h1>{{age}}</h1>
+    </script>
+
+    <!-- 第三部生成数据 -->
+    <script>
+        var data = {
+            name: 'zs',
+            age: 18
+        }
+
+        //template('传递模板参数的id',传递js的数据对象)
+        var html = template('tmp', data)
+
+        // console.log(html)
+        $('.container').html(html)
+    </script>
+</body>
+
+</html>

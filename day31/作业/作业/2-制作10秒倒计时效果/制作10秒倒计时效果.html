@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="start">开始</button>
+    <button id="stop">停止</button>
+    <h1></h1>
+    <script>
+        var start = document.querySelector("#start");
+        var stops = document.querySelector("#stop");
+        var h1 = document.querySelector("h1");
+
+        //开始
+
+        var timer = null;
+        start.onclick = function() {
+            var num = 11;
+            timer = setInterval(function() {
+                num--;
+                if (num < 0) {
+                    clearInterval(timer)
+                    alert("倒计时结束！");
+                    // num = 10;
+                    // h1.innerHTML = "还有" + num + "秒";
+                    h1.innerHTML = "";
+                    return;
+                }
+                h1.innerHTML = "还有" + num + "秒";
+            }, 1000)
+        }
+
+        //停止
+        stops.onclick = function() {
+            clearInterval(timer);
+            alert("倒计时结束");
+        }
+    </script>
+</body>
+
+</html>

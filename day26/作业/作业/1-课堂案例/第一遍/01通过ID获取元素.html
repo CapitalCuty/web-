@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="h1Box">hello world</h1>
+    <script>
+        //通过ID获取元素
+        var h1 = document.getElementById("h1Box");
+        console.log(h1);
+
+        //设置CSS样式
+        h1.style.background = "red";
+
+        //文本设置要加等号  获取不加等号
+        console.log(h1.innerText);
+        h1.innerText = "haha"
+
+
+        //注意事项：
+        //1.如果找不到元素则返回值为null
+        //2.获取元素  JS代码写在结束body的前面     html元素目前尽量写在script标签的前面
+    </script>
+</body>
+
+</html>

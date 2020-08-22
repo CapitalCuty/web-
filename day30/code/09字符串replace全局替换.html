@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		var str = 'andyxxxxxx'
+		var str1 = 'red';
+
+		//   var newStr=	str.replace('正则表达式','需要替换的内容')
+		var newStr = str.replace(/andy/, 'red')
+		console.log(newStr) // redxxxxxxx
+
+
+
+
+		var str2 = 'andyandyxxxxxxandy'
+		var newStr2 = str2.replace(/andy/, 'zxy')  //只替换第一个找到
+		console.log(newStr2)
+
+
+		var str3 = 'bndyandyxxxxxxandy'
+		var newStr3 = str3.replace(/andy/, 'zxy')  //只替换第一个找到
+		console.log(newStr3)
+
+
+
+
+            //g 表示全局 贪婪模式 
+		var str4 = 'andyandyxxxxxxandy'
+		var newStr4 = str4.replace(/andy/g, 'zxy')  //只替换第一个找到
+		console.log(newStr4)
+
+
+
+
+
+
+
+	</script>
+</body>
+
+</html>

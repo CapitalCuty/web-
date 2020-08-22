@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+.pic1 {
+    background-color: skyblue;
+}
+
+.btnlist button {
+    width: 100%;
+    text-align: left;
+}
+
+.pics li {
+    width: 25%;
+    height: 150px;
+    float: left;
+    padding-left: 10px;
+}
+
+.pics li:first-child {
+    width: 50%;
+    height: 300px;
+}
+
+.pics li img {
+    width: 100%;
+    height: 100%;
+}
+
+.pics li:nth-child(2),
+.pics li:nth-child(3) {
+    padding-bottom: 10px;
+}
+
+.ulbox {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.ulbox li {
+    margin-bottom: 10px;
+}
+
+.ulbox img {
+    display: inline-block;
+    width: 100%;
+}
+
+.info img {
+    display: inline-block;
+    width: 100%;
+}
+
+
+/* 中等屏幕时  宽度大于等于992px */
+
+@media (max-width:992px) {
+    .btnlist button {
+        float: left;
+        width: 20%;
+    }
+}

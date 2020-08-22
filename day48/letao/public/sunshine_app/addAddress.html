@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/mui/css/mui.min.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <!-- 省市区三级联动 -->
+    <link rel="stylesheet" href="./assets/mui/css/mui.picker.css">
+    <link rel="stylesheet" href="./assets/mui/css/mui.poppicker.css">
+
+    <!-- 移动端的jquery -->
+    <script src="./assets/zepto/zepto.min.js"></script>
+    <script src="./assets/mui/js/mui.min.js"></script>
+    <script src="./assets/artTemplate/template-web.js"></script>
+    <script src="./js/addAddress.js"></script>
+    <!-- 省市区三级联动 -->
+    <script src="./assets/mui/js/mui.picker.js"></script>
+    <script src="./assets/mui/js/mui.poppicker.js"></script>
+    <!-- 引入省市区数据数组 -->
+    <script src="./js/city.js"></script>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav header">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">嗨淘添加地址管理</h1>
+        <a class="mui-icon mui-icon-search mui-pull-right"></a>
+    </header>
+    <nav class="mui-bar mui-bar-tab footer">
+        <a class="mui-tab-item " href="./index.html">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item" href="./category.html">
+            <span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item" href="./cart.html">
+            <span class="mui-icon mui-icon-contact"></span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-tab-item mui-active" href="./user.html">
+            <span class="mui-icon mui-icon-gear"></span>
+            <span class="mui-tab-label">个人中心</span>
+        </a>
+    </nav>
+    <!-- mui-content 公共滚动条 -->
+    <div class="mui-content">
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <div class="mui-input-group addressBox">
+                    <!-- <div class="mui-input-row">
+                        <input type="text" class="mui-input-clear" placeholder="收货人姓名" id="addressName">
+                    </div>
+                    <div class="mui-input-row">
+                        <input type="text" class="mui-input-clear" placeholder="邮编" id="postcode">
+                    </div>
+                    <div class="mui-input-row">
+                        <input type="text" class="mui-input-clear" placeholder="省市区" id="province">
+                    </div>
+                    <div class="mui-input-row">
+                        <input type="text" class="mui-input-clear" placeholder="详细地址" id="addressDetail">
+                    </div> -->
+                </div>
+                <ul class="mui-table-view">
+                    <li class="mui-table-view-cell" style="text-align: center;" id="addAddress">
+                        <span>确认</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/html" id="addressTmp">
+        <div class="mui-input-row">
+            <input type="text" class="mui-input-clear" placeholder="收货人姓名" id="addressName" value="{{recipients}}">
+        </div>
+        <div class="mui-input-row">
+            <input type="text" class="mui-input-clear" placeholder="邮编" id="postcode" value="{{postCode}}">
+        </div>
+        <div class="mui-input-row">
+            <input type="text" class="mui-input-clear" placeholder="省市区" id="province" value="{{address}}">
+        </div>
+        <div class="mui-input-row">
+            <input type="text" class="mui-input-clear" placeholder="详细地址" id="addressDetail" value="{{addressDetail}}">
+        </div>
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10" maxlength="40"></textarea>
+    <span>还可以输入40个字</span>
+    <script>
+        var text = document.querySelector("textarea");
+        var span = document.querySelector("span");
+
+        text.onkeyup = function() {
+            var len = text.value.length;
+            // span.innerText = "还可以输入" + (40 - len) + "个字符"
+            span.innerText = `还可以输入${40 - len}个字符`
+        }
+    </script>
+</body>
+
+</html>

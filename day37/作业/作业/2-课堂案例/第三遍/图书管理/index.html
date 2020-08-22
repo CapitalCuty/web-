@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="../jquery.js"></script>
+</head>
+
+<body>
+    <!-- 添加部分 -->
+    <div class="header">
+        <h4>添加图书</h4>
+        <div class="box">
+            <div class="item">
+                <span class="bookName">书名</span>
+                <input type="text" id="iptBookname" placeholder="请输入书名">
+            </div>
+            <div class="item">
+                <span class="userName">作者</span>
+                <input type="text" id="iptAuthor" placeholder="请输入作者">
+            </div>
+            <div class="item">
+                <span class="chuBanShe">出版社</span>
+                <input type="text" id="iptPublisher" placeholder="请输入出版社">
+            </div>
+            <button id="btnAdd" class="btn btn-primary">添加</button>
+        </div>
+    </div>
+
+    <!-- 内容展示部分 -->
+    <table class="table table-bordered table-hover" cellpadding="0" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>出版社</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="tb">
+
+
+        </tbody>
+    </table>
+    <script>
+        $(function() {
+            //获取数据
+            getData();
+
+            //删除数据
+            $('#tb').on('click', 'a', function() {
+                //获取到此删除栏里面的id
+                var id = $(this).parents('tr').children().eq(0).text();
+                //请求删除数据
+                $.ajax({
+                    url: 'http://www.liulongbin.top:3006/api/delbook',
+                    type: 'get',
+                    data: {
+                        id: id
+                    },
+                    success: function(res) {
+                        getData()
+                    }
+                })
+            })
+
+
+            //添加数据
+            //给添加按钮绑定点击事件
+            $('#btnAdd').on('click', function() {
+                //获取到input内输入的值
+                var bookname = $('#iptBookname').val().trim()
+                var author = $('#iptAuthor').val().trim()
+                var publisher = $('#iptPublisher').val().trim()
+
+                //判断值不能为空
+                if (!bookname) {
+                    alert('图书名称不能为空！')
+                    return false
+                }
+                if (!author) {
+                    alert('作者不能为空！')
+                    return false
+                }
+                if (!publisher) {
+                    alert('出版社不能为空！')
+                    return false
+                }
+
+                //发送请求
+                $.ajax({
+                    url: 'http://www.liulongbin.top:3006/api/addbook',
+                    type: 'post',
+                    data: {
+                        bookname: bookname,
+                        author: author,
+                        publisher: publisher
+                    },
+                    success: function(res) {
+                        //重新获取数据
+                        getData()
+
+                        //清空input框内的内容
+                        $('#iptBookname').val('')
+                        $('#iptAuthor').val('')
+                        $('#iptPublisher').val('')
+                    },
+                    complete: function() {
+                        //让添加按钮禁用
+                        setInterval(function() {
+                            $('#btnAdd').prop('disabled', false)
+                        }, 1000)
+                    }
+                })
+            })
+
+
+            //获取数据需要多次调用，所以封装成一个函数
+            function getData() {
+                //先发送请求，如果成功了，将数据追加到表格中
+                $.ajax({
+                    url: 'http://www.liulongbin.top:3006/api/getbooks',
+                    type: 'get',
+                    data: {},
+                    beforeSend: function() {
+                        //清空表格内容
+                        $('#tb').empty()
+                    },
+                    success: function(res) {
+                        // console.log(res)
+                        //获取到数据
+                        var getArr = res.data;
+                        //将数据进行遍历,创建tr,td并追加到表格中
+                        $.each(getArr, function(index, ele) {
+                            var tr = $(`<tr>
+                                    <td>${ele.id}</td>
+                                    <td>${ele.bookname}</td>
+                                    <td>${ele.author}</td>
+                                    <td>${ele.publisher}</td>
+                                    <td><a href="javascript:;">删除</a></td>
+                                </tr>`)
+                            $('#tb').append(tr)
+                        })
+                    }
+                })
+            }
+        })
+    </script>
+
+</body>
+
+</html>

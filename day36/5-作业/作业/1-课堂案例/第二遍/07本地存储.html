@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+
+    用户名:<input type="text" placeholder="用户名" class="user"> <br> 密码：
+    <input type="text" placeholder="请输入密码" class="pwd">
+    <button>提交</button>
+    <script>
+        $(function() {
+            $('button').on('click', function() {
+                var userName = $('.user').val()
+                var userPwd = $('.pwd').val()
+                if (!userName.trim()) {
+                    alert('用户名不能为空')
+                    return false
+                }
+                if (!userPwd.trim()) {
+                    alert('密码不能为空')
+                    return false
+                }
+
+                //将输入的内容放到一个对象中
+                var obj = {
+                    name: userName,
+                    pwd: userPwd
+                }
+
+                //对象转字符串
+                //JSON.stringify() //把对象转换成json格式的字符串
+                //JSON.parse()  // 把json的字符串转换成对象
+                var strObj = JSON.stringify(obj);
+                // localStorage.setItem('随便写keys', 'json格式的字符串类型 值是我们需要存储值')
+                localStorage.setItem('user', strObj)
+
+
+                //json里面不能写注释    而且必须是双引号  如果只是数字  那么值可以不加引号
+            })
+        })
+    </script>
+</body>
+
+</html>

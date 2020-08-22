@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <span></span>
+    <script>
+        //手机验证
+        var input = document.querySelector("input ");
+        var span = document.querySelector("span");
+        var reg = /^1[3-9][0-9]{9}$/
+        console.log(reg.test('13277968074'));
+        input.oninput = function() {
+            if (reg.test(input.value)) {
+                span.innerText = "符合条件"
+            } else {
+                span.innerText = "不符合条件"
+            }
+        }
+
+        //QQ号验证 
+        var reg1 = /^[1-9][0-9]{4,}$/
+        console.log(reg1.test('1752116901'));
+        console.log(reg1.test('0752116901'));
+    </script>
+</body>
+
+</html>

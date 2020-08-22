@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    window.onload = function() {
+        var search = window.location.search;
+        // console.log(search);
+        var arr = search.substr(1);
+        // console.log(arr);
+        newArr = arr.split("&")
+        console.log(newArr)
+        var obj = {};
+        for (var i = 0; i < newArr.length; i++) {
+            var newArr1 = newArr[i];
+            var newArr2 = newArr1.split("=");
+            obj[newArr2[0]] = newArr2[1];
+            console.log(obj)
+        }
+
+    }
+</script>
+
+</html>

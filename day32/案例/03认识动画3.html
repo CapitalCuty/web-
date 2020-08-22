@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+
+	<style>
+
+    *{
+		padding: 0;
+		margin: 0;
+	}
+
+		div,span {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			border: 1px solid #000;
+			position: relative;
+			/* 必须要有定位*/
+		}
+		span {
+			display: block
+		}
+	</style>
+</head>
+
+<body>
+	<div></div>
+	<span></span>
+
+	<button>点击回到起点</button>
+
+
+	<script>
+		var div = document.querySelector('div')
+		console.log(div.offsetLeft) //获取自身的偏移量
+		var span = document.querySelector('span')
+var  btn=document.querySelector('button')
+	
+
+    function  animate(ele, target,step,time) {
+		console.log('move')
+		
+		var timerId = setInterval(function () {
+			if (ele.offsetLeft == target) {
+				ele.style.left = target + 'px';
+				clearInterval(timerId)
+				return 
+			}
+			var steps = step; //步长
+			ele.style.left = ele.offsetLeft+ steps +  'px' //这就是动画 
+
+		}, time)
+	}
+	animate(div,600,5,50)
+
+	animate(span,800,5,50)
+
+
+	btn.onclick=function() {
+		animate(div,200,-5,50)
+	}
+
+
+	</script>
+</body>
+
+</html>

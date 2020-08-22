@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap.css" />
+    <script src="./lib/jquery.js"></script>
+    <!-- 第一步引入 temp js -->
+    <script src="./lib/template-web.js"></script>
+</head>
+
+<body style="padding: 15px;">
+
+    <!-- 评论面板 -->
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">发表评论</h3>
+        </div>
+        <form class="panel-body" id="formAddCmt">
+            <div>评论人：</div>
+            <input type="text" class="form-control1  form-control" name="username" autocomplete="off" />
+            <div>评论内容：</div>
+            <textarea class="form-control2 form-control" name="content"></textarea>
+
+            <button type="button" class="btn btn-primary">发表评论</button>
+        </form>
+    </div>
+
+
+    <!-- 评论列表 -->
+    <ul class="list-group" id="cmt-list">
+        <!-- <li class="list-group-item">
+      <span class="badge" style="background-color: #F0AD4E;">评论时间：</span>
+      <span class="badge" style="background-color: #5BC0DE;">评论人：</span>
+      Item 1
+    </li> -->
+    </ul>
+
+    <!-- 定义模板 -->
+    <script type="text/html" id='tmp'>
+        {{each data as value index}}
+        <li class="list-group-item">
+            <span class="badge" style="background-color: #F0AD4E;">{{value.time}}</span>
+            <span class="badge" style="background-color: #5BC0DE;">{{value.username}}</span> {{value.content}}
+        </li>
+        {{/each}}
+    </script>
+
+
+    <script>
+        //name 选择器
+        // input[name='content']
+
+        //1 给btn绑定点击事件 
+        //2 获取 用户名和评论内容
+        //3 判断用户名跟评论内容不能为空
+        // 4 发送ajax 请求
+        $('.btn').on('click', function() {
+            var username = $('.form-control1').val().trim();
+            var content = $('.form-control2').val().trim();
+
+            if (!username) {
+                alert('评论人不能为空！')
+                return false
+            }
+            if (!content) {
+                alert('评论人内容能为空！')
+                return false
+            }
+
+            $.ajax({
+                url: 'http://www.liulongbin.top:3006/api/addcmt',
+                type: 'post',
+                data: {
+                    username: username,
+                    content: content
+                },
+                success: function(res) {
+                    // console.log(res)
+                    if (res.msg == '发表评论成功') {
+                        $.ajax({
+                            url: 'http://www.liulongbin.top:3006/api/cmtlist',
+                            type: 'get',
+                            success: function(res) {
+                                console.log(res)
+                                var html = template('tmp', res)
+                                $('#cmt-list').html(html)
+
+                                $('.form-control1').val('');
+                                $('.form-control2').val('')
+                            }
+                        })
+                    }
+                }
+            })
+        })
+    </script>
+
+
+</body>
+
+</html>

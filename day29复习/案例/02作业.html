@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<textarea name="" id="" cols="30" rows="10" maxlength="40"></textarea>
+	<span>还可以输入40个字</span>
+
+	<script>
+		var txt = document.querySelector('textarea')
+		// txt.onkeyup=function(){}
+
+		// txt.onkeydown=function(){}
+		var num = 0; //表示剩余可以输入的文字数量
+		var span = document.querySelector('span')
+		txt.addEventListener('keyup', function () {	
+			var max =txt.maxLength
+			if (!txt.value) {
+				alert('啥不都写 发布个锤子')
+				span.style.color = 'black'
+				span.innerHTML = `还可以输入${max}个字`
+				return
+			} else if (txt.value.trim().length >= 40) {
+				span.innerHTML = '最多可以输入40个文字'
+				span.style.color = 'red'
+			} else {
+				num = max - txt.value.trim().length
+				span.innerHTML = `还可以输入${num}个字`
+				span.style.color = 'green'
+			}
+
+		})
+	</script>
+</body>
+
+</html>

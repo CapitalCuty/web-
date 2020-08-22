@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        input {
+            outline: none
+        }
+        
+        body {
+            background-color: #bcdecf;
+        }
+        
+        div.box {
+            width: 700px;
+            margin: 50px auto 0;
+        }
+        
+        div.box table {
+            border-collapse: collapse;
+            width: inherit;
+            text-align: center;
+            background-color: #f6f6f6;
+        }
+        
+        div.box table td,
+        div.box th {
+            border: 1px solid #999;
+        }
+        
+        div.box th {
+            height: 40px;
+        }
+        
+        div.box table tbody img {
+            height: 50px;
+        }
+        
+        div.box table tbody tr span {
+            cursor: default;
+        }
+        
+        div.box table tbody tr td:nth-child(2) img {
+            vertical-align: middle;
+        }
+        
+        div.box table tbody tr td:nth-child(4) span {
+            display: inline-block;
+            width: 15px;
+            line-height: 30px;
+            background-color: #666;
+            color: #eee;
+            vertical-align: middle;
+        }
+        
+        div.box table tbody tr td:nth-child(4) input {
+            width: 20px;
+            height: 20px;
+            outline: none;
+            vertical-align: middle;
+            text-align: center;
+        }
+        
+        div.box table tbody tr td:nth-child(6) span {
+            padding: 4px 10px;
+            background-color: #999;
+            color: white;
+        }
+        
+        div.box div.bottom {
+            padding: 15px 0;
+            margin-top: 15px;
+            height: 25px;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+        
+        div.box div.bottom span.delAll {
+            cursor: default;
+        }
+        
+        div.box div.bottom div.js {
+            padding: 0 6px;
+            background-color: #00A5FF;
+            color: white;
+            margin-right: 10px;
+            cursor: default;
+        }
+        
+        div.box div.bottom aside div {
+            display: inline-block;
+        }
+        
+        div.box div.bottom aside div span {
+            position: absolute;
+            width: 50px;
+            line-height: 20px;
+            padding: 0 5px;
+            background-color: rgba(255, 255, 255, .4);
+            color: #333;
+            font-size: 10px;
+            margin-left: -60px;
+            margin-top: 20px;
+            transform: rotate(30deg);
+            cursor: pointer;
+        }
+        
+        div.box div.bottom aside img {
+            height: 60px;
+            vertical-align: middle;
+        }
+        
+        div.box div.bottom aside {
+            position: absolute;
+            background-color: #0a74cb;
+            width: 100%;
+            top: -70px;
+            padding: 5px;
+            box-sizing: border-box;
+            display: none;
+        }
+        
+        div.box div.bottom aside.on {
+            display: block;
+        }
+        
+        div.box div.bottom aside:after {
+            position: absolute;
+            content: "";
+            border: 10px solid transparent;
+            border-top-color: #0a74cb;
+            bottom: -19px;
+            right: 280px;
+        }
+        
+        div.box div.bottom a,
+        div.box div.bottom a:visited {
+            color: #0b97ff;
+            text-decoration: none;
+        }
+        
+        form {
+            margin-bottom: 20px;
+        }
+        
+        .text {
+            margin: 0 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <!-- 商品展示表格 -->
+        <!-- <form action="">
+			商品名称: <input type="text" id='productName'>
+			商品单价: <input type="text" id='productPrice'>
+			<button id='addBtn'>点击添加</button>
+		</form> -->
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <label>
+							<input type="checkbox" class="checkAll check" checked>全选
+						</label>
+                    </th>
+                    <th>商品</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <tr>
+                    <td>
+                        <input type="checkbox" class="check" checked>
+                    </td>
+                    <td>
+                        Casio/卡西欧 EX-TR350
+                    </td>
+                    <td>6000</td>
+                    <td>
+                        <span class="reduce">-</span>
+                        <input class="text" value="1">
+                        <span class="add">+</span>
+                    </td>
+                    <td>6000</td>
+                    <td>
+                        <span class="del">删除</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" class="check" checked>
+                    </td>
+                    <td>
+                        Canon/佳能 PowerShot SX50 HS
+                    </td>
+                    <td>6000</td>
+                    <td>
+                        <span class="reduce">-</span><input class="text" value="1"><span class="add">+</span>
+                    </td>
+                    <td>6000</td>
+                    <td>
+                        <span class="del">删除</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" class="check" checked>
+                    </td>
+                    <td>
+                        Sony/索尼 DSC-WX300
+                    </td>
+                    <td>6000</td>
+                    <td>
+                        <span class="reduce">-</span><input class="text" value="1"><span class="add">+</span>
+                    </td>
+                    <td>6000</td>
+                    <td>
+                        <span class="del">删除</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" class="check" checked>
+                    </td>
+                    <td>
+                        Fujifilm/富士 instax mini 25
+                    </td>
+                    <td>6000</td>
+                    <td>
+                        <span class="reduce">-</span>
+                        <input class="text" value="1">
+                        <span class="add">+</span>
+                    </td>
+                    <td>6000</td>
+                    <td>
+                        <span class="del">删除</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 全选反选模板 -->
+        <div class="bottom" id="bottom">
+            <span class="delAll">全部删除</span>
+            <div>已选商品(选中的)：
+                <span class="selected" id="num">3</span>件
+            </div>
+            <div>
+                商品个数 <span id="number" style='width: 50px; height: 20px;'> </span>
+            </div>
+            <div>合计：￥
+                <span class="total" id="total">7000</span>
+            </div>
+            <div class="js">结算</div>
+        </div>
+    </div>
+    <script>
+        var checkAll = document.querySelector(".checkAll");
+        var tbody = document.querySelector("tbody");
+        var checks = tbody.querySelectorAll(".check");
+
+        var num = document.querySelector("#num");
+        var number = document.querySelector("#number");
+        var total = document.querySelector("#total");
+
+        //  1.全选按钮功能
+        checkAll.onclick = function() {
+            for (var i = 0; i < checks.length; i++) {
+                var check = checks[i];
+                //全选按钮选中了，那么单选按钮里面的每个按钮都选中
+                check.checked = this.checked;
+            }
+            getResult();
+        }
+
+
+        //  2.单选按钮功能
+        for (var j = 0; j < checks.length; j++) {
+            var check = checks[j];
+            //给每个单选按钮绑定点击事件
+            check.onclick = function() {
+                //判断如果其余单选按钮中有一个没选中，则全选按钮不选中
+                for (var k = 0; k < checks.length; k++) {
+                    var check = checks[k];
+                    if (!check.checked) {
+                        checkAll.checked = false;
+                        break;
+                    }
+                    checkAll.checked = true;
+                }
+                getResult();
+            }
+        }
+
+
+        //  3.删除功能
+        var dels = document.querySelectorAll(".del");
+        for (var i = 0; i < dels.length; i++) {
+            var del = dels[i];
+            del.onclick = function() {
+                //获取要删除的这一行
+                var tr = this.parentNode.parentNode;
+                //确认框是否移除
+                var flag = confirm("确定要删除吗？");
+                if (flag) {
+                    //将这一行从表内移除
+                    tbody.removeChild(tr);
+                }
+
+                //调用函数时要重新获取按钮个数
+                checks = tbody.querySelectorAll(".check");
+                getResult();
+            }
+        }
+
+
+        //  4.商品数量加的功能
+        var adds = document.querySelectorAll(".add");
+        for (var i = 0; i < adds.length; i++) {
+            var add = adds[i];
+            add.onclick = function() {
+                //获取到数量框
+                var inputNum = this.previousElementSibling;
+                //每点击一次数量就加一次
+                inputNum.value++;
+                //获取单价和小计框
+                var td3 = this.parentNode.previousElementSibling;
+                var td5 = this.parentNode.nextElementSibling;
+                //小计=单价*数量
+                td5.innerText = td3.innerText * inputNum.value;
+
+                getResult();
+            }
+        }
+
+
+        //  5.商品数量减的功能
+        var reduces = document.querySelectorAll(".reduce");
+        for (var i = 0; i < reduces.length; i++) {
+            var reduce = reduces[i];
+            reduce.onclick = function() {
+                //获取到数量框
+                var inputNum = this.nextElementSibling;
+                //每点击一次数量就减一次
+                inputNum.value--;
+                //获取单价和小计框
+                var td3 = this.parentNode.previousElementSibling;
+                var td5 = this.parentNode.nextElementSibling;
+                //判断数量不能小于1
+                if (inputNum.value <= 0) {
+                    alert("不能再减少了哟！");
+                    inputNum.value = 1;
+                    td5.innerText = td3.innerText;
+                }
+                //小计=单价*数量
+                td5.innerText = td3.innerText * inputNum.value;
+
+                getResult();
+            }
+        }
+
+
+        //  6.已选中数量    商品总数量  总价
+        // var num = document.querySelector("#num");
+        // var number = document.querySelector("#number");
+        // var total = document.querySelector("#total");
+
+        function getResult() {
+            var count = 0;
+            var sum = 0;
+            var totles = 0;
+            for (var i = 0; i < checks.length; i++) {
+                var check = checks[i];
+                if (check.checked) {
+                    count++;
+                    var tr = check.parentNode.parentNode;
+                    sum += parseFloat(tr.children[3].children[1].value);
+                    totles += parseFloat(tr.children[4].innerText);
+                }
+            }
+            num.innerHTML = count;
+            number.innerHTML = sum;
+            total.innerHTML = totles;
+        }
+        getResult();
+
+
+        //  7.全部删除功能
+        var delAll = document.querySelector(".delAll");
+        delAll.onclick = function() {
+            var trs = tbody.querySelectorAll("tr");
+            for (var i = 0; i < trs.length; i++) {
+                var tr = trs[i];
+                tbody.removeChild(tr);
+            }
+            //tbody删除后，全选按钮不选中
+            checkAll.checked = false;
+            if (trs.length == 0) {
+                this.parentNode.style.display = "none";
+            } else {
+                this.parentNode.style.display = "none";
+            }
+        }
+
+
+        //  8.结算
+        var js = document.querySelector(".js");
+        js.onclick = function() {
+            var totlesNum = total.innerText;
+            alert("您一共消费" + totlesNum + "元")
+        }
+    </script>
+
+</body>
+
+</html>

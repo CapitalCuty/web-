@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <ul class="ulBox">
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+        <li>44</li>
+    </ul>
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function() {
+            //隐式迭代
+            $("li").click(function() {
+                //$(this)当前jQuery对象
+                $(this).css("color", "red")
+            })
+
+            //链式编程
+            $(".ulBox li").click(function() {
+                //siblings()    当前元素的所有兄弟元素
+                $(this).css({
+                    'background': 'pink'
+                }).siblings().css({
+                    'background': ''
+                })
+            })
+        })
+
+
+        //css样式的两种写法
+        css('color', 'red') //适用于设置一个
+        css({
+            'color': 'red' //适用于设置多个
+        })
+    </script>
+</body>
+
+</html>

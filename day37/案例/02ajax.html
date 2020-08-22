@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script src="./jquery.js"></script>
+
+	<script>
+	$.ajax({
+			url:'http://www.liulongbin.top:3006/api/getbooks1',   //url 请求的路径地址 文档获取
+			type:'get',  // 请求的类型 get/post
+			data:{},    // 需要传递的数据  文档上也表明了 
+
+			beforeSend:function() {  //发送请求之前会执行
+               alert('发送之前')
+			},
+			success:function(res) {  // 请求数据成功之后 后台/服务器给你返回的数据 json的格式
+			
+				console.log(res)
+			},
+			error:function(err) {  //请求失败执行函数
+				console.log(err)
+
+			},
+			complete:function() {   //发送之后 不管失败或者成功会执行
+               alert('11111')
+			}
+		})
+
+//url 后端给你的
+//    $.get('url',function(res) {
+
+//    })
+	
+
+// $.post('url',data,function(res){})
+	
+	</script>
+</body>
+</html>

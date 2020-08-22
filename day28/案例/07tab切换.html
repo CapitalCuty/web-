@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style-type: none;
+        }
+        
+        .tab {
+            width: 978px;
+            margin: 100px auto;
+        }
+        
+        .tab_list {
+            height: 39px;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+        
+        .tab_list li {
+            float: left;
+            height: 39px;
+            line-height: 39px;
+            padding: 0 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .tab_list .current {
+            background-color: #c81623;
+            color: #fff;
+        }
+        
+        .item_info {
+            padding: 20px 0 0 20px;
+        }
+        
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <ul>
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价（50000）</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block;">
+                商品介绍模块内容
+            </div>
+            <div class="item">
+                规格与包装模块内容
+            </div>
+            <div class="item">
+                售后保障模块内容
+            </div>
+            <div class="item">
+                商品评价（50000）模块内容
+            </div>
+            <div class="item">
+                手机社区模块内容
+            </div>
+
+        </div>
+	</div>
+
+	<script>
+		// 1  点击 tab_list 下面的li  让当前的li高亮
+        // 2  tab_con 对应下面的div显示出来 
+
+		//1 找到  tab_list 下面所有的li  绑定点击事件
+		var  tab_lis=document.querySelectorAll('.tab_list>ul>li')
+		var  tab_divs=document.querySelectorAll('.tab_con>.item')
+         for(var i=0;i<tab_lis.length;i++) {
+			 var li=tab_lis[i]; //每一个li
+          // 给每个li动态添加自定义属性
+		      li.setAttribute('myindex',i)
+			//   li.setAttribute('title','你好'+i)
+
+			 li.onclick=function() {
+				//  alert(1)
+				for(var j=0;j<tab_lis.length;j++) {
+					var li=tab_lis[j]
+					 var div=tab_divs[j];  //表示每个div
+
+					
+					//  先干掉所有人 再留下自己
+
+						//干掉所有人
+						li.className=''
+						div.style.display='none'
+						
+				}
+				// 留下自己
+				this.className='current'
+				//留下自己自己index的div 
+				myindex=this.getAttribute('myindex')
+				// console.log(myindex)
+				tab_divs[myindex].style.display='block'
+
+
+			 }
+		 }
+	
+	
+	
+	
+	
+	</script>
+</body>
+</html>

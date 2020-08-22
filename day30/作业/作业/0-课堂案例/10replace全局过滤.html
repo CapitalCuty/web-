@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <span></span>
+    <script>
+        var input = document.querySelector('input')
+        var span = document.querySelector('span')
+
+        //过滤掉脏话
+        input.oninput = function() {
+            var val = input.value.trim();
+            var str = val.replace(/毛线|草|gay/g, '*')
+            input.value = str;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+@import './base.less';
+
+.box3{
+    img{
+        display: block;
+        width: @width+200px;
+        .borders();
+    }
+    .links{
+        display: block;
+        color: @color;
+        width: @width*(@num);
+
+        &:hover{
+            em{
+                color: green;
+            }
+        }
+
+        &:hover+img{
+            display: none;
+            
+        }
+
+        &::after{
+            content: '我是伪类的内容';
+        }
+    }
+}

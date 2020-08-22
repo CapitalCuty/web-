@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style> 
+	
+	  input {
+		  outline: none;
+	  }
+
+	  input::placeholder {
+		  color: red;
+	  }
+
+	  /* input  {
+		  color:red;
+	  } */
+	</style>
+</head>
+<body>
+
+   <input type="text"   value="" placeholder="ni hao ">
+
+	<script>
+	   var   input=document.querySelector('input')
+	   input.onfocus=function() {  //获取焦点
+    //   alert('111')
+	// console.log('111')
+	this.value='获取焦点'
+	this.style.border='1px solid  red';
+	
+	   }
+
+
+	   input.onblur=function() {
+		     this.value='失去焦点'
+			 this.style.border='1px solid  #ccc';
+	   }
+	
+	</script>
+</body>
+</html>

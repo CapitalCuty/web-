@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+	<script src="./jquery.js"></script>
+</head>
+
+<body>
+	<script>
+		// axios.get('./data/1.json', {
+		// 		// params: {
+		// 		// 	ID: 12345
+		// 		// }
+		// 	})
+		// 	.then(function (res) {
+		// 		console.log(res.data);
+		// 	})
+
+		//   一切皆是promise 
+
+		// es5
+		$.ajax({
+			url: './data/1.json',
+			success: function (res) {
+				console.log(res)
+			}
+		})
+
+		//   es6
+		$.ajax({
+			url: './data/1.json'
+		}).then(function (res) {
+			console.log(res)
+		})
+
+		// es7
+
+
+
+		// async function fn() {
+			// var data = await $.ajax({url: './data/1.json'})
+
+			// console.log(data)
+		// }
+
+
+		// fn()
+	</script>
+</body>
+
+</html>

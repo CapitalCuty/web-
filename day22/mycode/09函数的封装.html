@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		//函数 作用  执行一段可以重复执行的(类似)代码
+		// 1 往数组里面添加 1-10的数字  
+
+		function fn(a, b) {
+			var arr = [];
+			for (var i = a; i <= b; i++) {
+				//方法一
+				//    arr.push(i)
+				// 方法二 
+				// arr.length==0
+				arr[arr.length] = i;
+				//  arr[1]=2
+			}
+
+			console.log(arr)
+		}
+
+		fn(1, 10)
+
+		fn(1, 100)
+
+
+
+
+       
+  
+
+		//要求 从小到大排列  冒泡排序
+		var arrList1 = [10, 1, 3, 5, 7, 9, 20, 30, 100, 200];
+		var arrlist2 = [100, 200, 300, 500]
+
+		//1 怎么样去获取数组中最大值以及数组中最小的值
+
+		function fn2(arr) {
+			//1 求数组中最大的值
+			// 假设的方法 
+			var max = arr[0]; //假设这个值是最大值
+			var min = arr[0];
+			for (var i = 1; i < arr.length; i++) {
+				//如果你的最大值比其中某的值还小   其中某一项是最大值
+				if (max < arr[i]) {
+					max = arr[i] // 一个= 加重新赋值
+				}
+
+				if (min > arr[i]) {
+					min = arr[i]
+				}
+			}
+			console.log(max)
+			console.log(min)
+		
+		}
+
+		fn2(arrList1)  //输出的结果要发生改变 就传递参数
+		fn2(arrlist2)
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+	
+
+
+		function comingSingDay(targetDate, text) {
+			var nowDate = +new Date();
+
+			console.log(nowDate)
+			var singDate = +new Date(targetDate)
+			console.log(singDate)
+			var resultDate = (singDate - nowDate) / 1000;
+			console.log(resultDate)
+			if (resultDate == 0) {
+				clearInterval(timeId)
+			} else {
+
+				var days = Math.floor(resultDate / 60 / 60 / 24) //天数
+				console.log(days)
+				var hour = Math.floor(resultDate / 60 / 60 % 24) //小时
+				console.log(hour)
+				var min = Math.floor(resultDate / 60 % 60) // 分钟
+				console.log(min)
+				var s = Math.floor(resultDate % 60)  //秒
+				console.log(s) 
+				document.body.innerHTML = '';
+				document.write(`距离我们伟大的${text}还剩: ${days}天- ${hour}小时- ${min}分钟-${s}秒`)
+				document.write('<br>')
+
+			}
+
+
+		}
+		comingSingDay('2020-11-11 00:00:00', '光棍节')
+		//   comingSingDay('2020-10-1 00:00:00','国庆节')
+		var timeId = setInterval(comingSingDay, 1000)
+
+
+
+		function  fn(a,b,callback) {
+			setInterval(function(){
+			  callback&&callback(a,b)
+			}, 1000)
+		}
+
+		// fn('2020-11-11 00:00:00','光棍节',comingSingDay)
+
+			fn('2020-10-1 00:00:00','国庆节',comingSingDay)
+	</script>
+</body>
+
+</html>

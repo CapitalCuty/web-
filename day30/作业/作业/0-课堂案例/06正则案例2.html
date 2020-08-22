@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <span></span>
+    <script>
+        var input = document.querySelector("input");
+        var span = document.querySelector("span");
+        //只能是以数字 英文字符(大小写) 下划线  短横线  并且6-16位
+        //[a-z]表示a-z 26个字母 只要满足条件就符合
+        var reg = /^[a-zA-Z0-9_-]{6,16}$/
+        input.oninput = function() {
+            if (reg.test(input.value)) {
+                span.innerText = "符合条件"
+            } else {
+                span.innerText = "只能是6位"
+            }
+        }
+    </script>
+</body>
+
+</html>

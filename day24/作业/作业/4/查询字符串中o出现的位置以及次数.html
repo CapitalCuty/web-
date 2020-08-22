@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //var  str='abcabcoxoxabcoo'; //查询所有o出现的位置以及次数
+        var str = 'abcabcoxoxabcoo';
+        var arr = str.split("");
+        var sum = 0;
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] == "o") {
+                console.log(i);
+                sum++;
+            }
+        }
+        console.log(sum);
+    </script>
+</body>
+
+</html>

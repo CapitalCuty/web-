@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="icon/iconfont.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/animate.js"></script>
+
+
+</head>
+
+<body>
+    <!--顶部  -->
+    <div id="top">
+        <div class="wrap oh">
+            <!-- 左边电话 -->
+            <div class="top-tel fl">
+                <img src="img/icon-call.png" alt="">
+                <span>010-114/116114电话预约</span>
+            </div>
+            <!-- 右边登录/注册/帮助 -->
+            <div class="top-help fr">
+                <span>欢迎来到城市预约挂号统一平台&nbsp;&nbsp;请</span>
+                <a href="">登录</a>
+                <a href="">注册</a>
+                <a href="">帮助中心</a>
+            </div>
+        </div>
+    </div>
+    <!-- 头部 -->
+    <div id="header" class="wrap">
+        <!-- 左边logo-->
+        <div class="header-logo fl">
+            <img src="img/logo.png" alt="">
+        </div>
+        <!-- 右边搜索 -->
+        <div class="header-search fr">
+            <div class="sel fl">
+                医院<span class="iconfont icon-xiajiantou"></span>
+            </div>
+            <!-- 医院的下拉菜单 -->
+            <div class="sel-abs">
+                <ul>
+                    <li>科室</li>
+                    <li>疾病</li>
+                    <li>医院</li>
+                </ul>
+            </div>
+            <div class="inp fl">
+                <input type="text" placeholder="请输入搜索内容">
+            </div>
+            <div class="ser fl">
+                <span class="iconfont icon-sousuo"></span>
+            </div>
+        </div>
+    </div>
+    <!-- 导航条 -->
+    <div id="nav">
+        <div class="wrap oh">
+            <!-- 左边全部科室 -->
+            <div class="nav-all fl">全部科室</div>
+            <!-- 中间导航条 -->
+            <div class="nav-bar fl">
+                <ul>
+                    <li>按医院挂号</li>
+                    <li>按科室挂号</li>
+                    <li>按疾病挂号</li>
+                    <li>最新公告</li>
+                </ul>
+            </div>
+            <!-- 右边知名医院 -->
+            <div class="nav-famous fr">社会知名医院</div>
+        </div>
+    </div>
+    <!-- 轮播图区域 -->
+    <div id="banner" class="wrap ">
+        <!-- 导航条的清单 -->
+        <div class="nav-menu fl">
+            <ul>
+                <li class="oh">
+                    <div class="nav-pic fl">
+                        <span class="bj1 icon1"></span>
+                        <a href="">内科</a>
+                    </div>
+                    <div class="nav-txt fr">
+                        <a href="">冠心病</a>
+                        <a href="">高血压</a>
+                    </div>
+                </li>
+                <li class="oh">
+                    <div class="nav-pic fl">
+                        <span class="bj1 icon2"></span>
+                        <a href="">外科</a>
+                    </div>
+                    <div class="nav-txt fr">
+                        <a href="">肾结石</a>
+                        <a href="">脑外伤</a>
+                    </div>
+                </li>
+                <li class="oh">
+                    <div class="nav-pic fl">
+                        <span class="bj1 icon3"></span>
+                        <a href="">妇产科</a>
+                    </div>
+                    <div class="nav-txt fr">
+                        <a href="">阴道炎</a>
+                        <a href="">不孕不育</a>
+                    </div>
+                </li>
+                <li class="oh">
+                    <div class="nav-pic fl">
+                        <span class="bj1 icon4"></span>
+                        <a href="">生殖中心</a>
+                    </div>
+                    <div class="nav-txt fr">
+                        <a href="">男性不育</a>
+                    </div>
+                </li>
+                <li class="oh">
+                    <div class="nav-pic fl">
+                        <span class="bj1 icon5"></span>
+                        <a href="">儿科</a>
+                    </div>
+                    <div class="nav-txt fr">
+                        <a href="">抽动症</a>
+                        <a href="">小儿感冒</a>
+                    </div>
+                </li>
+                <li class="oh">
+                    <div class="nav-pic fl">
+                        <span class="bj1 icon6"></span>
+                        <a href="">骨外科</a>
+                    </div>
+                    <div class="nav-txt fr">
+                        <a href="">关节炎</a>
+                        <a href="">骨折</a>
+                    </div>
+                </li>
+                <li class="oh">
+                    <div class="nav-pic fl">
+                        <span class="bj1 icon7"></span>
+                        <a href="">眼科</a>
+                    </div>
+                    <div class="nav-txt fr">
+                        <a href="">近视</a>
+                        <a href="">白内障</a>
+                    </div>
+                </li>
+                <li class="oh">
+                    <div class="nav-pic fl">
+                        <span class="bj1 icon8"></span>
+                        <a href="">口腔科</a>
+                    </div>
+                    <div class="nav-txt fr">
+                        <a href="">口腔修复</a>
+                        <a href="">牙痛</a>
+                    </div>
+                </li>
+                <li class="oh">
+                    <div class="nav-pic fl">
+                        <span class="bj1 icon9"></span>
+                        <a href="">耳鼻咽喉头颈科</a>
+                    </div>
+                    <div class="nav-txt fr">
+                        <a href="">鼻炎</a>
+                    </div>
+                </li>
+                <li class="oh">
+                    <div class="nav-pic fl">
+                        <span class="bj1 icon10"></span>
+                        <a href="">肿瘤科</a>
+                    </div>
+                    <div class="nav-txt fr">
+                        <a href="">癌痛</a>
+                    </div>
+                </li>
+                <li class="oh">
+                    <div class="nav-pic fl">
+                        <span class="bj1 icon11"></span>
+                        <a href="">其他科室</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- 导航条的清单里面的二级菜单 -->
+        <div class="lunbotu-link-abs oh">
+            <div class="lunbotu-link-abs-left ">
+                <div class="lunbotu-link-abs-title">
+                    <a href="" title="理财">内科</a>
+                    <a href="" title="分期">内科</a>
+                    <a href="" title="保险">内科</a>
+                </div>
+            </div>
+            <div class="lunbotu-link-abs-left ">
+                <div class="lunbotu-link-abs-title">
+                    <a href="" title="理财">外科</a>
+                    <a href="" title="分期">外科</a>
+                    <a href="" title="保险">外科</a>
+                </div>
+            </div>
+            <div class="lunbotu-link-abs-left ">
+                <div class="lunbotu-link-abs-title">
+                    <a href="" title="理财">妇产科</a>
+                    <a href="" title="分期">妇产科</a>
+                    <a href="" title="保险">妇产科</a>
+                </div>
+            </div>
+            <div class="lunbotu-link-abs-left ">
+                <div class="lunbotu-link-abs-title">
+                    <a href="" title="理财">生殖中心</a>
+                    <a href="" title="分期">生殖中心</a>
+                    <a href="" title="保险">生殖中心</a>
+                </div>
+            </div>
+            <div class="lunbotu-link-abs-left ">
+                <div class="lunbotu-link-abs-title">
+                    <a href="" title="理财">儿科</a>
+                    <a href="" title="分期">儿科</a>
+                    <a href="" title="保险">儿科</a>
+                </div>
+            </div>
+            <div class="lunbotu-link-abs-left ">
+                <div class="lunbotu-link-abs-title">
+                    <a href="" title="理财">骨外科</a>
+                    <a href="" title="分期">骨外科</a>
+                    <a href="" title="保险">骨外科</a>
+                </div>
+            </div>
+            <div class="lunbotu-link-abs-left ">
+                <div class="lunbotu-link-abs-title">
+                    <a href="" title="理财">眼科</a>
+                    <a href="" title="分期">眼科</a>
+                    <a href="" title="保险">眼科</a>
+                </div>
+            </div>
+            <div class="lunbotu-link-abs-left ">
+                <div class="lunbotu-link-abs-title">
+                    <a href="" title="理财">口腔科</a>
+                    <a href="" title="分期">口腔科</a>
+                    <a href="" title="保险">口腔科</a>
+                </div>
+            </div>
+            <div class="lunbotu-link-abs-left ">
+                <div class="lunbotu-link-abs-title">
+                    <a href="" title="理财">耳鼻咽喉头颈科</a>
+                    <a href="" title="分期">耳鼻咽喉头颈科</a>
+                    <a href="" title="保险">耳鼻咽喉头颈科</a>
+                </div>
+            </div>
+            <div class="lunbotu-link-abs-left ">
+                <div class="lunbotu-link-abs-title">
+                    <a href="" title="理财">肿瘤科</a>
+                    <a href="" title="分期">肿瘤科</a>
+                    <a href="" title="保险">肿瘤科</a>
+                </div>
+            </div>
+            <div class="lunbotu-link-abs-left ">
+                <div class="lunbotu-link-abs-title">
+                    <a href="" title="理财">其他科室</a>
+                    <a href="" title="分期">其他科室</a>
+                    <a href="" title="保险">其他科室</a>
+                </div>
+            </div>
+        </div>
+        <!-- 轮播图 -->
+        <div class="banner-slider fl">
+            <div class="box">
+                <ul>
+                    <li>
+                        <img src="./img/banner_1.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="./img/banner_2.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="./img/banner_3.jpg" alt="">
+                    </li>
+                </ul>
+                <div class="arrow">
+                    <span class="left">&lt;</span>
+                    <span class="right">&gt;</span>
+                </div>
+                <ol></ol>
+            </div>
+        </div>
+        <!-- 快速预约/帮助中心 -->
+        <div class="banner-sh fr">
+            <div class="banner-search">
+                <p>
+                    <span class="bg2 icon12"></span>
+                    <span>快速预约</span>
+                </p>
+                <div>
+                    <select name="" id="">
+                        <option value="" selected>医院地区</option>
+                        <option value="" >东城区</option>
+                        <option value="" >西城区</option>
+                        <option value="" >南城区</option>
+                    </select>
+                </div>
+                <div>
+                    <select name="" id="">
+                        <option value="" selected>医院等级</option>
+                        <option value="" >东城区</option>
+                        <option value="" >西城区</option>
+                        <option value="" >南城区</option>
+                    </select>
+                </div>
+                <div>
+                    <select name="" id="">
+                        <option value="" selected>医院名称</option>
+                        <option value="" >东城区</option>
+                        <option value="" >西城区</option>
+                        <option value="" >南城区</option>
+                    </select>
+                </div>
+                <div>
+                    <select name="" id="">
+                        <option value="" selected>医院科室</option>
+                        <option value="" >东城区</option>
+                        <option value="" >西城区</option>
+                        <option value="" >南城区</option>
+                    </select>
+                </div>
+                <button class="btn1">快速查询</button>
+            </div>
+            <div class="banner-help">
+                <p>
+                    <span class="bg2 icon13"></span>
+                    <span>帮助中心</span>
+                </p>
+                <div class="helper">
+                    <div>
+                        <span>账号指南</span>
+                    </div>
+                    <div>
+                        <span>账号指南</span>
+                    </div>
+                    <div>
+                        <span>账号指南</span>
+                    </div>
+                    <div>
+                        <span>账号指南</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 主要内容区域 -->
+    <div id="content" class="wrap oh">
+        <!-- tab栏切换 -->
+        <div class="tab fl">
+            <!-- 标题 -->
+            <div class="title">
+                <span class="tab-hospital">医院</span>
+                <span class="tab-department">科室</span>
+            </div>
+            <div>
+                <!-- 详情内容-医院 -->
+                <div class="details" style="display: block;">
+                    <!-- 导航条 -->
+                    <div class="tab-list">
+                        <ul>
+                            <li>全部</li>
+                            <li>东城区</li>
+                            <li>西城区</li>
+                            <li>朝阳区</li>
+                            <li>丰台区</li>
+                            <li>石景山</li>
+                            <li>海淀区</li>
+                            <li>门头沟区</li>
+                            <li>房山区</li>
+                            <li>其他</li>
+                        </ul>
+                    </div>
+                    <!-- 导航条下对应的内容 -->
+                    <div class="tab-con">
+                        <!-- 第一个导航条对应的内容 -->
+                        <div class="item" style="display: block;">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                        <!-- 第二个导航条对应的内容 -->
+                        <div class="item">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-2.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-2.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-2.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-2.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                        <!-- 第三个导航条对应的内容 -->
+                        <div class="item">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-3.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-3.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-3.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-3.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                        <!-- 第四个导航条对应的内容 -->
+                        <div class="item">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-4.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-4.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-4.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-4.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                        <!-- 第五个导航条对应的内容 -->
+                        <div class="item">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-5.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-5.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-5.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-5.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                        <!-- 第六个导航条对应的内容 -->
+                        <div class="item">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-5.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-5.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-5.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-5.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                        <!-- 第七个导航条对应的内容 -->
+                        <div class="item">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                        <!-- 第八个导航条对应的内容 -->
+                        <div class="item">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                        <!-- 第九个导航条对应的内容 -->
+                        <div class="item">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                        <!-- 第十个导航条对应的内容 -->
+                        <div class="item">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 详情内容-科室 -->
+                <div class="details">
+                    <!-- 导航条 -->
+                    <div class="tab-list">
+                        <ul>
+                            <li>全部</li>
+                            <li>内科</li>
+                            <li>外科</li>
+                            <li>妇产科</li>
+                            <li>儿科</li>
+                            <li>神经科</li>
+                            <li>皮肤科</li>
+                            <li>传染科</li>
+                            <li>骨科</li>
+                            <li>其他</li>
+                        </ul>
+                    </div>
+                    <!-- 导航条下对应的内容 -->
+                    <div class="tab-con">
+                        <!-- 第一个导航条对应的内容 -->
+                        <div class="item" style="display: block;">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                        <!-- 第二个导航条对应的内容 -->
+                        <div class="item">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-2.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-2.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-2.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-2.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                        <!-- 第三个导航条对应的内容 -->
+                        <div class="item">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-3.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-3.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-3.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-3.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                        <!-- 第四个导航条对应的内容 -->
+                        <div class="item">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-4.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-4.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-4.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-4.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                        <!-- 第五个导航条对应的内容 -->
+                        <div class="item">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-5.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-5.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-5.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-5.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                        <!-- 第六个导航条对应的内容 -->
+                        <div class="item">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-5.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-5.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-5.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-5.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                        <!-- 第七个导航条对应的内容 -->
+                        <div class="item">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                        <!-- 第八个导航条对应的内容 -->
+                        <div class="item">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                        <!-- 第九个导航条对应的内容 -->
+                        <div class="item">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                        <!-- 第十个导航条对应的内容 -->
+                        <div class="item">
+                            <!-- 四个医院详情 -->
+                            <div class="item-top">
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                                <div class="item-top-box oh">
+                                    <div class="fl"><img src="./img/hospital-1.jpg" alt=""></div>
+                                    <div class="fr">
+                                        <p style="margin-top: 12px;"><a href="">北京协和医院</a><span class="fr">【三级甲等】</span></p>
+                                        <p>电话：东院咨询台:010-69155564..</p>
+                                        <p>电话： [东院]北京市东城区帅府园一号<br> [西院]北京市西城区大木仓...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 三个上榜的医院 -->
+                            <div class="item-bottom">
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>首都儿科研究所附属儿童医院<span>【三级甲等】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item-bottom-box">
+                                    <ul>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                        <li>
+                                            <p>中国中医科学院望京医院<span>【三级合格】</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="more"><a href="">更多医院</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 公告 -->
+        <div class="notice fr">
+            <!-- 最新公告 -->
+            <div class="news">
+                <div class="title"><i style="color: #FBC965;">最新公告</i><span style="color: gray;">|更多</span></div>
+                <div class="gist">
+                    <ul>
+                        <li>
+                            <span class="bg3 icon14"></span> 阜外医院特需门诊暂停更新号源通...
+                        </li>
+                        <li>
+                            <span class="bg3 icon15"></span> 防护策略升级通知
+                        </li>
+                        <li>
+                            <span class="bg3 icon16"></span> 阜外医院特需门诊暂停更新号源通...
+                        </li>
+                        <li>
+                            <span class="bg3 icon17"></span> 防护策略升级通知
+                        </li>
+                        <li>
+                            <span class="bg3 icon18"></span> 阜外医院特需门诊暂停更新号源通...
+                        </li>
+                        <li>
+                            <span class="bg3 icon19"></span> 防护策略升级通知
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 停诊公告 -->
+            <div class="close">
+                <div class="title"><i style="color: skyblue;">停诊公告</i><span style="color: gray;">|更多</span></div>
+                <div class="gist">
+                    <ul>
+                        <li>
+                            <span class="bg4 icon14"></span> 阜外医院特需门诊暂停更新号源通...
+                        </li>
+                        <li>
+                            <span class="bg4 icon15"></span> 防护策略升级通知
+                        </li>
+                        <li>
+                            <span class="bg4 icon16"></span> 阜外医院特需门诊暂停更新号源通...
+                        </li>
+                        <li>
+                            <span class="bg4 icon17"></span> 防护策略升级通知
+                        </li>
+                        <li>
+                            <span class="bg4 icon18"></span> 阜外医院特需门诊暂停更新号源通...
+                        </li>
+                        <li>
+                            <span class="bg4 icon19"></span> 防护策略升级通知
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <p>sadsdbsmbfdjhd</p>
+    <p>sadsdbsmbfdjhd</p>
+    <p>sadsdbsmbfdjhd</p>
+    <p>sadsdbsmbfdjhd</p> -->
+
+    <!-- JS文件引入 -->
+    <script src="./js/demo.js"></script>
+</body>
+
+</html>

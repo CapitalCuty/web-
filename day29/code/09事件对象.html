@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+	
+	li {
+	   margin-top: 10px;
+	   background-color: red;	
+	}
+
+	ul  {
+		height: 500px;
+		border: 10px solid green;
+	}
+	</style>
+</head>
+<body>
+	<div>
+		xxxx
+	</div>
+
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+
+	<script>
+	var div=document.querySelector('div')
+	var ul=document.querySelector('ul')
+
+	div.addEventListener('click',function(e) {
+		// console.log(e.pageX)
+		// console.log(e.pageY)
+		console.log(this)
+		console.log(e.currentTarget)
+	
+		console.log(e.target)
+
+	})
+   console.log('-----------------------------')
+    // this 跟 e.currentTarget 大多数差不多 指向同一个对象
+	ul.addEventListener('click',function(e) {
+		 e=e||window.event; //兼容性处理
+
+		console.log(this)
+		console.log(e.currentTarget)
+	
+		console.log(e.target)  // e.target 真正触发事件的源
+
+	})
+
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+
+   <table>
+
+	<thead>
+		  <tr>
+			  <th>名字</th>
+			  <th>年龄</th>
+		  </tr>
+	</thead>
+	<tbody id='tbody'>
+		<!-- <tr>
+			<td></td>
+			<td></td>
+		</tr> -->
+	</tbody>
+   </table>
+
+	<script src="./js/jquery.js"></script>
+	<!-- 第一步引入 -->
+	<script src="./js/template-web.js"></script>
+
+
+	<!-- 第二步定义模板 -->
+	<!-- {{each js对象里面的数组的名字 as  数组里面每一项的值   数组的索引}} -->
+
+	<!-- {{/each}} -->
+	<script  type="text/html"  id='tmp'>
+
+	  {{each   person  as value index }}
+		  <tr>
+			<td>{{value.name}}</td>
+			<td>{{value.age}}</td>
+		</tr>
+	{{/each}}
+	
+	</script>
+
+
+
+<script>
+	// 第三步根据js的data 动态生成html结构 
+
+ var data = {
+        c:100,
+		name:'zs',
+        person:[
+            {name:"jack",age:18},
+            {name:"tom",age:19},
+            {name:"jerry",age:20},
+            {name:"kid",age:21},
+            {name:"jade",age:22}
+        ]
+    };
+
+	 var  html=template('tmp',data)
+
+	 console.log(html)
+
+// <!-- 第四步 把生成的html添加到文档页面上 -->
+         $('#tbody').html(html)
+
+</script>
+</body>
+</html>

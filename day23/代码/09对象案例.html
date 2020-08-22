@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	
+	var dog={
+		name:'王可可',
+		age:5,
+		sex:'未知',
+		click:function() {
+			console.log('旺旺')
+		},
+		sayHi:function() {
+			console.log(this.name+'你好')
+		}
+	}
+   // 1 需求1  取出对象里面的所有的值
+    // console.log(dog.name)
+	// console.log(dog.age)
+	// console.log(dog.click())  
+	// console.log(dog.sayHi())  
+   // 2 循环取出所有的值
+
+   //key  随便取   dog 表现需要遍历的对象
+   for(var  key in  dog) {
+	   console.log(key)
+	   console.log(dog[key])
+   }
+
+
+
+
+
+
+
+	
+	
+	
+	</script>
+</body>
+</html>

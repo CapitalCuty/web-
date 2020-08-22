@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <script>
+        var input = document.querySelector("input");
+
+        //onkeydown鼠标按下时
+        input.onkeydown = function(e) {
+            console.log(e.keyCode)
+        }
+
+        //onkeyup鼠标按下弹起时
+        input.onkeyup = function(e) {
+            // console.log(e.keyCode)
+            if (e.keyCode == 8) {
+                input.value = ""
+            }
+        }
+    </script>
+</body>
+
+</html>

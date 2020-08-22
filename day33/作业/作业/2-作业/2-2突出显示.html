@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: black;
+        }
+        
+        div {
+            width: 640px;
+            height: 430px;
+            border: 1px solid white;
+            margin: 10px auto;
+        }
+        
+        ul {
+            list-style: none;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        ul>li {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function() {
+            $('li').mouseenter(function() {
+                $(this).css({
+                    'opacity': '1'
+                }).siblings().css({
+                    'opacity': '0.4'
+                })
+            })
+            $('li').mouseleave(function() {
+                $('li').css({
+                    'opacity': '1'
+                })
+            })
+
+
+        })
+    </script>
+</body>
+
+</html>

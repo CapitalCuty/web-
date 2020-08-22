@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //获取当前时间
+        var newDate = new Date();
+        console.log(newDate);
+
+        //获取年
+        var year = newDate.getFullYear();
+        console.log(year);
+
+        //获取月    月份是从0 开始，所以需要加1 
+        var month = newDate.getMonth() + 1;
+        console.log(month);
+
+        //获取日
+        var date = newDate.getDate();
+        console.log(date);
+
+        //获取星期几
+        var week = newDate.getDay();
+        console.log(week);
+
+        //获取时
+        var h = newDate.getHours();
+        console.log(h);
+
+        //获取分
+        var m = newDate.getMinutes();
+        console.log(m);
+
+        //获取秒
+        var s = newDate.getSeconds();
+        console.log(s);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li class="one">
+                <span>1</span>
+            </li>
+            <li id="two">2</li>
+            <li>3</li>
+            <span>4</span>
+        </ul>
+        <p>5</p>
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function() { //入口函数  相当与window.onload
+            //jQuery中返回的都是伪数组
+            //标签选择器
+            console.log($('div'))
+
+            //类选择器
+            console.log($('.one'))
+
+            //Id选择器
+            console.log($('#two'))
+
+            //并集选择器
+            console.log($('ul,p'))
+
+            //交集选择器
+            console.log($('li.one'))
+
+        })
+    </script>
+</body>
+
+</html>

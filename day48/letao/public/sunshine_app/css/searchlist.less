@@ -1,0 +1,60 @@
+.container{
+    padding: 10px;
+    .searchBar{
+        background-color: #efeff4;
+        padding: 8px;
+        text-align: center;
+    }
+}
+
+.lifeBox{
+    overflow: hidden;
+    height: 100%;
+    margin-top: 10px;
+    .goodShow{
+        float: left;
+        width: 50%; 
+        height: 100%;
+        padding-right: 0; 
+        a{
+            display: block;
+            margin: 4px;
+            text-align: center;
+            box-shadow: 0 0 5px #cccccc;
+            padding: 10px 7px;
+            img{
+                width: 85%;
+            }
+            div{
+                width: 100%;
+                text-align: center;
+                .goodsTitle{
+                    font-size: 12px;
+                    overflow:hidden;
+                    text-overflow:ellipsis;
+                    white-space:nowrap;
+                }
+                .nowPrice{
+                    color: #f30;
+                    font-weight: bold;
+                }
+                .oldPrice{
+                    font-size: 12px;
+                    color: #ccc;
+                    text-decoration: line-through;
+                }
+                button{
+                    display: block;
+                    width: 60%;
+                    height: 34px;
+                    text-align: center;
+                    font-size: 14px;
+                    background-color: #006699;
+                    color: white;
+                    border-radius: 4px;
+                    margin: 5px auto;
+                }
+            }
+        }
+    }
+}

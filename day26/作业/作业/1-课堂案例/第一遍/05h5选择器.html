@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="ulBox">
+        <li>
+            <a href="">我是A</a>
+        </li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <ul id="ul">
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+    </ul>
+    <script>
+        //h5    新的浏览器支持（ie8以下）
+
+        //querySelector获取的是元素  只找第一个匹配上的
+        var ul = document.querySelector('ul')
+        console.log(ul);
+
+        //类选择器
+        var ul1 = document.querySelector(".ulBox")
+        console.log(ul1);
+
+        //id选择器
+        var ul2 = document.querySelector("#ul")
+        console.log(ul2);
+
+
+        //querySelectorAll("任何选择器都可以")    返回的是一个伪数组,有length属性
+        var uls = document.querySelectorAll('ul');
+        console.log(uls);
+        var uls1 = document.querySelectorAll('ul')[0];
+        console.log(uls1);
+
+
+        var uls2 = document.querySelectorAll('.ulBox>li>a')[0];
+        console.log(uls2);
+        var uls3 = document.querySelector('.ulBox>li>a');
+        console.log(uls3);
+    </script>
+</body>
+
+</html>

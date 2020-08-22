@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<button>传统方法注册</button>
+	<button>事件监听</button>
+	<button>ie事件</button>
+
+	<script>
+	var btns=document.querySelectorAll('button')
+	// 传统方法绑定事件
+	btns[0].onclick=function() {
+		alert('click')
+		//移除事件 
+		btns[0].onclick=null
+	}
+
+	//事件监听
+	// addEventListener('事件类型没有on', "回调函数也就是我们的function")
+	// btns[1].addEventListener('click',function() {
+	// 	alert('addEventListener1')
+	// })
+
+	// btns[1].addEventListener('click',function() {
+	// 	alert('addEventListener2')
+	// })
+
+
+	btns[1].addEventListener('click',fn1)
+
+	function fn1() {
+	 	alert('addEventListener1')
+		 btns[1].removeEventListener('click',fn1)  // 移除具体某一个事件
+		 btns[1].removeEventListener('mouseover',fnMonuseOver)  //
+	 }
+
+// <!-- 
+// 	btns[1].addEventListener('mouseover',function(){
+// 		console.log('mouseover')
+// 	}) -->
+
+	btns[1].addEventListener('mouseover',fnMonuseOver)
+
+	function  fnMonuseOver(){
+		console.log('mouseover')
+	}
+
+
+
+    //  attacheEvent('on+事件类型','回调函数')  淘汰了
+	btns[2].attacheEvent('onclick',function(){
+		alert('attacheEvent')
+	})
+
+
+	btns[2].attacheEvent('onclick',iefn)
+
+
+	function iefn (){
+		alert('attacheEvent')
+		btns[2].detachEvent('onclick',iefn)
+	}
+
+
+
+
+
+	</script>
+</body>
+</html>

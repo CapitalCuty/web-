@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文章列表</title>
+    <link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="common_title">
+            用户信息修改
+        </div>
+        <div class="container-fluid common_con">
+            <form class="form-horizontal article_form ">
+
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">用户名称：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-contro l  username" id="inputEmail3" value="李思思" name='username'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">昵称：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control  nickname" id="inputEmail3" value="思思" name='nickname'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">邮箱：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control  email" id="inputEmail3" value="lisisi@126.com" name='email'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">用户图标：</label>
+                    <div class="col-sm-10">
+                        <!-- name  加到input 身上 -->
+                        <img src="images/2.jpg" alt="" class="user_pic">
+                        <input type="file" id="exampleInputFile" class="user_pic_input" name='user_pic'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">密码：</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control  password " id="inputEmail3" value="12345678" name='password'>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-success  btn_change">修改</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        // 		#### 用户的信息获取与展示
+
+
+
+        // ​        1 请求用户的详细信息
+
+        // ​          \- 给表单中的元素设置与相应数据相同的id，方便获取
+
+        // ​        2 将信息展示在页面中即可
+
+
+
+        $.ajax({
+            url: 'http://localhost:8000/admin/userinfo_get',
+            //  data:{},
+            success: function(res) {
+                console.log(res)
+
+                var user_pic = res.data.user_pic
+
+                $.each(res.data, function(key, val) {
+                    console.log(key)
+                    $('.' + key).val(val)
+                })
+
+                $('.user_pic').prop('src', user_pic)
+
+            }
+
+
+        })
+
+
+
+
+
+
+        //上传图片预览功能实现
+        $('#exampleInputFile').on('change', function() {
+            //   alert(1)
+            console.log($(this)[0].files[0])
+            var file = $(this)[0].files[0]
+
+            var img_url = URL.createObjectURL('原生的图片的二进制') //生成一个内存里面的临时路径
+
+            var img_url = URL.createObjectURL(file)
+            console.log(img_url) //blob:null/6a4ba1fe-d3a3-4156-a923-d5a8b84c2a15
+            $('.user_pic').prop('src', img_url)
+        })
+
+
+
+
+
+        $('.btn_change').on('click', function(event) {
+            event.preventDefault()
+                // 1.1 检测内容
+                //    - 检测文件域是否选择文件，
+                //    使用DOM对象的files属性，进行length检测
+
+            if (!$('.username').val().trim()) {
+                alert('内容没有填写完毕');
+                return; // 阻止后续的请求发送
+            }
+            if (!$('.nickname').val().trim()) {
+                alert('内容没有填写完毕');
+                return; // 阻止后续的请求发送
+            }
+            if (!$('.email').val().trim()) {
+                alert('内容没有填写完毕');
+                return; // 阻止后续的请求发送
+            }
+            if (!$('.password').val().trim()) {
+                alert('内容没有填写完毕');
+                return; // 阻止后续的请求发送
+            }
+            //有问题的地方  判断input 
+
+            if ($('.user_pic_input')[0].files.length === 0) {
+                alert('内容没有填写完毕');
+                return; // 阻止后续的请求发送
+            }
+
+
+            // 1.2 将数据发送给服务端处理（使用FormData即可）
+            //    - 传入参数必须为DOM对象形式的form标签
+
+            // email: "heima@itcast.cn"
+            // nickname: "小可爱"
+            // password: "123456"
+            // user_pic: "http://localhost:8000/static/icon.gif"
+            // username: "littlebaby"
+            var fd = new FormData($('form')[0]); //涉及到图片传递参数的时候设置成formdata
+            console.log(fd)
+            console.log(fd.get('username'))
+            console.log(fd.get('nickname'))
+            console.log(fd.get('user_pic'))
+            console.log(fd.get('email'))
+            console.log(fd.get('password'))
+
+            $.ajax({
+                url: 'http://localhost:8000/admin/userinfo_edit',
+                type: 'post',
+                data: fd, //传递formdata
+                contentType: false, // 不需要jQuery设置内容类型
+                processData: false, // 不需要jQuery进行内容处理
+                success: function(res) {
+                    console.log(res)
+                    if (res.code == 200) {
+                        //成功了后跳转到登陆页面 重新进行登陆
+                        location.href = './login.html'
+                    }
+                }
+
+            })
+
+
+
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+.borders {
+  border-top: 20px solid red;
+  border-top: 20px dotted red;
+}
+.box3 img {
+  display: block;
+  width: 300px;
+  border-top: 20px solid red;
+  border-top: 20px dotted red;
+}
+.box3 .links {
+  display: block;
+  color: red;
+  width: 1000px;
+}
+.box3 .links:hover em {
+  color: green;
+}
+.box3 .links:hover + img {
+  display: none;
+}
+.box3 .links::after {
+  content: '我是伪类的内容';
+}

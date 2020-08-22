@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+	div {
+		width: 200px;
+		height: 200px;
+		background-color: red;
+		display: none
+	}
+	
+	</style>
+</head>
+<body>
+	<div></div>
+
+	<ul>
+		<li><a href="javascript:;">删除</a></li>
+	</ul>
+
+	<script src="./jquery.min.js"></script>
+	<script>
+	
+	// $('div').slideDown(500,function(){
+	// 	alert(1)
+	// 	//表示这个动画结束后再执行函数体里面的代码 不需要你去调用 自己会执行
+	// })
+
+
+	// $('div').slideDown(500,callback)  //callback 回调函数
+	// $('div').slideDown(500,cb)
+
+	// function  callback() {/*  */
+		// alert(2)
+	// }
+
+
+    var  newLi=$(`<li><a href="javascript:;">删除2</a>`)
+	$('ul').append(newLi)
+
+	$('a').click(function() {
+	alert(1)
+	$(this).parent().remove()
+})
+	
+	</script>
+</body>
+</html>

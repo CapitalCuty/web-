@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			padding: 100px;
+		}
+
+		textarea {
+			width: 200px;
+			height: 100px;
+			border: 1px solid pink;
+			outline: none;
+			resize: none;
+		}
+
+		ul {
+			margin-top: 50px;
+		}
+
+		li {
+			width: 300px;
+			padding: 5px;
+			background-color: rgb(245, 209, 243);
+			color: red;
+			font-size: 14px;
+			margin: 15px 0;
+		}
+
+		li a {
+			float: right;
+		}
+	</style>
+</head>
+
+<body>
+	<textarea name="" id=""></textarea>
+	<button>发布</button>
+
+	<ul>
+
+	</ul>
+
+	<script>
+		//    1 点击按钮进行内容发布  
+		//    2  每次发布的内容需要显示在最上面
+		//    3  点击删除按钮 可以删除当前发布的内容
+		var txt = document.querySelector('textarea')
+		var btn = document.querySelector('button')
+		var ul = document.querySelector('ul')
+
+		btn.onclick = function () {
+			// １先判断一下没有内容　如果没有内容 不让发布
+			if (txt.value.trim() === '') {
+				alert('内容不能为空')
+				return
+			}
+			var li = document.createElement('li')
+			// 方法一
+			li.innerText = txt.value
+			li.innerHTML = txt.value + '-----------<button>删除</button>'
+
+			//方法二
+			// var span=document.createElement('span')
+			// span.innerText=txt.value 
+			// li.appendChild(span)
+
+			// var a=document.createElement('a')
+			// a.innerText='删除'
+			// a.href='#'
+			// li.appendChild(a)
+
+			// 2 判断之前有没有子元素 如果没有就直接追加 如果有就追加到最前面
+			if (!ul.children) {
+				ul.appendChild(li)
+			} else {
+				ul.insertBefore(li, ul.children[0])
+			}
+			txt.value = '' //清空内容
+
+
+			var UlBtns = document.querySelectorAll('  ul button')
+			console.log(UlBtns)
+
+			for (var i = 0; i < UlBtns.length; i++) {
+				var UlBtn = UlBtns[i] //每一个a
+				UlBtn.onclick = function () {
+					// alert(1)
+					// ul.removeChild('li的位置')
+					var currentLi = this.parentNode;
+					console.log(currentLi)
+					ul.removeChild(currentLi)
+				}
+			}
+		}
+	</script>
+</body>
+
+</html>

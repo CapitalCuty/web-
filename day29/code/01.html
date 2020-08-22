@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<button>删除</button>
+  <div class="divBox">
+	<div>地理热吧</div>
+	<div>cxk</div>
+	<div>罗志祥的时间管理</div>
+  </div>
+	<script>
+	// 1 点击按钮的时候依次删除我们的div
+	var  btn=document.querySelector('button')
+	var  divBox=document.querySelector('.divBox')
+
+	  btn.onclick=function() {
+		  
+        //  divBox.removeChild('子代的位置')  //删除子元素
+		divBox.removeChild(divBox.children[0])
+	
+       //1 如果已经没有删除的元素了 那么设置按钮不让点击
+	     if(divBox.children.length==0) {
+			 this.disabled=true;
+		 }
+
+
+	
+
+	  }
+
+
+	
+	
+	
+	</script>
+</body>
+</html>

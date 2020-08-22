@@ -1,0 +1,27 @@
+@base: #f04615;
+@width: 0.5;
+
+.class {
+  width: percentage(@width); // returns `50%`
+  color: saturate(@base, 5%);
+  background-color: spin(lighten(@base, 25%), 8);
+}
+
+// @list: "banana", "tomato", "potato", "peach";
+// n: length(@list);
+
+
+
+
+// @some: foo;
+
+// div {
+//     margin: if((2 > 1), 0, 3px);
+//     color:  if((iscolor(@some)), @some, black);
+// }
+
+
+// div {
+//     margin: 0;
+//     color:  black;
+// }

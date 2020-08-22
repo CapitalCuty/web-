@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			position: relative;
+			
+			/* transform:  rotate(45deg), */
+			/* transform:  rotate(45deg), */
+			/* margin: 0 auto; */
+			/* transform: skewX(45deg) */
+			
+      		}
+	</style>
+</head>
+
+<body>
+	<div></div>
+	<button>点击触发</button>
+
+
+	<script src="./jquery.min.js"></script>
+
+	<script>
+		// animate('设置属性对象的形式','动画持续时间','动画的执行效果','回调函数')
+		//    $('button').click(function(){
+		// 	  $('div').animate({
+		// 		width:'400px',
+		// 		left:'400px',
+		// 		backgroundColor:'blue'
+		// 	},1000)
+		//    })
+
+
+
+		$('button').click(function () {
+					$('div').animate({
+						width: '400px',
+						left: '400px',
+						backgroundColor: 'blue'
+					}, 1000, function () {
+						$('div').animate({
+							width: '400px',
+							// left:'400px',
+							top: '200px',
+							// transform: 'skewX(45deg)',
+						
+							backgroundColor: 'yellow'
+						}, 1000, function () {
+							$('div').animate({
+								width: '400px',
+								left: '0px',
+								top: '0px',
+								opacity: 0.7
+							}, 1000)
+						})
+					})
+
+		})
+		
+	</script>
+</body>
+
+</html>

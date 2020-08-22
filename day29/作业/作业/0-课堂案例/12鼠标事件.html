@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <script>
+        var btn = document.querySelector("button")
+
+        //鼠标弹起时
+        btn.onmouseup = function() {
+            console.log(123456);
+        }
+
+        //鼠标按下时
+        btn.onmousedown = function() {
+            console.log(9875654);
+        }
+    </script>
+</body>
+
+</html>

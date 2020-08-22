@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='div'>xxxxxxxxxx</div>
+    <div class="box"></div>
+    <h2 class="box">我是h2</h2>
+
+    <!-- 第一步 引入jquery.js -->
+    <script src="./jquery.min.js"></script>
+    <script>
+        // 查找元素 
+        // window.onload=function() {
+
+        // }
+
+        //   $(function(){   ====等价于 window.onload
+
+
+
+        //   })
+
+
+        //jquery返回的都是伪数组 都是jquery对象 只能用jquery的方法
+
+        //  1 查找所有的div 
+        // $('div')  // $('选中器 任何选中器都可以(* 标签 id  类 奇数偶数选择器)')
+        console.log($('div'))
+            //    2 通过id查找元素
+        console.log($('#div'))
+            //3 通过class查询元素 (找到所有有这个类的元素)
+        console.log($('.box'));
+
+
+
+
+        // 测试   $('div')[0]  把jquery对象转换成了原生的dom对象
+        // $('#div').style.color='red';
+        $('div')[0].style.color = 'blue' //原生的js方法
+
+
+
+        var divId = document.querySelector('#div') //原生的dom元素
+        console.log(divId)
+            // var  divId=document.getElementById('#div') //原生的dom元素
+
+        // var  divId=document.querySelectorAll()  //伪数组
+        // var  divId=document.getElementsByClassName() //伪数组
+
+
+
+
+        //原生的dom对象转换成jquery对象 
+        //   $(divId)  // 把元素的dom转换成jquery对象 $(原生的对象)
+
+
+        console.log($(divId))
+    </script>
+</body>
+
+</html>
